@@ -1,3 +1,4 @@
+require ('../js/phaser.min.js')
 
 const gameState = {}
 

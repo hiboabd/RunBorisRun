@@ -7,6 +7,12 @@
     "test": "npm run test:unit",
     "test:unit": "jest"
   },
+  "jest": {
+    "setupFiles": [
+      "./__setups__/other.js",
+      "jest-canvas-mock"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/edmond-b/Covid_Game.git"
@@ -20,5 +26,8 @@
   "dependencies": {
     "http-server": "^0.12.3",
     "jest": "^26.1.0"
+  },
+  "devDependencies": {
+    "jest-canvas-mock": "^2.2.0"
   }
 }

@@ -1,5 +1,6 @@
-require ('../js/index.js')
-require ('../js/phaser.min.js')
+require ('../js/index.js');
+require('jest-canvas-mock');
+
 
 it("recognises gameState", function(){
     expect(gameState).toBeInstanceOf(Object)
