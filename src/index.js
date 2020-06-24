@@ -13,5 +13,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-let canvas = document.querySelector('canvas');
-let ctx = canvas.getContext('2d');
+// let canvas = document.querySelector('canvas');
+// let ctx = canvas.getContext('2d');
