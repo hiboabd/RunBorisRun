@@ -22,21 +22,19 @@ hero.draw(ctx);
 
 document.onkeydown = checkKey;
 
+function refresh(){
+  ctx.clearRect(0, 0, 800, 600);
+  hero.draw(ctx)
+}
+
 function checkKey(e) {
     e = e || window.event;
     if (e.keyCode === 39) {
-      console.log(hero);
       hero.moveRight()
-      ctx.clearRect(0, 0, 800, 600);
-      hero.draw(ctx)
-    }
-
-    if (e.keyCode === 37) {
-      console.log(hero);
+    } else if (e.keyCode === 37){
       hero.moveLeft()
-      ctx.clearRect(0, 0, 800, 600);
-      hero.draw(ctx)
     }
+    refresh()
 }
 
 // If you want your app to work offline and load faster, you can change
