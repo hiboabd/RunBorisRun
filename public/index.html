@@ -15,9 +15,9 @@
         border: 1px solid black;
       }
 
-      img {
+      /* img {
         display: none;
-      }
+      } */
 
       </style>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
@@ -32,14 +32,16 @@
 
         <center><canvas id="gameScreen" width="1500" height="800"></canvas></center>
         <img id="sprite" src="./assets/sprite.png"/>
-        <img id="Backround" src="./assets/Backround.png" alt="Backround">
+
+        /* Atempt to add Backround image */
+        <img id="Backround" src="./assets/Backround.png" alt="The Backround">
 
         <script>
           window.onload = function() {
-            document.getElementById("gameScreen");
+            var c = document.getElementById("gameScreen");
             var ctx = c.getContext("2d");
             var img = document.getElementById("Backround");
-            ctx.drawImage(img, 10, 10);
+            ctx.drawImage(img, 1500, 800);
           }
         </script>
   </body>
