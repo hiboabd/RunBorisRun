@@ -29,8 +29,18 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
         <center><canvas id="gameScreen" width="1500" height="800"></canvas></center>
         <img id="sprite" src="./assets/sprite.png"/>
+        <img id="Backround" src="./assets/Backround.png" alt="Backround">
 
+        <script>
+          window.onload = function() {
+            document.getElementById("gameScreen");
+            var ctx = c.getContext("2d");
+            var img = document.getElementById("Backround");
+            ctx.drawImage(img, 10, 10);
+          }
+        </script>
   </body>
 </html>

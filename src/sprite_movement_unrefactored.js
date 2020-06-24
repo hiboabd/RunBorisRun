@@ -1,29 +1,45 @@
-// Constants
+// Import full sprite image
+
+let img = new Image();
+img.src = "./assets/sprite.png";
+img.onload = function() {
+  window.requestAnimationFrame(gameLoop);
+};
+
+// Draw canvas
+
+let canvas = document.querySelector('canvas');
+let ctx = canvas.getContext('2d');
+
+// Walk cycle animation direction & sprite size
+
 const SCALE = 2;
 const WIDTH = 16;
 const HEIGHT = 18;
 const SCALED_WIDTH = SCALE * WIDTH;
 const SCALED_HEIGHT = SCALE * HEIGHT;
+
+function drawFrame(frameX, frameY, canvasX, canvasY) {
+  ctx.drawImage(img,
+                frameX * WIDTH, frameY * HEIGHT, WIDTH, HEIGHT,
+                canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT);
+}
+
 const CYCLE_LOOP = [0, 1, 0, 2];
 const FRAME_LIMIT = 12;
+let currentLoopIndex = 0;
+let frameCount = 0;
+
 const FACING_DOWN = 0;
 const FACING_UP = 1;
 const FACING_LEFT = 2;
 const FACING_RIGHT = 3;
-const MOVEMENT_SPEED = 1;
-
-// Variables
-let canvas = document.querySelector('canvas');
-let ctx = canvas.getContext('2d');
-let keyPresses = {};
 let currentDirection = FACING_DOWN;
-let currentLoopIndex = 0;
-let frameCount = 0;
-let positionX = 0;
-let positionY = 0;
-let img = new Image();
 
-// Event listeners
+// Getting user input
+
+let keyPresses = {};
+
 window.addEventListener('keydown', keyDownListener, true);
 function keyDownListener(event) {
   keyPresses[event.key] = true;
@@ -34,23 +50,14 @@ function keyUpListener(event) {
   keyPresses[event.key] = false;
 }
 
-// Functions
-function loadImage() {
-  img.src = "./assets/sprite.png";
-  img.onload = function() {
-    window.requestAnimationFrame(gameLoop);
-  };
-}
+// Character movement
 
-function drawFrame(frameX, frameY, canvasX, canvasY) {
-  ctx.drawImage(img,
-                frameX * WIDTH, frameY * HEIGHT, WIDTH, HEIGHT,
-                canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT);
-}
+const MOVEMENT_SPEED = 1;
+let positionX = 0;
+let positionY = 0;
 
-loadImage();
+// Run each frame
 
-// Run game loop
 function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
