@@ -12,52 +12,55 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-----------------------------------------------
+// ----------------------------------------------
 // ctx.fillRect(20, 20, 100, 100);
 
-let canvas = document.getElementById("gameScreen");
-let ctx = canvas.getContext("2d");
-canvas.width = 800;
-canvas.height = 600;
+let img = new Image();
+img.src = "./assets/sprite.png";
+img.onload = function() {
+  init();
+};
 
+let canvas = document.querySelector('canvas');
+let ctx = canvas.getContext('2d');
 
-var character = new Image();
-character.addEventListner("load", gameLoop)
-character.src = "../public/assets/sprite.png";
+const scale = 2;
+const width = 16;
+const height = 18;
+const scaledWidth = scale * width;
+const scaledHeight = scale * height;
 
-function sprite (options) {
-
-    var that = {};
-
-    that.context = options.context;
-    that.width = options.width;
-    that.height = options.height;
-    that.image = options.image;
-
-    that.render = function () {
-
-      // Draw the animation
-      that.context.drawImage(
-         that.image,
-         0,
-         0,
-         that.width,
-         that.height,
-         0,
-         0,
-         that.width,
-         that.height);
-  };
-
-    return that;
-
+function drawFrame(frameX, frameY, canvasX, canvasY) {
+  ctx.drawImage(img,
+                frameX * width, frameY * height, width, height,
+                canvasX, canvasY, scaledWidth, scaledHeight);
 }
 
-var person = sprite({
-    context: canvas.getContext("2d"),
-    width: 100,
-    height: 100,
-    image: character
-});
+const cycleLoop = [0, 1, 0, 2];
+let currentLoopIndex = 0;
+let frameCount = 0;
+let currentDirection = 0;
 
-person.render()
+function step() {
+  frameCount++;
+  if (frameCount < 15) {
+    window.requestAnimationFrame(step);
+    return;
+  }
+  frameCount = 0;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawFrame(cycleLoop[currentLoopIndex], currentDirection, 0, 0);
+  currentLoopIndex++;
+  if (currentLoopIndex >= cycleLoop.length) {
+    currentLoopIndex = 0;
+    currentDirection++;
+  }
+  if (currentDirection >= 4) {
+    currentDirection = 0;
+  }
+  window.requestAnimationFrame(step);
+}
+
+function init() {
+  window.requestAnimationFrame(step);
+}
