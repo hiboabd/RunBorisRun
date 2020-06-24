@@ -13,4 +13,11 @@ describe('Hero', () => {
     hero.moveRight()
     expect(hero.position.x).toEqual(current_x_position + hero.SPEED)
   })
+
+  test('moves left', () => {
+    const hero = new Hero();
+    var current_x_position = hero.position.x
+    hero.moveLeft()
+    expect(hero.position.x).toEqual(current_x_position - hero.SPEED)
+  })
 })
