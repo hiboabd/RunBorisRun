@@ -12,15 +12,18 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+----------------------------------------------
+// ctx.fillRect(20, 20, 100, 100);
+
 let canvas = document.getElementById("gameScreen");
 let ctx = canvas.getContext("2d");
 canvas.width = 800;
 canvas.height = 600;
 
-// ctx.fillRect(20, 20, 100, 100);
 
-var img = new Image();
-img.src = "../public/assets/sprite.png";
+var character = new Image();
+character.addEventListner("load", gameLoop)
+character.src = "../public/assets/sprite.png";
 
 function sprite (options) {
 
@@ -54,7 +57,7 @@ var person = sprite({
     context: canvas.getContext("2d"),
     width: 100,
     height: 100,
-    image: img
+    image: character
 });
 
 person.render()
