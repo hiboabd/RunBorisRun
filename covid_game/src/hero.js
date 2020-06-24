@@ -1,7 +1,7 @@
 export default class Hero {
   constructor() {
     this.SPEED = 10
-    this.position = { x: 200, y: 200 }
+    this.position = { x: 50, y: 500 }
   }
 
   moveRight() {
