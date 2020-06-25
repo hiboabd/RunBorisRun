@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Header from './components/header';
+import Background from './background'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,5 +14,11 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// let canvas = document.querySelector('canvas');
-// let ctx = canvas.getContext('2d');
+let canvas = document.querySelector('canvas');
+let ctx = canvas.getContext('2d');
+
+const background = new Background()
+
+window.onload = function() {
+  background.draw(ctx)
+}
