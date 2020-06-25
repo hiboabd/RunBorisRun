@@ -4,11 +4,6 @@ export default class Input {
     this.ctx = ctx;
   }
 
-  refresh = () => {
-    this.ctx.clearRect(0, 0, 800, 600);
-    this.hero.draw(this.ctx)
-  };
-
   checkKey = (e) => {
       e = e || window.event;
       if (e.keyCode === 39) {
@@ -18,6 +13,5 @@ export default class Input {
       } else if (e.keyCode === 38){
         this.hero.jump()
       }
-     this.refresh()
   };
 }

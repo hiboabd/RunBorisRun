@@ -26,17 +26,16 @@ var detectCollision = new DetectCollision(hero, ctx);
 
 document.onkeydown = input.checkKey;
 
-
+var refresh = function() {
+  ctx.clearRect(0, 0, 800, 600);
+  hero.draw(ctx)
+};
 
 var loop = function() {
   hero.airBorne()
   detectCollision.hitBottom()
+  refresh()
   window.requestAnimationFrame(loop);
 }
 
 window.requestAnimationFrame(loop);
-// window.requestAnimationFrame(detectCollision.hitBottom);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA

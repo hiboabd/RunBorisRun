@@ -16,28 +16,16 @@ export default class Hero {
     this.position.x -= this.SPEED;
   }
 
-  // onTimerTick() {
-  //   this.airBorne();
-  //   console.log(this.position.y);
-  // }
-
   jump = () => {
-    // console.log('In jump()');
-    // console.log(this);
     this.jumpSpeed = -10;
     this.jumping = true;
   }
 
   airBorne = () => {
-    console.log('In airBorne()');
-    // console.log(this.position.y);
     if (this.jumping) {
       this.position.y += this.jumpSpeed;
       this.jumpSpeed += this.GRAVITY;
-      this.ctx.clearRect(0, 0, 800, 600);
-      this.draw(this.ctx)
     }
-    // window.requestAnimationFrame(this.airBorne);
   }
 
   draw(ctx){
