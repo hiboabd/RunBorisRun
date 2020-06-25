@@ -22,7 +22,10 @@ let ctx = canvas.getContext("2d");
 export default ctx;
 
 var hero = new Hero();
-hero.draw(ctx);
+window.onload = function() {
+  hero.draw(ctx);
+}
+// hero.draw(ctx);
 
 var input = new Input(hero, ctx);
 
