@@ -1,7 +1,6 @@
 export default class Input {
-  constructor(hero, ctx){
+  constructor(hero){
     this.hero = hero;
-    this.ctx = ctx;
   }
 
   checkKey = (e) => {

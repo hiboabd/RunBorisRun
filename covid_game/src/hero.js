@@ -1,11 +1,10 @@
 export default class Hero {
-  constructor(ctx) {
+  constructor() {
     this.SPEED = 10
     this.GRAVITY = 0.2;
     this.jumpSpeed = 0;
     this.position = { x: 50, y: 550 }
     this.jumping = false;
-    this.ctx = '';
   }
 
   moveRight() {
@@ -29,7 +28,6 @@ export default class Hero {
   }
 
   draw(ctx){
-    this.ctx = ctx
     ctx.fillStyle = '#0ff'
     ctx.fillRect(this.position.x, this.position.y, 50, 50);
   }

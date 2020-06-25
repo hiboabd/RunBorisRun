@@ -1,7 +1,6 @@
 export default class DetectCollision{
-  constructor(hero, ctx) {
+  constructor(hero) {
     this.hero = hero
-    this.ctx = ctx
   }
 
   hitBottom = () => {

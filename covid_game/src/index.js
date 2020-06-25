@@ -21,8 +21,8 @@ export default ctx;
 var hero = new Hero();
 hero.draw(ctx);
 
-var input = new Input(hero, ctx);
-var detectCollision = new DetectCollision(hero, ctx);
+var input = new Input(hero);
+var detectCollision = new DetectCollision(hero);
 
 document.onkeydown = input.checkKey;
 
