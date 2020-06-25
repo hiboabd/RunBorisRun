@@ -1,11 +1,13 @@
 export default class Input {
-  constructor(hero, ctx){
+  constructor(hero, ctx, background){
     this.hero = hero;
+    this.background = background
     this.ctx = ctx;
   }
 
   refresh = () => {
     this.ctx.clearRect(0, 0, 800, 600);
+    this.background.draw(this.ctx)
     this.hero.draw(this.ctx)
   };
 

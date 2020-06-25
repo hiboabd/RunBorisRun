@@ -20,20 +20,21 @@ ReactDOM.render(
 
 
 let canvas = document.getElementById("gameScreen");
-
 let ctx = canvas.getContext("2d");
+
 export default ctx;
 
 var hero = new Hero();
 const background = new Background()
 
 window.onload = function() {
-  hero.draw(ctx);
+
   background.draw(ctx)
+  hero.draw(ctx);
 }
 
 
-var input = new Input(hero, ctx);
+var input = new Input(hero, ctx, background);
 
 document.onkeydown = input.checkKey;
 

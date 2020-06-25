@@ -1,7 +1,7 @@
 export default class Hero {
   constructor() {
     this.SPEED = 10
-    this.position = { x: 50, y: 500 }
+    this.position = { x: 50, y: 750 }
     this.image = new Image();
     this.image.src = "./assets/sprite.png"
     this.SCALE = 2;
@@ -9,21 +9,23 @@ export default class Hero {
     this.HEIGHT = 18;
     this.SCALED_WIDTH = this.SCALE * this.WIDTH;
     this.SCALED_HEIGHT = this.SCALE * this.HEIGHT;
+    this.frameX = 0
+    this.frameY = 3
   }
 
   moveRight() {
+    this.frameY = 3
     this.position.x += this.SPEED;
   }
 
   moveLeft() {
+    this.frameY = 2
     this.position.x -= this.SPEED;
   }
 
 
   draw(ctx){
-    var frameX = 0
-    var frameY = 3
-    ctx.drawImage(this.image, frameX * this.WIDTH, frameY * this.HEIGHT, this.WIDTH, this.HEIGHT, this.position.x, this.position.y, this.SCALED_WIDTH, this.SCALED_HEIGHT);
+    ctx.drawImage(this.image, this.frameX * this.WIDTH, this.frameY * this.HEIGHT, this.WIDTH, this.HEIGHT, this.position.x, this.position.y, this.SCALED_WIDTH, this.SCALED_HEIGHT);
   }
 }
 
