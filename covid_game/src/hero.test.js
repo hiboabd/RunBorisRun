@@ -22,12 +22,21 @@ describe('Hero', () => {
   })
 
   test('jumps', () => {
+    var ctx = {
+      fillStyle: '',
+      clearRect: function () {
+        return 'changed'
+      },
+      fillRect: function () {
+        return 'changed'
+      }
+    }
     const hero = new Hero();
+    hero.draw(ctx)
     var current_y_position = hero.position.y
     hero.jump()
-    console.log(current_y_position);
-    console.log(hero);
-    expect(hero.position.y).toEqual(current_y_position - hero.JUMP_SPEED)
+    hero.airBorne()
+    expect(hero.position.y).toBeLessThan(current_y_position);
   })
 
   test('draw function', () => {

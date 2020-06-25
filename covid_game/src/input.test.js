@@ -48,10 +48,13 @@ describe('Input', () => {
       }
     }
     const hero = new Hero();
+    hero.draw(ctx)
+    var current_y_position = hero.position.y
     const input = new Input(hero, ctx);
     var e = {keyCode: 38}
     input.checkKey(e)
-    expect(input.hero.position.y).toEqual(490)
+    hero.airBorne()
+    expect(input.hero.position.y).toBeLessThan(current_y_position);
   })
 
   // test('refresh function clears previous rectangle position', () => {
