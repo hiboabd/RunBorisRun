@@ -21,6 +21,14 @@ describe('Hero', () => {
     expect(hero.position.x).toEqual(current_x_position - hero.SPEED)
   })
 
+  test('jumps', () => {
+    const hero = new Hero();
+    var current_y_position = hero.position.y
+    hero.jump()
+    console.log(current_y_position);
+    console.log(hero);
+    expect(hero.position.y).toEqual(current_y_position - hero.JUMP_SPEED)
+  })
 
   test('draw function', () => {
     var ctx = {
