@@ -34,6 +34,7 @@ var refresh = function() {
 var loop = function() {
   hero.airBorne()
   detectCollision.hitBottom()
+  input.movePlayer()
   refresh()
   window.requestAnimationFrame(loop);
 }

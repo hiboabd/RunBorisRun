@@ -1,6 +1,6 @@
 export default class Hero {
   constructor() {
-    this.SPEED = 10
+    this.SPEED = 2
     this.GRAVITY = 0.2;
     this.jumpSpeed = 0;
     this.position = { x: 50, y: 550 }
