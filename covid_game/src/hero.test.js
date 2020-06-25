@@ -20,4 +20,20 @@ describe('Hero', () => {
     hero.moveLeft()
     expect(hero.position.x).toEqual(current_x_position - hero.SPEED)
   })
+
+
+  test('draw function', () => {
+    var ctx = {
+      fillStyle: '',
+      clearRect: function () {
+        return 'changed'
+      },
+      fillRect: function () {
+        return 'changed'
+      }
+    }
+    const hero = new Hero();
+    hero.draw(ctx)
+    expect(ctx.fillStyle).toEqual('#0ff')
+  })
 })
