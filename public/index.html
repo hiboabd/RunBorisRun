@@ -15,16 +15,18 @@
         border: 1px solid black;
       }
 
-      /* img {
+      img {
         display: none;
-      } */
+      }
 
       </style>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
+
     <title>Call of Covid</title>
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -33,16 +35,5 @@
         <center><canvas id="gameScreen" width="1500" height="800"></canvas></center>
         <img id="sprite" src="./assets/sprite.png"/>
 
-        /* Atempt to add Backround image */
-        <img id="Backround" src="./assets/Backround.png" alt="The Backround">
-
-        <script>
-          window.onload = function() {
-            var c = document.getElementById("gameScreen");
-            var ctx = c.getContext("2d");
-            var img = document.getElementById("Backround");
-            ctx.drawImage(img, 1500, 800);
-          }
-        </script>
   </body>
 </html>
