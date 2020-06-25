@@ -15,6 +15,8 @@ export default class Input {
         this.hero.moveRight()
       } else if (e.keyCode === 37){
         this.hero.moveLeft()
+      } else if (e.keyCode === 38){
+        this.hero.jump()
       }
      this.refresh()
   };
