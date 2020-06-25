@@ -11,13 +11,16 @@ export default class Input {
     this.hero.draw(this.ctx)
   };
 
+
+
   checkKey = (e) => {
       e = e || window.event;
       if (e.keyCode === 39) {
         this.hero.moveRight()
       } else if (e.keyCode === 37){
         this.hero.moveLeft()
-      }
+      } 
      this.refresh()
   };
 }
+
