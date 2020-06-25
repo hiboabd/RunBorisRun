@@ -10,7 +10,7 @@ export default class Input {
       } else if (e.keyCode === 37){
         this.hero.moveLeft()
       } else if (e.keyCode === 38){
-        this.hero.jump()
+        if (this.hero.jumping == false) { this.hero.jump() }
       }
   };
 }
