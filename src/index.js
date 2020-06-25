@@ -5,8 +5,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Header from './components/header';
+import Background from './background'
 import Hero from '../src/hero'
 import Input from '../src/input'
+
 
 
 ReactDOM.render(
@@ -16,16 +18,20 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+
 let canvas = document.getElementById("gameScreen");
 
 let ctx = canvas.getContext("2d");
 export default ctx;
 
 var hero = new Hero();
+const background = new Background()
+
 window.onload = function() {
   hero.draw(ctx);
+  background.draw(ctx)
 }
-// hero.draw(ctx);
+
 
 var input = new Input(hero, ctx);
 
