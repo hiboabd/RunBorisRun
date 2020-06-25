@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Hero from '../src/hero'
 import Input from '../src/input'
+import DetectCollision from '../src/detectCollision'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,10 +22,20 @@ var hero = new Hero();
 hero.draw(ctx);
 
 var input = new Input(hero, ctx);
+var detectCollision = new DetectCollision(hero, ctx);
 
 document.onkeydown = input.checkKey;
 
-window.requestAnimationFrame(hero.airBorne);
+
+
+var loop = function() {
+  hero.airBorne()
+  detectCollision.hitBottom()
+  window.requestAnimationFrame(loop);
+}
+
+window.requestAnimationFrame(loop);
+// window.requestAnimationFrame(detectCollision.hitBottom);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
