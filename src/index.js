@@ -6,6 +6,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Header from './components/header';
 import Background from './background'
+import Hero from '../src/hero'
+import Input from '../src/input'
+
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,11 +18,25 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-let canvas = document.querySelector('canvas');
-let ctx = canvas.getContext('2d');
 
+let canvas = document.getElementById("gameScreen");
+
+let ctx = canvas.getContext("2d");
+export default ctx;
+
+var hero = new Hero();
 const background = new Background()
 
 window.onload = function() {
+  hero.draw(ctx);
   background.draw(ctx)
 }
+
+
+var input = new Input(hero, ctx);
+
+document.onkeydown = input.checkKey;
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA

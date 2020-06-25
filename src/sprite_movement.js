@@ -46,7 +46,7 @@
 //   ctx.drawImage(img,
 //                 frameX * WIDTH, frameY * HEIGHT, WIDTH, HEIGHT,
 //                 canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT);
-// }
+
 
 // loadImage();
 
@@ -58,19 +58,39 @@
 //   let hasMovedY = false;
 //   // Movement direction set here using moveCharacter function
 
+
+//
+// loadImage();
+//
+// // Run game loop
+// function gameLoop() {
+//   ctx.clearRect(0, 0, canvas.width, canvas.height);
+//
+//   let hasMovedX = false;
+//   let hasMovedY = false;
+//   // Movement direction set here using moveCharacter function
+//
+
 //   if (keyPresses.w) {
 //     moveCharacter(0, -MOVEMENT_SPEED, FACING_UP);
 //   } else if (keyPresses.s) {
 //     moveCharacter(0, MOVEMENT_SPEED, FACING_DOWN);
 //   }
 
+//
 //   if (keyPresses.a) {
 //     moveCharacter(-MOVEMENT_SPEED, 0, FACING_LEFT);
 //   } else if (keyPresses.d) {
 //     moveCharacter(MOVEMENT_SPEED, 0, FACING_RIGHT);
 //   }
 
+
 //   // Run animation cycle if moving
+
+
+//
+//   // Run animation cycle if moving
+//
 
 //   if (hasMovedX || hasMovedY) {
 //     frameCount++;
@@ -90,6 +110,17 @@
 //   }
 
 //   // Character movement limited to boundry here
+
+
+//
+//   //Stand in neutral position is not moving
+//
+//   if (!hasMovedX || !hasMovedY) {
+//     currentLoopIndex = 0;
+//   }
+//
+//   // Character movement limited to boundry here
+//
 
 //   function moveCharacter(deltaX, deltaY, direction) {
 //     if (positionX + deltaX > 0 && positionX + SCALED_WIDTH + deltaX < canvas.width) {
