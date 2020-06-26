@@ -1,10 +1,10 @@
-import drawFrame from './sprite_movement.js'
+// import drawFrame from './sprite_movement.js'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-import Header from './components/header';
+// import * as serviceWorker from './serviceWorker';
+// import Header from './components/header';
 import Background from './background'
 import Hero from '../src/hero'
 import Input from '../src/input'
@@ -36,7 +36,6 @@ window.onload = function() {
 
 var input = new Input(hero);
 var detectCollision = new DetectCollision(hero);
-var input = new Input(hero, ctx, background);
 
 document.onkeydown = input.checkKey;
 document.onkeyup = input.checkKey;
