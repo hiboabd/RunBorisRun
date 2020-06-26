@@ -64,5 +64,6 @@ describe('Hero', () => {
     // 0
     hero.jump()
     expect(hero.frameX).toEqual(1)
+    expect(hero.frameY).toEqual(3)
   })
 })
