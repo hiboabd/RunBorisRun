@@ -34,4 +34,13 @@ describe('DetectCollision', () => {
     expect(hero.position.x).toEqual(0);
   })
 
+  test('Hero touches platform', () => {
+    const hero =     { position: {x: 280, y: 510} }
+    const platform = { position: {x: 300, y: 500} }
+
+    const detectCollision = new DetectCollision(hero);
+    detectCollision.hitPlatform()
+    expect(hero.position.y).toEqual(platform.position.y)
+  })
+
 })
