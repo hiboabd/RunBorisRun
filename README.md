@@ -5,13 +5,15 @@ Covid has struck the world. You must now adapt to survive.
 Mrs. Morris is in desperate need of milk, but she can not leave her home as she is old and at risk of infection.
 You are her only hope of having a cuppa.
 Are you up for the challenge?
-You must not come within 2 meters of anyone or you will be at risk yourself. 
+You must not come within 2 meters of anyone or you will be at risk yourself.
 If you stay too close for too long you will get sick and be placed in quarantine.
 
-Play the game [Here](https://unruffled-blackwell-65f8c3.netlify.app/)
+Play the game [Here](https://mystifying-morse-ca1a8f.netlify.app/)
 
-## Travis here:
-coming soon
+## Status:
+Travis: coming soon
+
+Netlify: [![Netlify Status](https://api.netlify.com/api/v1/badges/f85798db-97cc-41e1-a868-d27cb1be1d51/deploy-status)](https://app.netlify.com/sites/mystifying-morse-ca1a8f/deploys)
 
 ## Tech Stack
 NPM
