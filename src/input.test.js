@@ -37,6 +37,26 @@ describe('Input', () => {
     expect(input.hero.position.x).toEqual(40)
   })
 
+  test('check key calls hero jump function', () => {
+    var ctx = {
+      fillStyle: '',
+      clearRect: function () {
+        return 'changed'
+      },
+      fillRect: function () {
+        return 'changed'
+      }
+    }
+    const hero = new Hero();
+    hero.draw(ctx)
+    var current_y_position = hero.position.y
+    const input = new Input(hero, ctx);
+    var e = {keyCode: 38}
+    input.checkKey(e)
+    hero.airBorne()
+    expect(input.hero.position.y).toBeLessThan(current_y_position);
+  })
+
   // test('refresh function clears previous rectangle position', () => {
   //   var ctx = {
   //     fillStyle: '',

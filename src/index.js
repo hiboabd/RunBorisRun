@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import Header from './components/header';
 import Hero from '../src/hero'
 import Input from '../src/input'
+import DetectCollision from '../src/detectCollision'
 
 
 ReactDOM.render(
@@ -24,10 +25,23 @@ export default ctx;
 var hero = new Hero();
 hero.draw(ctx);
 
-var input = new Input(hero, ctx);
+var input = new Input(hero);
+var detectCollision = new DetectCollision(hero);
 
 document.onkeydown = input.checkKey;
+document.onkeyup = input.checkKey;
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+var refresh = function() {
+  ctx.clearRect(0, 0, 800, 600);
+  hero.draw(ctx)
+};
+
+var loop = function() {
+  hero.airBorne()
+  detectCollision.hitBottom()
+  input.movePlayer()
+  refresh()
+  window.requestAnimationFrame(loop);
+}
+
+window.requestAnimationFrame(loop);
