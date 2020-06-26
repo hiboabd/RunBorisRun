@@ -1,8 +1,17 @@
 export default class Platform {
-  constructor(img, x, y){
+  constructor(image, x, y){
     this.height = 200
     this.width = 200
     this.position = {x: x, y: y}
-    this.img = img
+    this.image = image
+  }
+
+  draw(ctx){
+    return ctx.drawImage(this.image,
+      this.width,
+      this.height,
+      this.position.x,
+      this.position.y
+    );
   }
 }
