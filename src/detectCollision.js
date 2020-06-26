@@ -2,6 +2,7 @@ export default class DetectCollision{
   constructor(hero, platform) {
     this.hero = hero
     this.platform = platform
+    this.touching = false
   }
 
   hitBottom = () => {
@@ -30,6 +31,7 @@ export default class DetectCollision{
        this.hero.position.x > this.platform.position.x &&
        this.hero.position.x < (this.platform.position.x + this.platform.width)) {
          this.hero.position.y = (this.platform.position.y - this.hero.SCALED_HEIGHT)
+         this.touching = true
          this.hero.jumping = false
          this.hero.jumpSpeed = 0
          console.log("Hero touched platform!");
@@ -37,6 +39,7 @@ export default class DetectCollision{
 
     if(this.hero.position.y + this.hero.SCALED_HEIGHT == this.platform.position.y &&
        (this.hero.position.x + 50 < this.platform.position.x || this.hero.position.x > (this.platform.position.x + this.platform.width))) {
+         this.touching = false
          this.hero.jumping = true
          this.hero.jumpSpeed = 1
          console.log("Hero falled off platform platform!");
