@@ -9,4 +9,4 @@ script:
   - npm test
 
 after_script:
-  - q
+  - --forceExit --maxWorkers=10
