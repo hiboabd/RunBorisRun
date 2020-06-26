@@ -121,7 +121,7 @@ describe('Input', () => {
    input.left = false
    input.movePlayer()
    expect(hero.frameX).toEqual(0);
-
  })
+
 
 })

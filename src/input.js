@@ -12,9 +12,9 @@ export default class Input {
       var key_state = (e.type === "keydown")?true:false;
 
       switch(e.keyCode){
-        default:
-          console.log('wrong key pressed');
-        break;
+        // default:
+        //   console.log('wrong key pressed');
+        // break;
         case 39: // right key
           this.right = key_state;
         break;
