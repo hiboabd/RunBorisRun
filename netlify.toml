@@ -1,4 +1,8 @@
 [build]
-  command = "npm run build"
-  publish="Covid_Game/public/index.html"
-  base = "Covid_Game"
+  # command = "npm run build"
+  # publish="Covid_Game/public/index.html"
+  # base = "Covid_Game"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
