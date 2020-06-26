@@ -38,6 +38,7 @@ var refresh = function() {
   background.draw(ctx);
   hero.draw(ctx);
   platform_1.draw(ctx);
+  console.log(hero.position.x);
 };
 
 var loop = function() {

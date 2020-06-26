@@ -27,18 +27,16 @@ export default class DetectCollision{
 
     // If hero goes under platform && is inbetween the platform
     if(this.hero.position.y > this.platform.position.y &&
-       this.hero.position.y < (this.platform.position.y + this.platform.height) &&
        this.hero.position.x > this.platform.position.x &&
-       this.hero.position.x < (this.platform.position.x + this.platform.width) ) {
+       this.hero.position.x < (this.platform.position.x + this.platform.width)) {
          this.hero.position.y = (this.platform.position.y - this.hero.SCALED_HEIGHT)
          this.hero.jumping = false
          this.hero.jumpSpeed = 0
          console.log("Hero touched platform!");
     }
 
-    if(this.hero.position.y == this.platform.position.y &&
-       this.hero.position.x < this.platform.position.x &&
-       this.hero.position.x > (this.platform.position.x + this.platform.width) ) {
+    if(this.hero.position.y + this.hero.SCALED_HEIGHT == this.platform.position.y &&
+       (this.hero.position.x + 50 < this.platform.position.x || this.hero.position.x > (this.platform.position.x + this.platform.width))) {
          this.hero.jumping = true
          this.hero.jumpSpeed = 1
          console.log("Hero falled off platform platform!");
