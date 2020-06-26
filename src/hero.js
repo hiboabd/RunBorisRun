@@ -38,10 +38,14 @@ constructor() {
 
       this.frameX = this.CYCLE_LOOP[this.frameX]
       if(this.increment > 2){
-        this.increment = 0
+        this.increment = 0 
       } else {
         this.increment += 0.1
       }
+      // console.log("Frame X")
+      console.log(this.frameX)
+      // console.log("increment V")
+    //  console.log(this.increment)
 
     } 
 

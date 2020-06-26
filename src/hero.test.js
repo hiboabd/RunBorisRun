@@ -12,6 +12,7 @@ describe('Hero', () => {
     var current_x_position = hero.position.x
     hero.moveRight()
     expect(hero.position.x).toEqual(current_x_position + hero.SPEED)
+    expect(hero.frameY).toEqual(3)
   })
 
   test('moves left', () => {
@@ -19,6 +20,7 @@ describe('Hero', () => {
     var current_x_position = hero.position.x
     hero.moveLeft()
     expect(hero.position.x).toEqual(current_x_position - hero.SPEED)
+    expect(hero.frameY).toEqual(2)
   })
 
   test('jumps', () => {
@@ -74,8 +76,12 @@ describe('Hero', () => {
     expect(hero.increment).toEqual(0.1)
   });
 
-  
+  test("Increment in animate sprite goes to 0 when reaches 2", () => {
+    const hero = new Hero()
+    hero.increment = 2
 
-
-
+    hero.moveRight()
+    hero.moveRight()
+    expect(hero.increment).toEqual(0)
+  })
 })
