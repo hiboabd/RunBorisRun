@@ -4,7 +4,7 @@ describe('Hero', () => {
 
   test('current position', () => {
     const hero = new Hero();
-    expect(hero.position).toEqual({ x: 50, y: 550});
+    expect(hero.position).toEqual({ x: 50, y: 730});
   })
 
   test('moves right', () => {
@@ -29,6 +29,9 @@ describe('Hero', () => {
       },
       fillRect: function () {
         return 'changed'
+      },
+      drawImage: function () {
+        return 'changed'
       }
     }
     const hero = new Hero();
@@ -39,7 +42,7 @@ describe('Hero', () => {
     expect(hero.position.y).toBeLessThan(current_y_position);
   })
 
-  test('draw function', () => {
+  test('draw calls draw image function', () => {
     var ctx = {
       fillStyle: '',
       clearRect: function () {
@@ -47,10 +50,12 @@ describe('Hero', () => {
       },
       fillRect: function () {
         return 'changed'
+      },
+      drawImage: function () {
+        return 'changed'
       }
     }
     const hero = new Hero();
-    hero.draw(ctx)
-    expect(ctx.fillStyle).toEqual('#0ff')
+    expect(hero.draw(ctx)).toEqual('changed')
   })
 })

@@ -1,10 +1,7 @@
-import drawFrame from './sprite_movement.js'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-import Header from './components/header';
 import Background from './background'
 import Hero from '../src/hero'
 import Input from '../src/input'
@@ -41,7 +38,7 @@ document.onkeydown = input.checkKey;
 document.onkeyup = input.checkKey;
 
 var refresh = function() {
-  ctx.clearRect(0, 0, 800, 600);
+  ctx.clearRect(0, 0, 1500, 800);
   background.draw(ctx);
   hero.draw(ctx)
 };
@@ -49,6 +46,7 @@ var refresh = function() {
 var loop = function() {
   hero.airBorne()
   detectCollision.hitBottom()
+  detectCollision.hitEdge()
   input.movePlayer()
   refresh()
   window.requestAnimationFrame(loop);
