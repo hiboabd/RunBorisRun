@@ -14,7 +14,7 @@ export default class Input {
 
       switch(e.keyCode){
         default:
-          this.keyUp = true;
+          // this.keyUp = true;
         break;
         case 39: // right key
           this.right = key_state;
@@ -34,18 +34,6 @@ export default class Input {
     if (this.up) {
       if (this.hero.jumping === false) { this.hero.jump() }
     }
-    if (this.keyUp) { this.hero.frameX = 0 }
-
-
-
-    // if (this.right) {
-    //   this.hero.moveRight()
-    // } else if (this.left){
-    //   this.hero.moveLeft()
-    // } else if (this.up){
-    //   if (this.hero.jumping === false) { this.hero.jump() }
-    // } else {
-    //   this.hero.frameX = 0;
-    // }
+    // if (this.keyUp) { this.hero.frameX = 0 }
   }
 }
