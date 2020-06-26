@@ -40,6 +40,7 @@ constructor() {
   }
 
   animateSprite(){
+    // eslint-disable-next-line
    if(this.jumping == true){
      this.frameX = 1
   } else {
