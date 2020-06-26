@@ -42,7 +42,7 @@ document.onkeydown = input.checkKey;
 document.onkeyup = input.checkKey;
 
 var refresh = function() {
-  ctx.clearRect(0, 0, 800, 600);
+  ctx.clearRect(0, 0, 1500, 800);
   background.draw(ctx);
   hero.draw(ctx)
 };
