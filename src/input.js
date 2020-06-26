@@ -29,12 +29,14 @@ export default class Input {
 
   movePlayer = () => {
     if (this.right) {
+      this.hero.isMoving = true
       this.hero.moveRight()
     } else if (this.left){
       this.hero.moveLeft()
     } else if (this.up){
       if (this.hero.jumping === false) { this.hero.jump() }
     } else {
+      this.hero.isMoving = false
       this.hero.frameX = 0;
     }
   }

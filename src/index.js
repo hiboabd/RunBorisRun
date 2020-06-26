@@ -39,7 +39,9 @@ document.onkeyup = input.checkKey;
 
 var refresh = function() {
   ctx.clearRect(0, 0, 1500, 800);
-  background.draw(ctx);
+
+  background.moveBackground(hero, input, ctx)
+  // background.draw(ctx)
   hero.draw(ctx)
 };
 
