@@ -5,9 +5,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Header from './components/header';
+import Background from './background'
 import Hero from '../src/hero'
 import Input from '../src/input'
 import DetectCollision from '../src/detectCollision'
+
 
 
 ReactDOM.render(
@@ -17,22 +19,31 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-let canvas = document.getElementById("gameScreen");
 
+let canvas = document.getElementById("gameScreen");
 let ctx = canvas.getContext("2d");
+
 export default ctx;
 
 var hero = new Hero();
-hero.draw(ctx);
+const background = new Background()
+
+window.onload = function() {
+
+  background.draw(ctx)
+  hero.draw(ctx);
+}
 
 var input = new Input(hero);
 var detectCollision = new DetectCollision(hero);
+var input = new Input(hero, ctx, background);
 
 document.onkeydown = input.checkKey;
 document.onkeyup = input.checkKey;
 
 var refresh = function() {
   ctx.clearRect(0, 0, 800, 600);
+  background.draw(this.ctx);
   hero.draw(ctx)
 };
 

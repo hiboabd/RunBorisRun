@@ -25,15 +25,7 @@ export default class Input {
           this.up = key_state;
         break;
       }
-
-      // if (e.keyCode === 39) {
-      //   this.hero.moveRight()
-      // } else if (e.keyCode === 37){
-      //   this.hero.moveLeft()
-      // } else if (e.keyCode === 38){
-      //   if (this.hero.jumping == false) { this.hero.jump() }
-      // }
-  };
+    };
 
   movePlayer = () => {
     if (this.right) {
