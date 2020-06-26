@@ -4,7 +4,7 @@ export default class DetectCollision{
   }
 
   hitBottom = () => {
-    var rockBottom = 800 - 50
+    var rockBottom = 730
     if (this.hero.position.y > rockBottom){
       this.hero.jumping = false
       this.hero.jumpSpeed = 0
