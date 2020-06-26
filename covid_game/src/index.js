@@ -25,6 +25,7 @@ var input = new Input(hero);
 var detectCollision = new DetectCollision(hero);
 
 document.onkeydown = input.checkKey;
+document.onkeyup = input.checkKey;
 
 var refresh = function() {
   ctx.clearRect(0, 0, 800, 600);
