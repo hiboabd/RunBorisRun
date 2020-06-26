@@ -40,12 +40,18 @@ constructor() {
   }
 
   animateSprite(){
-    if(this.increment === 3){
-     this.increment = 0 
-     this.frameX = this.CYCLE_LOOP[this.increment] 
-  } else { 
-    this.frameX = this.CYCLE_LOOP[this.increment] 
-    this.increment ++ 
+   if(this.jumping == true){
+     this.frameX = 1
+  } else {
+      if(this.isMoving){
+        this.frameX = this.increment.toFixed(0)
+        this.frameX = this.CYCLE_LOOP[this.frameX]
+      if (this.increment > 3){
+        this.increment = 0
+      } else {
+        this.increment += 0.1
+        }
+     }
   }
 }
 
