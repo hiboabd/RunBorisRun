@@ -28,7 +28,7 @@ const background = new Background()
 var platform_1 = new Platform('./assets/grass_4x1.png', 300, 600)
 
 var input = new Input(hero);
-var detectCollision = new DetectCollision(hero);
+var detectCollision = new DetectCollision(hero, platform_1);
 
 document.onkeydown = input.checkKey;
 document.onkeyup = input.checkKey;
@@ -44,6 +44,7 @@ var loop = function() {
   hero.airBorne()
   detectCollision.hitBottom()
   detectCollision.hitEdge()
+  detectCollision.hitPlatform()
   input.movePlayer()
   refresh()
   window.requestAnimationFrame(loop);
