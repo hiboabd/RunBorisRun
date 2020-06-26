@@ -58,4 +58,11 @@ describe('Hero', () => {
     const hero = new Hero();
     expect(hero.draw(ctx)).toEqual('changed')
   })
+
+  test("Animate Sprite when press right", () => {
+    const hero = new Hero()
+    // 0
+    hero.jump()
+    expect(hero.frameX).toEqual(1)
+  })
 })

@@ -13,49 +13,50 @@ constructor() {
     this.frameY = 3;
     this.isMoving = false;
     this.CYCLE_LOOP = [0, 1, 0, 2];
-    this.increment = 0
-    this.jumping = false; 
-    this.jumpSpeed = -15; 
-    this.GRAVITY = 0.5
+    this.increment = 0;
+    this.jumping = false;
+    this.jumpSpeed = -15;
+    this.GRAVITY = 0.5;
   }
   moveRight() {
     // var myVar = setInterval(this.myTimer, 1000);
     this.isMoving = true
-    this.frameY = 3
+    this.frameY = 3 //<<<<
     this.position.x += this.SPEED;
     this.animateSprite()
   }
 
-  // myTimer(){
-  //  return this.animateSprite();
-  // }
-  /// Test that frameY is now 3
-  //Test that isMovind = true
-
   moveLeft() {
     this.isMoving = true
-    this.frameY = 2
+    this.frameY = 2 
     this.position.x -= this.SPEED;
     this.animateSprite()
   }
 
   animateSprite(){
-   if(this.jumping == true){
-     this.frameX = 1
-  } else {
-      if(this.isMoving){
-        this.frameX = this.increment.toFixed(0)
-        this.frameX = this.CYCLE_LOOP[this.frameX]
-      if (this.increment > 3){
-        this.increment = 0
-      } else {
-        this.increment += 0.1
-        }
-     }
+    if(this.jumping === true){
+      thi
+    }
+
+
+
+
+  //  if(this.jumping === true){
+  //    this.frameX = 1
+  // } else {
+  //     if(this.isMoving){
+  //       this.frameX = this.increment.toFixed(0)
+  //       this.frameX = this.CYCLE_LOOP[this.frameX]
+  //     }if (this.increment > 3){
+  //       this.increment = 0
+  //     } else {
+  //       this.increment += 0.1 
+  //       }
+  //    }
   }
-}
 
   jump = () => {
+    this.frameX = 1
     this.jumpSpeed = -10;
     this.jumping = true;
   }
