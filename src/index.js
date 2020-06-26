@@ -5,6 +5,7 @@ import App from './App';
 import Background from './background'
 import Hero from '../src/hero'
 import Input from '../src/input'
+import Platform from '../src/platform'
 import DetectCollision from '../src/detectCollision'
 
 
@@ -24,12 +25,7 @@ export default ctx;
 
 var hero = new Hero();
 const background = new Background()
-
-window.onload = function() {
-
-  background.draw(ctx)
-  hero.draw(ctx);
-}
+var platform_1 = new Platform('./assets/grass_4x1.png', 300, 600)
 
 var input = new Input(hero);
 var detectCollision = new DetectCollision(hero);
@@ -40,7 +36,8 @@ document.onkeyup = input.checkKey;
 var refresh = function() {
   ctx.clearRect(0, 0, 1500, 800);
   background.draw(ctx);
-  hero.draw(ctx)
+  hero.draw(ctx);
+  platform_1.draw(ctx);
 };
 
 var loop = function() {
