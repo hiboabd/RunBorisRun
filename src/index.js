@@ -50,6 +50,7 @@ var refresh = function() {
 var loop = function() {
   hero.airBorne()
   detectCollision.hitBottom()
+  detectCollision.hitEdge()
   input.movePlayer()
   refresh()
   window.requestAnimationFrame(loop);

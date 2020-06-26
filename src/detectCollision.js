@@ -12,4 +12,14 @@ export default class DetectCollision{
       this.hero.position.y = rockBottom
     }
   }
+
+  hitEdge = () => {
+    var leftEdge = 0
+    var rightEdge = 750
+    if (this.hero.position.x < leftEdge){
+      this.hero.position.x = leftEdge
+    } else if (this.hero.position.x > rightEdge){
+      this.hero.position.x = rightEdge
+    }
+  }
 }
