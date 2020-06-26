@@ -4,6 +4,7 @@ export default class Input {
     this.up = false;
     this.left = false;
     this.right = false;
+    this.keyUp = false;
   }
 
   checkKey = (e) => {
@@ -13,7 +14,7 @@ export default class Input {
 
       switch(e.keyCode){
         default:
-          console.log('wrong key pressed');
+          // this.keyUp = true;
         break;
         case 39: // right key
           this.right = key_state;
@@ -28,14 +29,11 @@ export default class Input {
     };
 
   movePlayer = () => {
-    if (this.right) {
-      this.hero.moveRight()
-    } else if (this.left){
-      this.hero.moveLeft()
-    } else if (this.up){
+    if (this.right) { this.hero.moveRight() }
+    if (this.left)  { this.hero.moveLeft() }
+    if (this.up) {
       if (this.hero.jumping === false) { this.hero.jump() }
-    } else {
-      this.hero.frameX = 0;
     }
+    // if (this.keyUp) { this.hero.frameX = 0 }
   }
 }

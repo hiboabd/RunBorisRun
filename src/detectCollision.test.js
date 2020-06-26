@@ -11,7 +11,7 @@ describe('DetectCollision', () => {
     const detectCollision = new DetectCollision(hero);
     detectCollision.hitBottom()
     expect(hero.jumpSpeed).toEqual(0);
-    expect(hero.position.y).toEqual(750);
+    expect(hero.position.y).toEqual(730);
   })
 
   test('hitEdge prevents character from moving out of right boundary', () => {

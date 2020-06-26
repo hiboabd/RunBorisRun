@@ -21,7 +21,7 @@ describe('Hero', () => {
     expect(hero.position.x).toEqual(current_x_position - hero.SPEED)
   })
 
-  test('jumps', () => {
+  test('jumps straight', () => {
     var ctx = {
       fillStyle: '',
       clearRect: function () {
@@ -40,6 +40,30 @@ describe('Hero', () => {
     hero.jump()
     hero.airBorne()
     expect(hero.position.y).toBeLessThan(current_y_position);
+  })
+
+  test('jumps diagonally', () => {
+    var ctx = {
+      fillStyle: '',
+      clearRect: function () {
+        return 'changed'
+      },
+      fillRect: function () {
+        return 'changed'
+      },
+      drawImage: function () {
+        return 'changed'
+      }
+    }
+    const hero = new Hero();
+    hero.draw(ctx)
+    var current_y_position = hero.position.y
+    var current_x_position = hero.position.x
+    hero.jump()
+    hero.airBorne()
+    hero.moveRight()
+    expect(hero.position.y).toBeLessThan(current_y_position);
+    expect(hero.position.x).toBeGreaterThan(current_x_position);
   })
 
   test('draw calls draw image function', () => {
