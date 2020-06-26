@@ -11,7 +11,7 @@ If you stay too close for too long you will get sick and be placed in quarantine
 Play the game [Here](https://mystifying-morse-ca1a8f.netlify.app/)
 
 ## Status:
-Travis: coming soon
+Travis: [![Build Status](https://travis-ci.com/edmond-b/Covid_Game.svg?branch=master)](https://travis-ci.com/edmond-b/Covid_Game)
 
 Netlify: [![Netlify Status](https://api.netlify.com/api/v1/badges/f85798db-97cc-41e1-a868-d27cb1be1d51/deploy-status)](https://app.netlify.com/sites/mystifying-morse-ca1a8f/deploys)
 
