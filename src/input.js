@@ -34,6 +34,8 @@ export default class Input {
       this.hero.moveLeft()
     } else if (this.up){
       if (this.hero.jumping === false) { this.hero.jump() }
+    } else {
+      this.hero.frameX = 0;
     }
   }
 }

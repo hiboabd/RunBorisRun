@@ -1,10 +1,7 @@
-// import drawFrame from './sprite_movement.js'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import * as serviceWorker from './serviceWorker';
-// import Header from './components/header';
 import Background from './background'
 import Hero from '../src/hero'
 import Input from '../src/input'
@@ -49,6 +46,7 @@ var refresh = function() {
 var loop = function() {
   hero.airBorne()
   detectCollision.hitBottom()
+  detectCollision.hitEdge()
   input.movePlayer()
   refresh()
   window.requestAnimationFrame(loop);
