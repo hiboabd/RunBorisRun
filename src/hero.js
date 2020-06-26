@@ -1,6 +1,6 @@
 export default class Hero {
 constructor() {
-    this.SPEED = 10
+    this.SPEED = 2
     this.position = { x: 50, y: 730 }
     this.image = new Image();
     this.image.src = "./assets/sprite.png"
@@ -54,6 +54,8 @@ constructor() {
 
   airBorne = () => {
     if (this.jumping) {
+      this.isMoving = true
+      this.frameY = 2
       this.position.y += this.jumpSpeed;
       this.jumpSpeed += this.GRAVITY;
     }
