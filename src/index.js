@@ -1,10 +1,14 @@
+import drawFrame from './sprite_movement.js'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import * as serviceWorker from './serviceWorker';
+import Header from './components/header';
 import Hero from '../src/hero'
 import Input from '../src/input'
 import DetectCollision from '../src/detectCollision'
+
 
 ReactDOM.render(
   <React.StrictMode>
