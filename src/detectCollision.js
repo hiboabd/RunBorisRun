@@ -42,7 +42,7 @@ export default class DetectCollision{
          console.log("Hero touched platform!");
     }
 
-    if(this.hero.position.y + this.hero.SCALED_HEIGHT == this.platform.position.y &&
+    if(this.hero.position.y + this.hero.SCALED_HEIGHT === this.platform.position.y &&
        (this.hero.position.x + 50 < this.platform.position.x || this.hero.position.x > (this.platform.position.x + this.platform.width))) {
          this.touching = false
          this.hero.jumping = true
