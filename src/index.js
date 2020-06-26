@@ -36,7 +36,6 @@ window.onload = function() {
 
 var input = new Input(hero);
 var detectCollision = new DetectCollision(hero);
-var input = new Input(hero, ctx, background);
 
 document.onkeydown = input.checkKey;
 document.onkeyup = input.checkKey;
