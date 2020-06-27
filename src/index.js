@@ -25,10 +25,14 @@ export default ctx;
 
 var hero = new Hero();
 const background = new Background()
-var platform_1 = new Platform('./assets/grass_4x1.png', 100, 600)
+
+var platforms = []
+platforms.push(new Platform('./assets/grass_4x1.png', 100, 600))
+platforms.push(new Platform('./assets/grass_4x1.png', 200, 400))
+platforms.push(new Platform('./assets/grass_4x1.png', 100, 200))
 
 var input = new Input(hero);
-var detectCollision = new DetectCollision(hero, platform_1);
+var detectCollision = new DetectCollision(hero, platforms);
 
 document.onkeydown = input.checkKey;
 document.onkeyup = input.checkKey;
@@ -37,7 +41,7 @@ var refresh = function() {
   ctx.clearRect(0, 0, 1500, 800);
   background.draw(ctx);
   hero.draw(ctx);
-  platform_1.draw(ctx);
+  for (var i = 0; i < platforms.length; i++){ platforms[i].draw(ctx) }
 };
 
 var loop = function() {

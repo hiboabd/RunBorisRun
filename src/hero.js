@@ -1,6 +1,6 @@
 export default class Hero {
 constructor() {
-    this.SPEED = 2
+    this.SPEED = 4
     this.position = { x: 50, y: 730 }
     this.image = new Image();
     this.image.src = "./assets/sprite.png"
@@ -16,7 +16,7 @@ constructor() {
     this.increment = 0
     this.jumping = false; 
     this.jumpSpeed = -15; 
-    this.GRAVITY = 0.2
+    this.GRAVITY = 0.5
   }
   moveRight() {
     // var myVar = setInterval(this.myTimer, 1000);
@@ -57,7 +57,7 @@ constructor() {
 }
 
   jump = () => {
-    this.jumpSpeed = -10;
+    this.jumpSpeed = -15;
     this.jumping = true;
   }
 

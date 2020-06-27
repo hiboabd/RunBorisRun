@@ -1,7 +1,7 @@
 export default class DetectCollision{
-  constructor(hero, platform) {
+  constructor(hero, platforms) {
     this.hero = hero
-    this.platform = platform
+    this.platforms = platforms
     this.touching = false
   }
 
@@ -25,69 +25,84 @@ export default class DetectCollision{
   }
 
   hitPlatform = () => {
-    console.log(` position: y ${this.hero.position.y}`)
-    console.log(` platform: y ${this.platform.position.y}`)
-    console.log(` position x:  ${this.hero.position.x}`)
-    console.log(` platform: x ${this.platform.position.x}`)
-    console.log(` platform width: ${this.platform.width}`)
+    // console.log(` position: y ${this.hero.position.y}`)
+    // console.log(` platform: y ${platform.position.y}`)
+    // console.log(` position x:  ${this.hero.position.x}`)
+    // console.log(` platform: x ${platform.position.x}`)
+    // console.log(` platform width: ${platform.width}`)
 
     let heroTop    = this.hero.position.y
     let heroBottom = this.hero.position.y + this.hero.SCALED_HEIGHT
     let heroWidth  = this.hero.position.x + this.hero.SCALED_WIDTH - 20
     let heroBack   = this.hero.position.x + 20
 
-    let platformTop       = this.platform.position.y
-    let platformBottom    = this.platform.position.y + this.platform.height
-    let platformLeftEdge  = this.platform.position.x
-    let platformRightEdge = this.platform.position.x + this.platform.width
+    let sideTouched = false;
 
-    let placeOnPlatform = this.platform.position.y - this.hero.SCALED_HEIGHT
+    for (var i = 0; i < this.platforms.length; i++) {
+      let platform          = this.platforms[i]
+      let platformTop       = platform.position.y
+      let platformBottom    = platform.position.y + platform.height
+      let platformLeftEdge  = platform.position.x
+      let platformRightEdge = platform.position.x + platform.width
 
-    // If hero is about to land on platform
-    if(heroBottom > platformTop &&
-       heroBottom < platformTop + 50 &&
+      let placeOnPlatform = platform.position.y - this.hero.SCALED_HEIGHT
 
-       heroWidth > platformLeftEdge + 10 &&
-       heroBack < platformRightEdge - 10) {
-         this.hero.position.y = placeOnPlatform
-         this.touching = true
-         this.hero.jumping = false
-         this.hero.jumpSpeed = 0
-         console.log("Hero touched platform!");
+      // If hero is about to land on platform
+      if(heroBottom > platformTop &&
+         heroBottom < platformTop + 50 &&
+
+         heroWidth > platformLeftEdge + 10 &&
+         heroBack < platformRightEdge - 10) {
+           this.hero.position.y = placeOnPlatform
+           this.touching = true
+           this.hero.jumping = false
+           this.hero.jumpSpeed = 0
+           console.log("Hero sideTouched platform!");
+      }
+
+      // If hero touches the left or right side of the platform
+      if(heroWidth > platformLeftEdge &&
+         heroWidth < platformLeftEdge + 10 &&
+         heroBottom > platformTop &&
+         heroBottom < platformBottom){
+           sideTouched = true
+         }
+
+      if(heroBack < platformRightEdge &&
+         heroBack > platformRightEdge - 10 &&
+         heroBottom > platformTop &&
+         heroBottom < platformBottom){
+           sideTouched = true
+         }
+
+      // If hero touches the underside of platform
+      if(heroTop + (this.hero.jumpSpeed / 2) < platformBottom &&
+         heroTop > platformBottom - 10 &&
+         heroWidth > platformLeftEdge + 10 &&
+         heroBack < platformRightEdge - 10){
+           this.hero.jumping = true
+           this.hero.jumpSpeed = 1
+         }
+
+      // If hero walks off platform
+      if(heroBottom == platformTop &&
+         (heroWidth < platformLeftEdge &&
+          heroWidth > platformLeftEdge -50 ||
+          heroBack > platformRightEdge &&
+          heroBack < platformRightEdge +50
+        )) {
+           this.hero.jumping = true
+           this.hero.jumpSpeed = 1
+      }
     }
 
-    // If hero touches the left or right side of the platform
-    if(heroWidth > platformLeftEdge &&
-       heroWidth < platformLeftEdge + 10 &&
-       heroBottom > platformTop &&
-       heroBottom < platformBottom){
-         this.hero.SPEED = 0
-       }
-    else if(heroBack < platformRightEdge &&
-       heroBack > platformRightEdge - 10 &&
-       heroBottom > platformTop &&
-       heroBottom < platformBottom){
-         this.hero.SPEED = 0
-       }
-       else {
-         this.hero.SPEED = 2
-       }
-
-    // If hero touches the underside of platform
-    if(heroTop < platformBottom &&
-       heroTop > platformBottom - 10 &&
-       heroWidth > platformLeftEdge + 10 &&
-       heroBack < platformRightEdge - 10){
-         this.hero.jumping = true
-         this.hero.jumpSpeed = 1
-       }
-
-    // If hero walks off platform
-    if(heroBottom == platformTop &&
-       (heroWidth < this.platform.position.x || heroBack > platformRightEdge)) {
-         this.hero.jumping = true
-         this.hero.jumpSpeed = 1
+    if(sideTouched){
+      this.hero.SPEED = 0
+    } else {
+      this.hero.SPEED = 4
     }
+
+
 
    // If player touches left side of the platform and their not inbetween it
 
