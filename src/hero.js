@@ -40,7 +40,7 @@ constructor() {
   }
 
   animateSprite(){
-   if(this.jumping == true){
+   if(this.jumping === true){
      this.frameX = 1
   } else {
       if(this.isMoving){
