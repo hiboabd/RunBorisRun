@@ -25,7 +25,7 @@ export default ctx;
 
 var hero = new Hero();
 const background = new Background()
-var platform_1 = new Platform('./assets/grass_4x1.png', 300, 600)
+var platform_1 = new Platform('./assets/grass_4x1.png', 100, 600)
 
 var input = new Input(hero);
 var detectCollision = new DetectCollision(hero, platform_1);
@@ -38,7 +38,6 @@ var refresh = function() {
   background.draw(ctx);
   hero.draw(ctx);
   platform_1.draw(ctx);
-  console.log(hero.position.x);
 };
 
 var loop = function() {
