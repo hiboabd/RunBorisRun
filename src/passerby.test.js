@@ -3,7 +3,8 @@ import Passerby from '../src/passerby'
 describe('Passerby', () => {
   test('current position', () => {
     const passerby = new Passerby();
-    expect(passerby.position).toEqual({ x: 100, y: 730});
+
+    expect(passerby.position.x).toEqual({ x: 800, y: 730});
   })
 
   test('draw function calls drawImage function of ctx object', () => {
@@ -17,18 +18,4 @@ describe('Passerby', () => {
     passerby.draw(ctx)
     expect(spy).toHaveBeenCalledTimes(1);
   })
-
-  // test('checks that player can jump', () => {
-  //   const hero = {
-  //    jumping: false,
-  //    jump: function(){
-  //      return "moved";
-  //    },
-  //  };
-  // const spy = jest.spyOn(hero, 'jump');
-  // var input = new Input(hero)
-  // input.up = true
-  // input.movePlayer()
-  // expect(spy).toHaveBeenCalledTimes(1);
-  // });
 })

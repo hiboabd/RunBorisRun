@@ -5,6 +5,7 @@ import App from './App';
 import Background from './background'
 import Hero from '../src/hero'
 import Input from '../src/input'
+import Passerby from '../src/passerby'
 import DetectCollision from '../src/detectCollision'
 
 
@@ -23,13 +24,15 @@ let ctx = canvas.getContext("2d");
 export default ctx;
 
 var hero = new Hero();
-const background = new Background()
+var passerby = new Passerby();
+const background = new Background();
 
-window.onload = function() {
-
-  background.draw(ctx)
-  hero.draw(ctx);
-}
+// window.onload = function() {
+//
+//   background.draw(ctx)
+//   hero.draw(ctx);
+//   passerby.draw(ctx);
+// }
 
 var input = new Input(hero);
 var detectCollision = new DetectCollision(hero);
@@ -41,6 +44,7 @@ var refresh = function() {
   ctx.clearRect(0, 0, 1500, 800);
   background.draw(ctx);
   hero.draw(ctx)
+  passerby.draw(ctx)
 };
 
 var loop = function() {
