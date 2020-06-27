@@ -35,8 +35,10 @@ describe('DetectCollision', () => {
   })
 
   test('Hero touches platform', () => {
-    const hero =     { position: {x: 320, y: 430}, SCALED_HEIGHT: 72, SCALED_WIDTH: 64 }
-    const platform = [{ position: {x: 300, y: 500}, width: 500, height: 100 }]
+    const hero     = { top: 430, bottom: 502, left: 340, right: 364,
+                       position: {x: 320, y: 430}, SCALED_HEIGHT: 72, SCALED_WIDTH: 64 }
+    const platform = [{ top: 500, bottom: 600, left: 300, right: 800,
+                        position: {x: 300, y: 500}, width: 500, height: 100 }]
 
     const detectCollision = new DetectCollision(hero, platform);
     detectCollision.hitPlatform()
