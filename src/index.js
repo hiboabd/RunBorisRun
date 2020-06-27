@@ -7,8 +7,6 @@ import Hero from '../src/hero'
 import Input from '../src/input'
 import DetectCollision from '../src/detectCollision'
 
-
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
@@ -18,38 +16,38 @@ ReactDOM.render(
 
 
 let canvas = document.getElementById("gameScreen");
-let ctx = canvas.getContext("2d");
+// only loads the canvas if the id "gamescreen" has been found 
+if (canvas != null){
+  let ctx = canvas.getContext("2d");
+  var hero = new Hero();
+  const background = new Background()
 
-export default ctx;
+  window.onload = function() {
 
-var hero = new Hero();
-const background = new Background()
+    background.draw(ctx)
+    hero.draw(ctx);
+  }
 
-window.onload = function() {
+  var input = new Input(hero);
+  var detectCollision = new DetectCollision(hero);
 
-  background.draw(ctx)
-  hero.draw(ctx);
-}
+  document.onkeydown = input.checkKey;
+  document.onkeyup = input.checkKey;
 
-var input = new Input(hero);
-var detectCollision = new DetectCollision(hero);
+  var refresh = function() {
+    ctx.clearRect(0, 0, 1500, 800);
+    background.draw(ctx);
+    hero.draw(ctx)
+  };
 
-document.onkeydown = input.checkKey;
-document.onkeyup = input.checkKey;
+  var loop = function() {
+    hero.airBorne()
+    detectCollision.hitBottom()
+    detectCollision.hitEdge()
+    input.movePlayer()
+    refresh()
+    window.requestAnimationFrame(loop);
+  }
 
-var refresh = function() {
-  ctx.clearRect(0, 0, 1500, 800);
-  background.draw(ctx);
-  hero.draw(ctx)
-};
-
-var loop = function() {
-  hero.airBorne()
-  detectCollision.hitBottom()
-  detectCollision.hitEdge()
-  input.movePlayer()
-  refresh()
   window.requestAnimationFrame(loop);
 }
-
-window.requestAnimationFrame(loop);
