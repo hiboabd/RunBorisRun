@@ -69,6 +69,14 @@ constructor() {
   }
 
   draw(ctx){
-    return ctx.drawImage(this.image, this.frameX * this.WIDTH, this.frameY * this.HEIGHT, this.WIDTH, this.HEIGHT, this.position.x, this.position.y, this.SCALED_WIDTH, this.SCALED_HEIGHT);
+    return ctx.drawImage(this.image,
+      this.frameX * this.WIDTH,
+      this.frameY * this.HEIGHT,
+      this.WIDTH,
+      this.HEIGHT,
+      this.position.x,
+      this.position.y,
+      this.SCALED_WIDTH,
+      this.SCALED_HEIGHT);
   }
 }
