@@ -57,19 +57,18 @@ export default class DetectCollision{
            this.touching = true
            this.hero.jumping = false
            this.hero.jumpSpeed = 0
-           console.log("Hero sideTouched platform!");
       }
 
       // If hero touches the left or right side of the platform
-      if(heroWidth > platformLeftEdge &&
-         heroWidth < platformLeftEdge + 10 &&
+      if(heroWidth + 20 > platformLeftEdge &&
+         heroWidth + 20 < platformLeftEdge + 10 &&
          heroBottom > platformTop &&
          heroBottom < platformBottom){
            sideTouched = true
          }
 
-      if(heroBack < platformRightEdge &&
-         heroBack > platformRightEdge - 10 &&
+      if(heroBack - 20 < platformRightEdge &&
+         heroBack - 20 > platformRightEdge - 10 &&
          heroBottom > platformTop &&
          heroBottom < platformBottom){
            sideTouched = true
@@ -87,9 +86,9 @@ export default class DetectCollision{
       // If hero walks off platform
       if(heroBottom == platformTop &&
          (heroWidth < platformLeftEdge &&
-          heroWidth > platformLeftEdge -50 ||
+          heroWidth > platformLeftEdge -10 ||
           heroBack > platformRightEdge &&
-          heroBack < platformRightEdge +50
+          heroBack < platformRightEdge +10
         )) {
            this.hero.jumping = true
            this.hero.jumpSpeed = 1
