@@ -27,9 +27,9 @@ var hero = new Hero();
 const background = new Background()
 
 var platforms = []
-platforms.push(new Platform('./assets/grass_4x1.png', 100, 600))
-platforms.push(new Platform('./assets/grass_4x1.png', 200, 400))
-platforms.push(new Platform('./assets/grass_4x1.png', 100, 200))
+platforms.push(new Platform('./assets/grass_4x1.png', 100, 600, 100, 500))
+platforms.push(new Platform('./assets/grass_4x1.png', 200, 400, 100, 200))
+platforms.push(new Platform('./assets/grass_4x1.png', 50, 200, 100, 300))
 
 var input = new Input(hero);
 var detectCollision = new DetectCollision(hero, platforms);

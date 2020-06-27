@@ -1,7 +1,7 @@
 export default class Platform {
-  constructor(image, x, y){
-    this.height = 100
-    this.width = 500
+  constructor(image, x, y, height, width){
+    this.height = height
+    this.width = width
     this.position = {x: x, y: y}
     this.image = new Image();
     this.image.src = image
