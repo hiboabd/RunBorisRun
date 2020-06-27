@@ -17,6 +17,7 @@ constructor() {
     this.jumping = false; 
     this.jumpSpeed = -15; 
     this.GRAVITY = 0.5
+
   }
   moveRight() {
     // var myVar = setInterval(this.myTimer, 1000);
@@ -69,6 +70,14 @@ constructor() {
   }
 
   draw(ctx){
+    this._update()
     return ctx.drawImage(this.image, this.frameX * this.WIDTH, this.frameY * this.HEIGHT, this.WIDTH, this.HEIGHT, this.position.x, this.position.y, this.SCALED_WIDTH, this.SCALED_HEIGHT);
+  }
+
+  _update(){
+    this.top    = this.position.y
+    this.bottom = this.position.y + this.SCALED_HEIGHT
+    this.right  = this.position.x + this.SCALED_WIDTH - 20
+    this.left   = this.position.x + 20
   }
 }
