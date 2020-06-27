@@ -25,6 +25,11 @@ export default class DetectCollision{
   }
 
   hitPlatform = () => {
+    console.log(` position: y ${this.hero.position.y}`)
+    console.log(` platform: y ${this.platform.position.y}`)
+    console.log(` position x:  ${this.hero.position.x}`)
+    console.log(` platform: x ${this.platform.position.x}`)
+    console.log(` platform width: ${this.platform.width}`)
 
     let heroTop    = this.hero.position.y
     let heroBottom = this.hero.position.y + this.hero.SCALED_HEIGHT
