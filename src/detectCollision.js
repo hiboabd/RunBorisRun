@@ -34,6 +34,7 @@ export default class DetectCollision{
       this._touchesEdge(platform)
       this._touchesUnder(platform)
       this._walksOff(platform)
+      this._moving(platform)
     }
 
     this.sideTouched ? (this.hero.SPEED = 0) : (this.hero.SPEED = 4)
@@ -79,6 +80,13 @@ export default class DetectCollision{
     if(this.hero.bottom == platform.top && (notTouchesLeft || notTouchesRight)) {
        this.hero.jumping = true
        this.hero.jumpSpeed = 1
+       this.touching = false
+    }
+  }
+
+  _moving(platform){
+    if(this.hero.position.y == (platform.position.y - this.hero.SCALED_HEIGHT) && platform.moving){
+      this.hero.position.x += platform.movingSpeed
     }
   }
 }
