@@ -67,7 +67,7 @@ export default class DetectCollision{
     let betweenPlatformWidth = (this.hero.right > platform.left - 15 && this.hero.left < platform.right + 15)
     let underPlatform = (this.hero.top + (this.hero.jumpSpeed / 4) < platform.bottom && this.hero.top > platform.bottom - 10)
 
-    if(underPlatform && betweenPlatformWidth){
+    if(underPlatform && betweenPlatformWidth && this.hero.jumpSpeed < 3){
        this.hero.jumping = true
        this.hero.jumpSpeed = 3
     }
