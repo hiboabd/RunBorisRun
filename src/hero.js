@@ -1,12 +1,12 @@
 export default class Hero {
 constructor() {
     this.SPEED = 2
-    this.position = { x: 50, y: 730 }
+    this.position = { x: 50, y: 700 }
     this.image = new Image();
-    this.image.src = "./assets/sprite.png"
-    this.SCALE = 4;
-    this.WIDTH = 16;
-    this.HEIGHT = 18;
+    this.image.src = "./assets/sprite_new.png"
+    this.SCALE = 1.2
+    this.WIDTH = 64;
+    this.HEIGHT = 72;
     this.SCALED_WIDTH = this.SCALE * this.WIDTH;
     this.SCALED_HEIGHT = this.SCALE * this.HEIGHT;
     this.frameX = 0;
