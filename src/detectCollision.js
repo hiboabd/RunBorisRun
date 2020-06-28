@@ -9,7 +9,6 @@ export default class DetectCollision{
     var rockBottom = 730
     if (this.hero.position.y > rockBottom){
       this.hero.jumping = false
-      this.hero.jumpSpeed = 0
       this.hero.position.y = rockBottom
     }
   }
@@ -59,7 +58,6 @@ export default class DetectCollision{
        this.touching = true
        this.hero.position.y = placeOnPlatform
        this.hero.jumping = false
-       this.hero.jumpSpeed = 0
     }
   }
 
@@ -85,7 +83,7 @@ export default class DetectCollision{
   }
 
   _moving(platform){
-    if(this.hero.position.y == (platform.position.y - this.hero.SCALED_HEIGHT) && platform.movingSpeed){
+    if(this.hero.position.y == (platform.position.y - this.hero.SCALED_HEIGHT)){
       this.hero.position.x += platform.movingSpeed
     }
   }

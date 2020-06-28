@@ -26,8 +26,8 @@ export default ctx;
 var hero = new Hero();
 const background = new Background()
 
-var platforms = []
-platforms.push(new Platform('./assets/grass_4x1.png', 100, 400, 100, 200, 0.2))
+var platforms = [] //Arguements - image, x, y, height, width, movingSpeed:(optional)
+platforms.push(new Platform('./assets/grass_4x1.png', 100, 400, 100, 200, 0.5))
 platforms.push(new Platform('./assets/grass_4x1.png', 600, 200, 100, 200, -0.2))
 platforms.push(new Platform('./assets/grass_4x1.png', 200, 600, 100, 200, -0.2))
 
