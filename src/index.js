@@ -6,6 +6,7 @@ import Background from './background'
 import Hero from '../src/hero'
 import Input from '../src/input'
 import DetectCollision from '../src/detectCollision'
+import SFX from '../src/sfx'
 
 
 
@@ -33,6 +34,7 @@ window.onload = function() {
 
 var input = new Input(hero);
 var detectCollision = new DetectCollision(hero);
+var play = new SFX(hero)
 
 document.onkeydown = input.checkKey;
 document.onkeyup = input.checkKey;
@@ -41,9 +43,11 @@ var refresh = function() {
   ctx.clearRect(0, 0, 1500, 800);
   background.draw(ctx);
   hero.draw(ctx)
+
 };
 
 var loop = function() {
+  play.gameSFX()
   hero.airBorne()
   detectCollision.hitBottom()
   detectCollision.hitEdge()
