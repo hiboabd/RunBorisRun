@@ -10,7 +10,6 @@ describe('DetectCollision', () => {
 
     const detectCollision = new DetectCollision(hero);
     detectCollision.hitBottom()
-    expect(hero.jumpSpeed).toEqual(0);
     expect(hero.position.y).toEqual(730);
   })
 
