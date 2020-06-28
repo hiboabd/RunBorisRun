@@ -8,7 +8,7 @@ function About(){
       <br/>
       <a href="/" className="button" >Home</a>
       <br/>
-      <a href="/controls" className="button" >Controls</a>
+      <a href="/rules" className="button" >Rules</a>
       <br/>
       <a href="/play" className="button" >Play</a>
       <br/>
