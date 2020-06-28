@@ -40,7 +40,7 @@ export default class DetectCollision{
   }
 
   _touchesEdge(platform){
-    let touchesLeft = (this.hero.right + 6 > platform.left && this.hero.right + 6 < platform.left + 10)
+    let touchesLeft = (this.hero.right + 8 > platform.left && this.hero.right + 6 < platform.left + 10)
     let touchesRight = (this.hero.left - 6 < platform.right && this.hero.left - 6 > platform.right - 10)
     let betweenPlatformHeight = (this.hero.bottom > platform.top && this.hero.bottom < platform.bottom)
 
@@ -63,8 +63,8 @@ export default class DetectCollision{
   }
 
   _touchesUnder(platform){
-    let betweenPlatformWidth = (this.hero.right > platform.left && this.hero.left < platform.right)
-    let underPlatform = (this.hero.top + (this.hero.jumpSpeed / 2) < platform.bottom && this.hero.top > platform.bottom - 10)
+    let betweenPlatformWidth = (this.hero.right > platform.left - 15 && this.hero.left < platform.right + 15)
+    let underPlatform = (this.hero.top + (this.hero.jumpSpeed / 4) < platform.bottom && this.hero.top > platform.bottom - 10)
 
     if(underPlatform && betweenPlatformWidth){
        this.hero.jumping = true
