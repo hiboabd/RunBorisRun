@@ -1,6 +1,7 @@
 export default class Input {
   constructor(hero){
     this.hero = hero;
+    this.startGame = false;
     this.up = false;
     this.left = false;
     this.right = false;
@@ -24,6 +25,9 @@ export default class Input {
         break;
         case 38: // up key
           this.up = key_state;
+        break;
+        case 32: // up key
+          this.startGame = key_state;
         break;
       }
     };

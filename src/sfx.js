@@ -3,8 +3,9 @@ import bumpMP3 from "../src/media/bump.mp3"
 import music from "../src/media/bgm.mp3"
 
 export default class Sfx{
-  constructor(hero) {
+  constructor(hero, input) {
     this.hero = hero;
+    this.input = input
     this.jumpAudio = new Audio(jumpMP3);
     this.bump = new Audio(bumpMP3);
     this.music = new Audio(music);
@@ -24,8 +25,10 @@ export default class Sfx{
   };
 
   gameMusic = () => {
+    if (this.input.startGame === true){
     this.music.play();
     this.musicPlay = true;
+    }
   };
 
 }

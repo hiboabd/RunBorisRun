@@ -34,7 +34,7 @@ window.onload = function() {
 
 var input = new Input(hero);
 var detectCollision = new DetectCollision(hero);
-var play = new SFX(hero)
+var play = new SFX(hero, input)
 
 document.onkeydown = input.checkKey;
 document.onkeyup = input.checkKey;
