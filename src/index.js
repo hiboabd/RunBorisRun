@@ -27,9 +27,9 @@ var hero = new Hero();
 const background = new Background()
 
 var platforms = []
-platforms.push(new Platform('./assets/grass_4x1.png', 100, 600, 100, 500))
-platforms.push(new Platform('./assets/grass_4x1.png', 200, 400, 100, 200))
-platforms.push(new Platform('./assets/grass_4x1.png', 50, 200, 100, 300))
+platforms.push(new Platform('./assets/grass_4x1.png', 100, 400, 100, 200, 0.2))
+platforms.push(new Platform('./assets/grass_4x1.png', 600, 200, 100, 200, -0.2))
+platforms.push(new Platform('./assets/grass_4x1.png', 200, 600, 100, 200, -0.2))
 
 var input = new Input(hero);
 var detectCollision = new DetectCollision(hero, platforms);
@@ -41,7 +41,10 @@ var refresh = function() {
   ctx.clearRect(0, 0, 1500, 800);
   background.draw(ctx);
   hero.draw(ctx);
-  for (var i = 0; i < platforms.length; i++){ platforms[i].draw(ctx) }
+  for (var i = 0; i < platforms.length; i++){
+    platforms[i].draw(ctx)
+    platforms[i].move()
+  }
 };
 
 var loop = function() {

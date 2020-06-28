@@ -1,11 +1,10 @@
 export default class Platform {
-  constructor(image, x, y, height, width, moving = false, movingSpeed = -0.5){
+  constructor(image, x, y, height, width, movingSpeed){
     this.height = height
     this.width = width
     this.position = {x: x, y: y}
     this.image = new Image();
     this.image.src = image
-    this.moving = moving
     this.movingSpeed = movingSpeed
   }
 
@@ -27,6 +26,6 @@ export default class Platform {
   }
 
   move(){
-    this.position.x += this.movingSpeed
+    if(this.movingSpeed) { this.position.x += this.movingSpeed }
   }
 }

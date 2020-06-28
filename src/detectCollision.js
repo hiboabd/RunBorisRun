@@ -85,7 +85,7 @@ export default class DetectCollision{
   }
 
   _moving(platform){
-    if(this.hero.position.y == (platform.position.y - this.hero.SCALED_HEIGHT) && platform.moving){
+    if(this.hero.position.y == (platform.position.y - this.hero.SCALED_HEIGHT) && platform.movingSpeed){
       this.hero.position.x += platform.movingSpeed
     }
   }
