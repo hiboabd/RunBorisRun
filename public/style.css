@@ -8,7 +8,6 @@ img {
 
 body {
   background-image: url("https://data.whicdn.com/images/208932206/original.gif");
-  font-size: 30px;
 }
 
 html, body {
@@ -25,7 +24,7 @@ html, body {
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	font-family: 'arcadeclassicregular', Arial, sans-serif;
 	font-size:28px;
 	font-weight:bold;
 	padding:5px 24px;
@@ -41,9 +40,12 @@ html, body {
 	top:1px;
 }
 
+h1{
+  font-family: 'arcadeclassicregular', Arial, sans-serif;
+  font-size: 50px;
+}
 
-
-
-
-
-/* https://www.pixilart.com/art/moving-clouds-d1d83dba314e320
+p{
+  font-family: 'arcadeclassicregular', Arial, sans-serif;
+  font-size: 30px;
+}
