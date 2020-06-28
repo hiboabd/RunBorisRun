@@ -48,6 +48,7 @@ var refresh = function() {
 
 var loop = function() {
   play.gameSFX()
+  play.gameMusic()
   hero.airBorne()
   detectCollision.hitBottom()
   detectCollision.hitEdge()

@@ -2,6 +2,7 @@ import Sfx from "../src/sfx";
 import Hero from '../src/hero';
 import jumpMP3 from "../src/media/jump.mp3";
 import bumpMP3 from "../src/media/bump.mp3";
+import music from "../src/media/bgm.mp3"
 
 describe('Sfx', () => {
 
@@ -19,6 +20,13 @@ describe('Sfx', () => {
     hero.position.x = -10
     audio.gameSFX();
     expect(audio.bumpPlay).toBe(true);
+  })
+
+  test('it plays background music', () => {
+    const hero = new Hero();
+    const audio = new Sfx(hero);
+    audio.gameMusic();
+    expect(audio.musicPlay).toBe(true)
   })
 
 })
