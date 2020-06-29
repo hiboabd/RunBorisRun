@@ -17,16 +17,16 @@ export default class Background{
     } else if (hero.position.x === 750 && hero.isMoving === false) {
       this.draw(ctx)
     } else {
-      this.background1X -= 5
-      this.background2X -= 5
+      this.background1X -= 0.7
+      this.background2X -= 0.7
       if(this.background1X === -3000){
         this.background1X = 3000
       } else if (this.background2X === -3000) {
-          this.background2X = 3000 
+          this.background2X = 3000
       }
     }
       this.draw(ctx)
-      
+
 
     // if(hero.position.x === 750){
     //   if (input.isMoving ===) {
@@ -38,27 +38,27 @@ export default class Background{
     //   }
     // }
 
- 
 
-    
+
+
     // if(hero.position.x === 750 && input.right === false){
-     
-      
+
+
     //   this.background1X -= 0
     //   console.log(input.right)
     //   this.draw(ctx)
-      
+
     //   // if(this.background1X === -1500){
     //   //   this.background1X = 1500
     //   // } else if (this.background2X === -1500) {
-    //   //    this.background2X = 1500 
+    //   //    this.background2X = 1500
     //   // }
     // } else if  {
     //   this.background1X -= 5
     //   this.draw(ctx)
     // }
-    
-    
+
+
   }
 
   draw(ctx){

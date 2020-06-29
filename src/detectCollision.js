@@ -42,7 +42,7 @@ export default class DetectCollision{
       this._touchesEdge(platform)
       this._touchesUnder(platform)
       this._walksOff(platform)
-      this._moving(platform)
+      // this._moving(platform)
     }
 
     this.sideTouched ? (this.hero.SPEED = 0) : (this.hero.SPEED = 4)
@@ -91,11 +91,11 @@ export default class DetectCollision{
     }
   }
 
-  _moving(platform){
-    if(this.hero.position.y == (platform.position.y - this.hero.SCALED_HEIGHT)){
-      this.hero.position.x += platform.movingSpeed
-    }
-  }
+  // _moving(platform){
+  //   if(this.hero.position.y == (platform.position.y - this.hero.SCALED_HEIGHT)){
+  //     this.hero.position.x += platform.movingSpeed
+  //   }
+  // }
 }
 
 //platform.height = 100
