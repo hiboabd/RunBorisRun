@@ -47,30 +47,11 @@ constructor() {
       this.position.y,
       this.SCALED_WIDTH,
       this.SCALED_HEIGHT);
-      // this.score);
   }
-  //
+
   scoreUp(){
       this.score += 1 / 60
     }
-
-    // if (isMoving == true){
-    //   this.score += 1
-    // }
-    // if gamestate == GAMEOVER {
-    //   this.score = 0
-    // }
-
-//   if (gapLength > 0) {
-// //     gapLength -= 1;
-
-// gapLengthX == this.position.x - this.position.x
-//
-// if gapLength > 0{
-//   this.score ++
-// }
-// // //   }
-//   // }
 
   _setSides(){
     this.top    = this.position.y
