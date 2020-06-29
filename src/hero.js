@@ -44,7 +44,7 @@ constructor() {
 
   jump = () => {
     this.jumpingDirection.push(this.frameY)
-    this.jumpSpeed = -10;
+    this.jumpSpeed = -15;
     this.jumping = true;
     this.animateSprite()
   }

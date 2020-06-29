@@ -41,7 +41,8 @@ export default class DetectCollision{
       } else if (leftJump){
         this.hero.position.x = passerby.position.x + 110
       }
-    } 
+    }
+  }
 
 
   hitPlatform = () => {

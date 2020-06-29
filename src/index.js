@@ -45,8 +45,8 @@ document.onkeyup = input.checkKey;
 
 var refresh = function() {
   ctx.clearRect(0, 0, 1500, 800);
-  passerby.draw(ctx)
   background.moveBackground(hero, input, ctx);
+  passerby.draw(ctx)
   hero.draw(ctx);
   for (var i = 0; i < platforms.length; i++){
     platforms[i].draw(ctx)
