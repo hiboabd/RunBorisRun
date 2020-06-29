@@ -37,7 +37,7 @@ constructor() {
   }
 
   draw(ctx){
-    this._setSides()
+    this._setSides();
     return ctx.drawImage(this.image,
       this.frameX * this.WIDTH,
       this.frameY * this.HEIGHT,
@@ -45,8 +45,33 @@ constructor() {
       this.position.x,
       this.position.y,
       this.SCALED_WIDTH,
-      this.SCALED_HEIGHT);
+      this.SCALED_HEIGHT,
+      this.score);
   }
+  //
+  score(){
+    if (this.position.x >= 1) {
+      this.score += 1
+    }
+  }
+
+    // if (isMoving == true){
+    //   this.score += 1
+    // }
+    // if gamestate == GAMEOVER {
+    //   this.score = 0
+    // }
+
+//   if (gapLength > 0) {
+// //     gapLength -= 1;
+
+// gapLengthX == this.position.x - this.position.x
+//
+// if gapLength > 0{
+//   this.score ++
+// }
+// // //   }
+//   // }
 
   _setSides(){
     this.top    = this.position.y
@@ -80,5 +105,6 @@ constructor() {
     this.increment = 0
     this.frameX = 0;
     this.frameY = 3;
+    this.score = 0;
   }
 }
