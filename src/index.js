@@ -44,7 +44,7 @@ var refresh = function() {
   ctx.clearRect(0, 0, 1500, 800);
   background.moveBackground(hero, input, ctx);
   hero.draw(ctx);
-  ctx.fillText("Score : " + Math.floor(hero.score), 10, 60);
+  ctx.fillText("Score : " + Math.floor(hero.score) + "m", 10, 60);
   console.log(hero.score);
   for (var i = 0; i < platforms.length; i++){
     platforms[i].draw(ctx)
