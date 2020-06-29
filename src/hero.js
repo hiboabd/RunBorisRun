@@ -1,15 +1,32 @@
 export default class Hero {
 constructor() {
     this.position = { x: 50, y: 730 }
-
+    this.image = new Image();
+    this.image.src = "./assets/sprite.png"
+    this.SCALE = 4;
+    this.WIDTH = 16;
+    this.HEIGHT = 18;
+    this.SCALED_WIDTH = this.SCALE * this.WIDTH;
+    this.SCALED_HEIGHT = this.SCALE * this.HEIGHT;
+    this.frameX = 0;
+    this.frameY = 3;
+    this.isMoving = false;
+    this.CYCLE_LOOP = [0, 1, 0, 2];
+    this.increment = 0;
+    this.jumping = false;
+    this.jumpSpeed = -15;
+    this.GRAVITY = 0.17
+    this.jumpingDirection = [];
     this._setSize()
     this._setImage()
     this._setFrames()
     this._setPhysics()
   }
+
   moveRight() {
     this.frameY = 3
     this.position.x += this.SPEED;
+    this.scoreUp()
     this.animateSprite()
   }
 
@@ -27,6 +44,7 @@ constructor() {
   }
 
   jump = () => {
+    this.jumpingDirection.push(this.frameY)
     this.jumpSpeed = -15;
     this.jumping = true;
     this.animateSprite()
@@ -37,7 +55,7 @@ constructor() {
   }
 
   draw(ctx){
-    this._setSides()
+    this._setSides();
     return ctx.drawImage(this.image,
       this.frameX * this.WIDTH,
       this.frameY * this.HEIGHT,
@@ -47,6 +65,14 @@ constructor() {
       this.SCALED_WIDTH,
       this.SCALED_HEIGHT);
   }
+
+  scoreUp(){
+      this.score += 1 / 60
+    }
+
+  infectionRateUp(){
+        this.infectionRate += 0.02
+      }
 
   _setSides(){
     this.top    = this.position.y
@@ -61,9 +87,9 @@ constructor() {
   }
 
   _setSize(){
-    this.SCALE = 4;
-    this.WIDTH = 16;
-    this.HEIGHT = 18;
+    this.SCALE = 1;
+    this.WIDTH = 64;
+    this.HEIGHT = 72;
     this.SCALED_WIDTH = this.SCALE * this.WIDTH;
     this.SCALED_HEIGHT = this.SCALE * this.HEIGHT;
   }
@@ -73,6 +99,7 @@ constructor() {
     this.jumpSpeed = -15; 
     this.GRAVITY = 0.5
     this.SPEED = 4
+    this.infectionRate = 0;
   }
 
   _setFrames(){
@@ -80,5 +107,6 @@ constructor() {
     this.increment = 0
     this.frameX = 0;
     this.frameY = 3;
+    this.score = 0;
   }
 }

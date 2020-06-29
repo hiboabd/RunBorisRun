@@ -1,9 +1,9 @@
 export default class Background{
   constructor(){
     this.background = new Image()
-    this.background.src = "/assets/background2.png";
+    this.background.src = "/assets/background.png";
     this.background1X = 0
-    this.background2X = 3000
+    this.background2X = 6500
 
 
   }
@@ -19,10 +19,10 @@ export default class Background{
     } else {
       this.background1X -= 0.7
       this.background2X -= 0.7
-      if(this.background1X === -3000){
-        this.background1X = 3000
-      } else if (this.background2X === -3000) {
-          this.background2X = 3000
+      if(this.background1X === -6500){
+        this.background1X = 6500
+      } else if (this.background2X === -6500) {
+          this.background2X = 6500
       }
     }
       this.draw(ctx)
@@ -62,8 +62,8 @@ export default class Background{
   }
 
   draw(ctx){
-    ctx.drawImage(this.background, this.background1X, 0, 3000,800);
-    ctx.drawImage(this.background, this.background2X, 0, 3000,800);
+    ctx.drawImage(this.background, this.background1X, 0, 6500,800);
+    ctx.drawImage(this.background, this.background2X, 0, 6500,800);
   }
 
 

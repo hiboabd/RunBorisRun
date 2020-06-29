@@ -6,6 +6,7 @@ export default class Input {
     this.left = false;
     this.right = false;
     this.keyUp = false;
+    this.history = []
   }
 
   checkKey = (e) => {
@@ -33,11 +34,12 @@ export default class Input {
     };
 
   movePlayer = () => {
-    if (this.right) { this.hero.moveRight() }
-    if (this.left)  { this.hero.moveLeft() }
+    if (this.right) { this.hero.moveRight();  }
+    if (this.left)  { this.hero.moveLeft();}
     if (this.up) {
       if (this.hero.jumping === false) { this.hero.jump() }
     }
     // if (this.keyUp) { this.hero.frameX = 0 }
   }
 }
+

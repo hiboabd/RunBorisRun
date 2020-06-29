@@ -33,6 +33,24 @@ describe('DetectCollision', () => {
     expect(hero.position.x).toEqual(0);
   })
 
+
+  test('hitPasserby prevents character from walking through passerby', () => {
+    const hero = {
+      position: {x: 600}, //set identical to passerby to mimic collision
+      moveRight: function() {
+        this.position.x += 1;
+      }
+    }
+
+    const passerby = {
+      position: {x: 600},
+    }
+
+    const detectCollision = new DetectCollision(hero);
+    detectCollision.hitPasserby(passerby)
+    expect(hero.position.x).toEqual(600);
+  })
+
   test('Hero touches platform', () => {
     const hero     = { top: 430, bottom: 502, left: 340, right: 364,
                        position: {x: 320, y: 430}, SCALED_HEIGHT: 72, SCALED_WIDTH: 64 }
