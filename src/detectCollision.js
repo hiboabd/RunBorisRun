@@ -23,6 +23,27 @@ export default class DetectCollision{
     }
   }
 
+  hitPasserby = (passerby, input) => {
+
+    var passerbyFront = passerby.position.x + 64
+    var passerbyBack = passerby.position.x
+    var heroFront = this.hero.position.x + 64
+    var heroBack = this.hero.position.x
+    var noJumps = (this.hero.jumpingDirection.length === 0)
+    var rightJump = (this.hero.jumpingDirection[this.hero.jumpingDirection.length -1] === 3)
+    var leftJump = (this.hero.jumpingDirection[this.hero.jumpingDirection.length -1] === 2)
+
+    if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
+      if(noJumps){
+        this.hero.position.x = passerby.position.x - 110
+      } else if (rightJump){
+        this.hero.position.x = passerby.position.x - 110
+      } else if (leftJump){
+        this.hero.position.x = passerby.position.x + 110
+      }
+    } 
+
+
   hitPlatform = () => {
     this.sideTouched = false;
 
