@@ -57,7 +57,7 @@ var play = new SFX(hero, input)
     background.moveBackground(hero, input, ctx);
     passerby.draw(ctx)
     hero.draw(ctx);
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = 'grey';
     ctx.fillText("Score : " + Math.floor(hero.score) + "m", 10, 60);
     ctx.fillText("Infection Rate : " + hero.infectionRate.toFixed(2), 10, 100);
     spawnObjects.update(ctx);

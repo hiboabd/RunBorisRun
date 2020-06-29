@@ -1,21 +1,21 @@
 export default class Hero {
 constructor() {
     this.position = { x: 50, y: 730 }
-    this.image = new Image();
-    this.image.src = "./assets/sprite.png"
-    this.SCALE = 4;
-    this.WIDTH = 16;
-    this.HEIGHT = 18;
-    this.SCALED_WIDTH = this.SCALE * this.WIDTH;
-    this.SCALED_HEIGHT = this.SCALE * this.HEIGHT;
-    this.frameX = 0;
-    this.frameY = 3;
-    this.isMoving = false;
-    this.CYCLE_LOOP = [0, 1, 0, 2];
-    this.increment = 0;
-    this.jumping = false;
-    this.jumpSpeed = -15;
-    this.GRAVITY = 0.17
+    // this.image = new Image();
+    // this.image.src = "./assets/sprite.png"
+    // this.SCALE = 4;
+    // this.WIDTH = 16;
+    // this.HEIGHT = 18;
+    // this.SCALED_WIDTH = this.SCALE * this.WIDTH;
+    // this.SCALED_HEIGHT = this.SCALE * this.HEIGHT;
+    // this.frameX = 0;
+    // this.frameY = 3;
+    // this.isMoving = false;
+    // this.CYCLE_LOOP = [0, 1, 0, 2];
+    // this.increment = 0;
+    // this.jumping = false;
+    // this.jumpSpeed = -15;
+    // this.GRAVITY = 0.17
     this.jumpingDirection = [];
     this._setSize()
     this._setImage()
@@ -83,13 +83,13 @@ constructor() {
 
   _setImage(){
     this.image = new Image();
-    this.image.src = "./assets/sprite.png"
+    this.image.src = "./assets/boris_sprite.png"
   }
 
   _setSize(){
-    this.SCALE = 1;
-    this.WIDTH = 64;
-    this.HEIGHT = 72;
+    this.SCALE = 4;
+    this.WIDTH = 16;
+    this.HEIGHT = 18;
     this.SCALED_WIDTH = this.SCALE * this.WIDTH;
     this.SCALED_HEIGHT = this.SCALE * this.HEIGHT;
   }
