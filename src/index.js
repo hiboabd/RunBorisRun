@@ -25,6 +25,7 @@ if (canvas != null){
   let ctx = canvas.getContext("2d");
   ctx.font = "30px Arial";
 
+
   var hero = new Hero();
   var passerby = new Passerby();
   const background = new Background();
@@ -72,6 +73,7 @@ if (canvas != null){
     detectCollision.hitPlatform()
     input.movePlayer()
     refresh()
+    window.requestAnimationFrame(loop);
   }
 
   window.requestAnimationFrame(loop);
