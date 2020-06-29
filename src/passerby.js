@@ -13,7 +13,9 @@ constructor() {
   }
 
   draw(ctx){
+
     ctx.fillRect(558, 700, 150, 150);
+
     ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
     return ctx.drawImage(this.image,
       this.frameX * this.WIDTH,

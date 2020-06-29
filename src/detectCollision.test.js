@@ -51,4 +51,6 @@ describe('DetectCollision', () => {
     expect(hero.position.x).toEqual(600);
   })
 
+  
+
 })
