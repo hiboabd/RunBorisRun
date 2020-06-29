@@ -26,6 +26,7 @@ constructor() {
   moveRight() {
     this.frameY = 3
     this.position.x += this.SPEED;
+    this.scoreUp()
     this.animateSprite()
   }
 
@@ -54,7 +55,7 @@ constructor() {
   }
 
   draw(ctx){
-    this._setSides()
+    this._setSides();
     return ctx.drawImage(this.image,
       this.frameX * this.WIDTH,
       this.frameY * this.HEIGHT,
@@ -64,6 +65,14 @@ constructor() {
       this.SCALED_WIDTH,
       this.SCALED_HEIGHT);
   }
+
+  scoreUp(){
+      this.score += 1 / 60
+    }
+
+  infectionRateUp(){
+        this.infectionRate += 0.02
+      }
 
   _setSides(){
     this.top    = this.position.y
@@ -90,6 +99,7 @@ constructor() {
     this.jumpSpeed = -15; 
     this.GRAVITY = 0.5
     this.SPEED = 4
+    this.infectionRate = 0;
   }
 
   _setFrames(){
@@ -97,5 +107,6 @@ constructor() {
     this.increment = 0
     this.frameX = 0;
     this.frameY = 3;
+    this.score = 0;
   }
 }

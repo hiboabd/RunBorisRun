@@ -108,4 +108,10 @@ describe('Hero', () => {
     hero.moveRight()
     expect(hero.increment).toEqual(0)
   })
+
+  test("Score goes up when hero moves right", () => {
+    const hero = new Hero()
+    hero.moveRight()
+    expect(hero.score).toEqual(1 / 60);
+  })
 })
