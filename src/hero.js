@@ -20,7 +20,7 @@ constructor() {
   }
 
   animateSprite(){
-   if(this.jumping == true) { this.frameX = 1 } else {
+   if(this.jumping === true) { this.frameX = 1 } else {
       this.frameX = this.CYCLE_LOOP[this.increment.toFixed(0)]
       this.increment > 3 ? (this.increment = 0) : (this.increment += 0.1)
     }
@@ -29,6 +29,7 @@ constructor() {
   jump = () => {
     this.jumpSpeed = -15;
     this.jumping = true;
+    this.animateSprite()
   }
 
   airBorne = () => {
