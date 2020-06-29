@@ -47,10 +47,6 @@ var input = new Input(hero);
 var detectCollision = new DetectCollision(hero, spawnObjects.platforms);
 var play = new SFX(hero, input)
 
-  var input = new Input(hero);
-  var detectCollision = new DetectCollision(hero, platforms);
-  var play = new SFX(hero, input)
-  // var game = new Game(hero)
 
 
   document.onkeydown = input.checkKey;
