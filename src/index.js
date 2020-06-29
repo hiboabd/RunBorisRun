@@ -7,6 +7,7 @@ import Hero from '../src/hero'
 import Input from '../src/input'
 import Platform from '../src/platform'
 import DetectCollision from '../src/detectCollision'
+import SFX from '../src/sfx'
 
 
 
@@ -33,6 +34,7 @@ platforms.push(new Platform('./assets/grass_4x1.png', 200, 600, 100, 200, -0.2))
 
 var input = new Input(hero);
 var detectCollision = new DetectCollision(hero, platforms);
+var play = new SFX(hero, input)
 
 document.onkeydown = input.checkKey;
 document.onkeyup = input.checkKey;
@@ -48,6 +50,8 @@ var refresh = function() {
 };
 
 var loop = function() {
+  play.gameSFX()
+  play.gameMusic()
   hero.airBorne()
   detectCollision.hitBottom()
   detectCollision.hitEdge()
