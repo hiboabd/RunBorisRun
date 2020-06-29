@@ -1,7 +1,7 @@
 export default class Background{
   constructor(){
     this.background = new Image()
-    this.background.src = "/assets/background2.png";
+    this.background.src = "/assets/background.png";
     this.background1X = 0
     this.background2X = 3000
 
@@ -22,11 +22,11 @@ export default class Background{
       if(this.background1X === -3000){
         this.background1X = 3000
       } else if (this.background2X === -3000) {
-          this.background2X = 3000 
+          this.background2X = 3000
       }
     }
       this.draw(ctx)
-      
+
 
     // if(hero.position.x === 750){
     //   if (input.isMoving ===) {
@@ -38,27 +38,27 @@ export default class Background{
     //   }
     // }
 
- 
 
-    
+
+
     // if(hero.position.x === 750 && input.right === false){
-     
-      
+
+
     //   this.background1X -= 0
     //   console.log(input.right)
     //   this.draw(ctx)
-      
+
     //   // if(this.background1X === -1500){
     //   //   this.background1X = 1500
     //   // } else if (this.background2X === -1500) {
-    //   //    this.background2X = 1500 
+    //   //    this.background2X = 1500
     //   // }
     // } else if  {
     //   this.background1X -= 5
     //   this.draw(ctx)
     // }
-    
-    
+
+
   }
 
   draw(ctx){

@@ -61,9 +61,9 @@ constructor() {
   }
 
   _setSize(){
-    this.SCALE = 4;
-    this.WIDTH = 16;
-    this.HEIGHT = 18;
+    this.SCALE = 1;
+    this.WIDTH = 64;
+    this.HEIGHT = 72;
     this.SCALED_WIDTH = this.SCALE * this.WIDTH;
     this.SCALED_HEIGHT = this.SCALE * this.HEIGHT;
   }
