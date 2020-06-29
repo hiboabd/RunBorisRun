@@ -9,11 +9,12 @@ constructor() {
     this.SCALED_WIDTH = this.SCALE * this.WIDTH; // 4*16 = 64
     this.SCALED_HEIGHT = this.SCALE * this.HEIGHT;
     this.frameX = 0;
-    this.frameY = 3;
+    this.frameY = 2;
   }
 
   draw(ctx){
-    ctx.fillRect(610, 700, 60, 60)
+    ctx.fillRect(558, 700, 150, 150);
+    ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
     return ctx.drawImage(this.image,
       this.frameX * this.WIDTH,
       this.frameY * this.HEIGHT,
