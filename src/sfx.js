@@ -15,20 +15,24 @@ export default class Sfx{
   };
 
   gameSFX = () => {
-    if (this.hero.jumpSpeed === -10){
+    if (this.hero.jumpSpeed === -10 && this.input.muted === false){
       this.jumpAudio.play();
       this.jumpPlay = true;
-    } else if (this.hero.position.x < 0){
+    } else if (this.hero.position.x < 0 && this.input.muted === false){
       this.bump.play();
       this.bumpPlay = true;
     }
   };
 
   gameMusic = () => {
-    if (this.input.startGame === true){
+    if (this.input.muted === false){
+    this.music.loop = true
     this.music.play();
     this.musicPlay = true;
-    }
+  }else if (this.input.muted === true){
+    this.music.pause()
+    this.musicPlay = false;
+  }
   };
 
 }
