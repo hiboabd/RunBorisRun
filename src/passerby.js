@@ -12,7 +12,7 @@ constructor() {
     this.frameY = 2;
     this.CYCLE_LOOP = [0, 1, 0, 2];
     this.increment = 0;
-    this.SPEED = 1;
+    this.SPEED = 5;
   }
 
   animateSprite(hero){
