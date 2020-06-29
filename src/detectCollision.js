@@ -20,7 +20,16 @@ export default class DetectCollision{
       this.hero.position.x = leftEdge
     } else if (this.hero.position.x > rightEdge){
       this.hero.position.x = rightEdge
-    }
+      for (var i = 0; i < this.platforms.length; i++) {
+        let platform  = this.platforms[i]
+        platform.movingSpeed = -2
+      }
+    } else{
+        for (var i = 0; i < this.platforms.length; i++) {
+          let platform  = this.platforms[i]
+          platform.movingSpeed = 0
+        }
+      }
   }
 
   hitPlatform = () => {

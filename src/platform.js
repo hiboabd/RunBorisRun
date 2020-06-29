@@ -1,5 +1,5 @@
 export default class Platform {
-  constructor(image, x, y, height, width, movingSpeed=0){
+  constructor(image, x, y, height, width, movingSpeed= 0){
     this.image = new Image()
     this.image.src = image
     this.position = {x: x, y: y}
