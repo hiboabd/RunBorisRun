@@ -53,6 +53,10 @@ constructor() {
       this.score += 1 / 60
     }
 
+  infectionRateUp(){
+        this.infectionRate += 0.02
+      }
+
   _setSides(){
     this.top    = this.position.y
     this.bottom = this.position.y + this.SCALED_HEIGHT
@@ -78,6 +82,7 @@ constructor() {
     this.jumpSpeed = -15; 
     this.GRAVITY = 0.5
     this.SPEED = 4
+    this.infectionRate = 0;
   }
 
   _setFrames(){

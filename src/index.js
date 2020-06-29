@@ -7,6 +7,7 @@ import Hero from '../src/hero'
 import Input from '../src/input'
 import Platform from '../src/platform'
 import DetectCollision from '../src/detectCollision'
+import Game from './game'
 import SFX from '../src/sfx'
 
 
@@ -36,6 +37,7 @@ platforms.push(new Platform('./assets/grass_4x1.png', 200, 600, 100, 200, -0.2))
 var input = new Input(hero);
 var detectCollision = new DetectCollision(hero, platforms);
 var play = new SFX(hero, input)
+// var game = new Game(hero)
 
 document.onkeydown = input.checkKey;
 document.onkeyup = input.checkKey;
@@ -45,6 +47,8 @@ var refresh = function() {
   background.moveBackground(hero, input, ctx);
   hero.draw(ctx);
   ctx.fillText("Score : " + Math.floor(hero.score) + "m", 10, 60);
+  ctx.fillText("Infection Rate : " + hero.infectionRate.toFixed(2), 10, 100);
+  // game.draw(ctx);
   console.log(hero.score);
   for (var i = 0; i < platforms.length; i++){
     platforms[i].draw(ctx)
@@ -53,6 +57,7 @@ var refresh = function() {
 };
 
 var loop = function() {
+  // game.draw(ctx)
   play.gameSFX()
   play.gameMusic()
   hero.airBorne()
