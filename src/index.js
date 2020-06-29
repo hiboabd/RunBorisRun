@@ -8,6 +8,7 @@ import Input from '../src/input'
 import Platform from '../src/platform'
 import DetectCollision from '../src/detectCollision'
 import SFX from '../src/sfx'
+import SpawnObjects from '../src/spawnObjects'
 
 
 
@@ -27,13 +28,18 @@ export default ctx;
 var hero = new Hero();
 const background = new Background()
 
-var platforms = [] //Arguements - image, x, y, height, width, movingSpeed:(optional)
-platforms.push(new Platform('./assets/grass_4x1.png', 100, 400, 100, 200, 0.5))
-platforms.push(new Platform('./assets/grass_4x1.png', 600, 200, 100, 200, -0.2))
-platforms.push(new Platform('./assets/grass_4x1.png', 200, 600, 100, 200, -0.2))
+// var platforms = [] //Arguements - image, x, y, height, width, movingSpeed:(optional)
+// platforms.push(new Platform('./assets/grass_4x1.png', 100, 400, 100, 200, 0.5))
+// platforms.push(new Platform('./assets/grass_4x1.png', 600, 200, 100, 200, -0.2))
+// platforms.push(new Platform('./assets/grass_4x1.png', 200, 600, 100, 200, -0.2))
+
+var spawnObjects = new SpawnObjects()
+spawnObjects.spawn()
+// objects = {hero: hero, platforms: platforms}
+// var detectCollision = new DetectCollision(objects);
 
 var input = new Input(hero);
-var detectCollision = new DetectCollision(hero, platforms);
+var detectCollision = new DetectCollision(hero, spawnObjects.platforms);
 var play = new SFX(hero, input)
 
 document.onkeydown = input.checkKey;
@@ -43,10 +49,11 @@ var refresh = function() {
   ctx.clearRect(0, 0, 1500, 800);
   background.moveBackground(hero, input, ctx);
   hero.draw(ctx);
-  for (var i = 0; i < platforms.length; i++){
-    platforms[i].draw(ctx)
-    platforms[i].move()
-  }
+  spawnObjects.update(ctx);
+  // for (var i = 0; i < platforms.length; i++){
+  //   platforms[i].draw(ctx)
+  //   platforms[i].move()
+  // }
 };
 
 var loop = function() {
