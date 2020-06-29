@@ -10,6 +10,7 @@ constructor() {
   moveRight() {
     this.frameY = 3
     this.position.x += this.SPEED;
+    this.scoreUp()
     this.animateSprite()
   }
 
@@ -45,15 +46,13 @@ constructor() {
       this.position.x,
       this.position.y,
       this.SCALED_WIDTH,
-      this.SCALED_HEIGHT,
-      this.score);
+      this.SCALED_HEIGHT);
+      // this.score);
   }
   //
-  score(){
-    if (this.position.x >= 1) {
-      this.score += 1
+  scoreUp(){
+      this.score += 1 / 60
     }
-  }
 
     // if (isMoving == true){
     //   this.score += 1

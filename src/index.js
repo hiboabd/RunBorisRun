@@ -44,7 +44,8 @@ var refresh = function() {
   ctx.clearRect(0, 0, 1500, 800);
   background.moveBackground(hero, input, ctx);
   hero.draw(ctx);
-  ctx.fillText("Score : " + hero.score, 10, 60);
+  ctx.fillText("Score : " + Math.floor(hero.score), 10, 60);
+  console.log(hero.score);
   for (var i = 0; i < platforms.length; i++){
     platforms[i].draw(ctx)
     platforms[i].move()
@@ -64,37 +65,3 @@ var loop = function() {
 }
 
 window.requestAnimationFrame(loop);
-
-
-
-
-// function spawnSprites() {
-//   // increase score
-//   score++;
-//   // first create a gap
-//   if (gapLength > 0) {
-//     gapLength -= 1;
-//   }
-//   // then create ground
-//   else if (platformLength > 0) {
-//     var type = getType();
-//     ground.push(new Sprite(
-//       canvas.width + platformWidth % player.speed,
-//       platformBase - platformHeight * platformSpacer,
-//       type
-//     ));
-//     platformLength -= 1;
-//     // add random environment sprites
-//     spawnEnvironmentSprites();
-//     // add random enemies
-//     spawnEnemySprites();
-//   }
-//   // start over
-//   else {
-//     // increase gap length every speed increase of 4
-//     gapLength = rand(player.speed - 2, player.speed);
-//     // only allow a ground to increase by 1
-//     platformHeight = bound(rand(0, platformHeight + rand(0, 2)), 0, 4);
-//     platformLength = rand(Math.floor(player.speed/2), player.speed * 4);
-//   }
-// }
