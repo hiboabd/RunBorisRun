@@ -21,7 +21,16 @@ export default class DetectCollision{
       this.hero.position.x = leftEdge
     } else if (this.hero.position.x > rightEdge){
       this.hero.position.x = rightEdge
-    }
+      for (var i = 0; i < this.platforms.length; i++) {
+        let platform  = this.platforms[i]
+        platform.movingSpeed = -2
+      }
+    } else{
+        for (var i = 0; i < this.platforms.length; i++) {
+          let platform  = this.platforms[i]
+          platform.movingSpeed = 0
+        }
+      }
   }
 
   hitPasserby = (passerby, input) => {
@@ -56,7 +65,7 @@ export default class DetectCollision{
       this._touchesEdge(platform)
       this._touchesUnder(platform)
       this._walksOff(platform)
-      this._moving(platform)
+      // this._moving(platform)
     }
 
     this.sideTouched ? (this.hero.SPEED = 0) : (this.hero.SPEED = 4)
@@ -107,11 +116,11 @@ export default class DetectCollision{
     }
   }
 
-  _moving(platform){
-    if(this.hero.position.y == (platform.position.y - this.hero.SCALED_HEIGHT)){
-      this.hero.position.x += platform.movingSpeed
-    }
-  }
+  // _moving(platform){
+  //   if(this.hero.position.y == (platform.position.y - this.hero.SCALED_HEIGHT)){
+  //     this.hero.position.x += platform.movingSpeed
+  //   }
+  // }
 }
 
 //platform.height = 100
