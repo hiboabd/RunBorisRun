@@ -16,33 +16,17 @@ constructor() {
   }
 
   animateSprite(hero){
-    // eslint-disable-next-line
-//    if(this.jumping === true){
-//      this.frameX = 1
-//   } else {
-//       if(this.isMoving){
-//         this.frameX = this.increment.toFixed(0)
-//         this.frameX = this.CYCLE_LOOP[this.frameX]
-//       if (this.increment > 3){
-//         this.increment = 0
-//       } else {
-//         this.increment += 0.1
-//         }
-//      }
-//   }
     if(this.position.x < -110){
       this.position.x = 1600
     }
 
-
-
     if(this.increment > 3){
       this.increment = 0
-    // } else if(hero.position.x === 0 && this.position.x === 106){
-    //     this.position.x = 106
-    //     this.frameX = this.increment.toFixed(0)
-    //     this.frameX = this.CYCLE_LOOP[this.frameX]
-    //     this.increment += 0.1
+    } else if(hero.position.x <= 10 && this.position.x === 106){
+        this.position.x = 106
+        this.frameX = this.increment.toFixed(0)
+        this.frameX = this.CYCLE_LOOP[this.frameX]
+        this.increment += 0.1
     } else {
         this.frameX = this.increment.toFixed(0)
         this.frameX = this.CYCLE_LOOP[this.frameX]

@@ -30,10 +30,18 @@ export default class DetectCollision{
     var heroBack = this.hero.position.x
     var jumpDirection = input.history[input.history.length - 1]
 
+    // if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
+    //   this.hero.position.x = passerby.position.x - 106
+    // } else if (heroBack <= passerbyFront && heroFront >= passerbyBack && this.hero.jumping === false ){
+    //   this.hero.position.x = passerby.position.x + 106
+    // }
+
     if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
-      this.hero.position.x = passerby.position.x - 106
-    } else if (heroBack <= passerbyFront && heroFront >= passerbyBack && this.hero.jumping === false ){
-      this.hero.position.x = passerby.position.x + 106
+      if(this.hero.frameY === 3){
+        this.hero.position.x = passerby.position.x - 106
+      } else if (this.hero.frameY === 2){
+        this.hero.position.x = passerby.position.x + 106
+      }
     }
   }
 }
