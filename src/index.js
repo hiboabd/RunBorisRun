@@ -44,6 +44,7 @@ var refresh = function() {
   ctx.clearRect(0, 0, 1500, 800);
   background.draw(ctx);
   hero.draw(ctx)
+  passerby.animateSprite()
   passerby.draw(ctx)
 };
 

@@ -1,6 +1,6 @@
 export default class Passerby {
 constructor() {
-    this.position = {x: 600, y: 730}
+    this.position = {x: 1400, y: 730}
     this.image = new Image();
     this.image.src = "./assets/sprite.png"
     this.SCALE = 4;
@@ -10,11 +10,38 @@ constructor() {
     this.SCALED_HEIGHT = this.SCALE * this.HEIGHT;
     this.frameX = 0;
     this.frameY = 2;
+    this.CYCLE_LOOP = [0, 1, 0, 2];
+    this.increment = 0;
+    this.SPEED = 1;
   }
 
-  draw(ctx){
+  animateSprite(){
+    // eslint-disable-next-line
+//    if(this.jumping === true){
+//      this.frameX = 1
+//   } else {
+//       if(this.isMoving){
+//         this.frameX = this.increment.toFixed(0)
+//         this.frameX = this.CYCLE_LOOP[this.frameX]
+//       if (this.increment > 3){
+//         this.increment = 0
+//       } else {
+//         this.increment += 0.1
+//         }
+//      }
+//   }
+    if(this.increment > 3){
+      this.increment = 0
+    } else {
+      this.frameX = this.increment.toFixed(0)
+      this.frameX = this.CYCLE_LOOP[this.frameX]
+      this.increment += 0.1
+      this.position.x -= this.SPEED;
+    }
+}
 
-    ctx.fillRect(558, 700, 150, 150);
+  draw(ctx){
+    ctx.fillRect((this.position.x - 42), (this.position.y - 30), 150, 150);
 
     ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
     return ctx.drawImage(this.image,

@@ -16,7 +16,7 @@ constructor() {
     this.increment = 0
     this.jumping = false; 
     this.jumpSpeed = -15; 
-    this.GRAVITY = 0.2
+    this.GRAVITY = 0.17
   }
   moveRight() {
     // var myVar = setInterval(this.myTimer, 1000);
