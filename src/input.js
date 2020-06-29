@@ -30,11 +30,12 @@ export default class Input {
     };
 
   movePlayer = () => {
-    if (this.right) { this.hero.moveRight(); this.history.push('r'); }
-    if (this.left)  { this.hero.moveLeft(); this.history.push('l');}
+    if (this.right) { this.hero.moveRight();  }
+    if (this.left)  { this.hero.moveLeft();}
     if (this.up) {
       if (this.hero.jumping === false) { this.hero.jump() }
     }
     // if (this.keyUp) { this.hero.frameX = 0 }
   }
 }
+

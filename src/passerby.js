@@ -12,7 +12,7 @@ constructor() {
     this.frameY = 2;
     this.CYCLE_LOOP = [0, 1, 0, 2];
     this.increment = 0;
-    this.SPEED = 2;
+    this.SPEED = 1;
   }
 
   animateSprite(hero){
@@ -22,7 +22,7 @@ constructor() {
 
     if(this.increment > 3){
       this.increment = 0
-    } else if(hero.position.x <= 10 && this.position.x === 106){
+    } else if(hero.position.x <= 15 && this.position.x <= 106){
         this.position.x = 106
         this.frameX = this.increment.toFixed(0)
         this.frameX = this.CYCLE_LOOP[this.frameX]

@@ -13,11 +13,13 @@ constructor() {
     this.frameY = 3;
     this.isMoving = false;
     this.CYCLE_LOOP = [0, 1, 0, 2];
-    this.increment = 0
-    this.jumping = false; 
-    this.jumpSpeed = -15; 
+    this.increment = 0;
+    this.jumping = false;
+    this.jumpSpeed = -15;
     this.GRAVITY = 0.17
+    this.jumpingDirection = [];
   }
+
   moveRight() {
     // var myVar = setInterval(this.myTimer, 1000);
     this.isMoving = true
@@ -57,6 +59,7 @@ constructor() {
 }
 
   jump = () => {
+    this.jumpingDirection.push(this.frameY)
     this.jumpSpeed = -10;
     this.jumping = true;
   }
