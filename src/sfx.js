@@ -16,7 +16,7 @@ export default class Sfx{
 
   gameSFX = () => {
     if (this.hero.jumpSpeed === -10){
-      this.jumpAudio.play();
+      //this.jumpAudio.play();
       this.jumpPlay = true;
     } else if (this.hero.position.x < 0){
       this.bump.play();
