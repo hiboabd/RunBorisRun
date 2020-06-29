@@ -51,6 +51,7 @@ var refresh = function() {
   background.moveBackground(hero, input, ctx);
   passerby.draw(ctx)
   hero.draw(ctx);
+  ctx.fillStyle = 'black';
   ctx.fillText("Score : " + Math.floor(hero.score) + "m", 10, 60);
   ctx.fillText("Infection Rate : " + hero.infectionRate.toFixed(2), 10, 100);
   // game.draw(ctx);
@@ -73,6 +74,7 @@ var loop = function() {
   detectCollision.hitPlatform()
   input.movePlayer()
   refresh()
+
   window.requestAnimationFrame(loop);
 }
 
