@@ -12,10 +12,10 @@ constructor() {
     this.frameY = 2;
     this.CYCLE_LOOP = [0, 1, 0, 2];
     this.increment = 0;
-    this.SPEED = 1;
+    this.SPEED = 2;
   }
 
-  animateSprite(){
+  animateSprite(hero){
     // eslint-disable-next-line
 //    if(this.jumping === true){
 //      this.frameX = 1
@@ -30,13 +30,24 @@ constructor() {
 //         }
 //      }
 //   }
+    if(this.position.x < -110){
+      this.position.x = 1600
+    }
+
+
+
     if(this.increment > 3){
       this.increment = 0
+    // } else if(hero.position.x === 0 && this.position.x === 106){
+    //     this.position.x = 106
+    //     this.frameX = this.increment.toFixed(0)
+    //     this.frameX = this.CYCLE_LOOP[this.frameX]
+    //     this.increment += 0.1
     } else {
-      this.frameX = this.increment.toFixed(0)
-      this.frameX = this.CYCLE_LOOP[this.frameX]
-      this.increment += 0.1
-      this.position.x -= this.SPEED;
+        this.frameX = this.increment.toFixed(0)
+        this.frameX = this.CYCLE_LOOP[this.frameX]
+        this.increment += 0.1
+        this.position.x -= this.SPEED;
     }
 }
 

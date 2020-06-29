@@ -44,7 +44,6 @@ var refresh = function() {
   ctx.clearRect(0, 0, 1500, 800);
   background.draw(ctx);
   hero.draw(ctx)
-  passerby.animateSprite()
   passerby.draw(ctx)
 };
 
@@ -53,6 +52,7 @@ var loop = function() {
   detectCollision.hitBottom()
   detectCollision.hitEdge()
   detectCollision.hitPasserby(passerby, input)
+  passerby.animateSprite(hero)
   input.movePlayer()
   refresh()
   window.requestAnimationFrame(loop);
