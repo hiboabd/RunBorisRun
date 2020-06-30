@@ -1,6 +1,6 @@
 export default class Passerby {
-constructor() {
-    this.position = {x: 1400, y: 730}
+constructor(x_position) {
+    this.position = {x: x_position, y: 730}
     this.image = new Image();
     this.image.src = "./assets/old_sprite.png"
     this.SCALE = 4;
@@ -17,30 +17,8 @@ constructor() {
 
   static speed = 2;
 
-  animateSprite(hero){
-    if(this.position.x < -110){
-      this.position.x = 1600
-    }
-
-    if(this.increment > 3){
-      this.increment = 0
-    } else if(hero.position.x <= 15 && this.position.x <= 106){
-        this.position.x = 106
-        this.frameX = this.increment.toFixed(0)
-        this.frameX = this.CYCLE_LOOP[this.frameX]
-        this.increment += 0.1
-    } else {
-        this.frameX = this.increment.toFixed(0)
-        this.frameX = this.CYCLE_LOOP[this.frameX]
-        this.increment += 0.1
-        this.position.x -= Passerby.speed;
-    }
-}
-
   draw(ctx){
-    // ctx.fillRect((this.position.x - 42), (this.position.y - 30), 150, 150);
-    //
-    // ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+    this._animateSprite()
     return ctx.drawImage(this.image,
       this.frameX * this.WIDTH,
       this.frameY * this.HEIGHT,
@@ -50,6 +28,20 @@ constructor() {
       this.position.y,
       this.SCALED_WIDTH,
       this.SCALED_HEIGHT);
+  }
+
+  _animateSprite(){
+    if(this.position.x < -110){
+      this.position.x = 1600
+    }
+    if(this.increment > 3){
+      this.increment = 0
+    } else {
+        this.frameX = this.increment.toFixed(0)
+        this.frameX = this.CYCLE_LOOP[this.frameX]
+        this.increment += 0.1
+        this.position.x -= Passerby.speed;
+    }
   }
 
 }

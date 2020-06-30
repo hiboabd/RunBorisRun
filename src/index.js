@@ -5,10 +5,11 @@ import App from './App';
 import Background from './background'
 import Hero from '../src/hero'
 import Input from '../src/input'
-import Passerby from '../src/passerby'
-import Platform from '../src/platform'
+import Score from '../src/score'
+// import Passerby from '../src/passerby'
+// import Platform from '../src/platform'
 import DetectCollision from '../src/detectCollision'
-import Game from './game'
+// import Game from './game'
 import SFX from '../src/sfx'
 import SpawnObjects from '../src/spawnObjects'
 
@@ -24,11 +25,11 @@ let canvas = document.getElementById("gameScreen");
 // only loads the canvas if the id "gamescreen" has been found
 if (canvas != null){
   let ctx = canvas.getContext("2d");
-  ctx.font = "30px Arial";
+  ctx.font = "35px arcadeclassicregular";
 
 
   var hero = new Hero();
-  var passerby = new Passerby();
+  // var passerby = new Passerby(1500);
   const background = new Background();
 
 
@@ -42,9 +43,8 @@ var spawnObjects = new SpawnObjects()
 spawnObjects.spawn()
 // objects = {hero: hero, platforms: platforms}
 // var detectCollision = new DetectCollision(objects);
-
 var input = new Input(hero);
-var detectCollision = new DetectCollision(hero, spawnObjects.platforms, background);
+var detectCollision = new DetectCollision(hero, spawnObjects.platforms, background, spawnObjects.passerbyFloor);
 var play = new SFX(hero, input)
 
 
@@ -55,23 +55,20 @@ var play = new SFX(hero, input)
   var refresh = function() {
     ctx.clearRect(0, 0, 1500, 800);
     background.draw(ctx)
-    passerby.draw(ctx)
     hero.draw(ctx);
     ctx.fillStyle = 'grey';
-    ctx.fillText("Score : " + Math.floor(hero.score) + "m", 10, 60);
-    ctx.fillText("Infection Rate : " + hero.infectionRate.toFixed(2), 10, 100);
+    ctx.fillText("Distance : " + Math.floor(Score.distance) + "m", 10, 60);
+    ctx.fillText("Infection Rate : " + Score.infectionRate.toFixed(2), 10, 100);
     spawnObjects.update(ctx);
   };
 
   var loop = function() {
-    // game.draw(ctx)
     play.gameSFX()
     play.gameMusic()
     hero.airBorne()
     detectCollision.hitBottom()
     detectCollision.hitEdge()
-    detectCollision.hitPasserby(passerby, input)
-    passerby.animateSprite(hero)
+    detectCollision.hitPasserby()
     detectCollision.hitPlatform()
     input.movePlayer()
     refresh()
