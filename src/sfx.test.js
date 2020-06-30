@@ -8,6 +8,8 @@ import music from "../src/media/bgm.mp3"
 describe('Sfx', () => {
 
   test('it plays jumpMP3 when hero is jumping', () => {
+    window.HTMLMediaElement.prototype.play = () => { /* do nothing */ };
+    window.HTMLMediaElement.prototype.pause = () => { /* do nothing */ };
     const hero = new Hero();
     const input = new Input()
     const audio = new Sfx(hero, input);
@@ -17,6 +19,8 @@ describe('Sfx', () => {
   })
 
   test('it plays bumpMP3 when hero bumps into left boundary', () => {
+    window.HTMLMediaElement.prototype.play = () => { /* do nothing */ };
+    window.HTMLMediaElement.prototype.pause = () => { /* do nothing */ };
     const hero = new Hero();
     const input = new Input()
     const audio = new Sfx(hero, input);
@@ -26,6 +30,8 @@ describe('Sfx', () => {
   })
 
   test('it plays background music', () => {
+    window.HTMLMediaElement.prototype.play = () => { /* do nothing */ };
+    window.HTMLMediaElement.prototype.pause = () => { /* do nothing */ };
     const hero = new Hero();
     const input = new Input()
     const audio = new Sfx(hero, input);;
@@ -34,6 +40,8 @@ describe('Sfx', () => {
   })
 
   test('when muted it doesnt play jumpMP3 when hero is jumping', () => {
+    window.HTMLMediaElement.prototype.play = () => { /* do nothing */ };
+    window.HTMLMediaElement.prototype.pause = () => { /* do nothing */ };
     const hero = new Hero();
     const input = new Input()
     const audio = new Sfx(hero, input);
@@ -44,6 +52,8 @@ describe('Sfx', () => {
   })
 
   test('when muted it doesnt play bumpMP3 when hero bumps into left boundary', () => {
+    window.HTMLMediaElement.prototype.play = () => { /* do nothing */ };
+    window.HTMLMediaElement.prototype.pause = () => { /* do nothing */ };
     const hero = new Hero();
     const input = new Input()
     const audio = new Sfx(hero, input);
@@ -54,6 +64,8 @@ describe('Sfx', () => {
   })
 
   test('when muted it doesnt play background music', () => {
+    window.HTMLMediaElement.prototype.play = () => { /* do nothing */ };
+    window.HTMLMediaElement.prototype.pause = () => { /* do nothing */ };
     const hero = new Hero();
     const input = new Input()
     const audio = new Sfx(hero, input);;
