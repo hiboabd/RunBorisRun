@@ -12,7 +12,7 @@ export default class DetectCollision{
     this.infectionRate = hero.score;
     this.background = background
     this.middleCanvas = 750
-    this.speed = 2 
+    this.speed = 2
     this.levelNumber = 15
     this.rangeNumber = 15.01
     this.score = new Score()
@@ -123,17 +123,15 @@ export default class DetectCollision{
     this.background.movingSpeed = 0
   }
 
-
-
   levelUp = () => {
-    var number = this.hero.score.distance.toFixed(0)
+    var number = Score.distance.toFixed(0)
 
     if(number < 10){
       this.speed = 2
     } else if (number >= 10 && number < 20) {
-      this.speed = 5 
+      this.speed = 5
     }else if (number >= 20 && number < 30) {
-      this.speed = 8 
+      this.speed = 8
     }else if (number >= 30 && number < 40) {
       this.speed = 11
     }else if (number >= 40 && number < 50) {
@@ -144,7 +142,7 @@ export default class DetectCollision{
 
 
 
-   
+
     // var number = this.hero.score.distance.toFixed(0)
 
     // if(number === 0){
@@ -152,17 +150,17 @@ export default class DetectCollision{
     // } else if (number % 10 === 0 && number > 0){
     //   this.speed = this.speed + 0.02
     // }
-    
 
 
-    
+
+
 
   //  if(this.hero.score.distance >= 15 && this.hero.score.distance <= 15.001 ){
-  //     this.speed = this.speed + 2 
+  //     this.speed = this.speed + 2
   //   } else if (this.hero.score.distance >= 20 && this.hero.score.distance <= 20.001 ){
-  //     this.speed = this.speed + 2 
+  //     this.speed = this.speed + 2
   //   }
-  
+
 
 
 
