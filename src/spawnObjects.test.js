@@ -36,4 +36,23 @@ describe('spawnObjects', () => {
     const newPlatform = spawnObjects.platforms[0]
     expect(newPlatform.position.x).toEqual(1600);
   })
+
+  test('new passerby is spawned in place of one going off canvas', () => {
+    const spawnObjects = new SpawnObjects()
+    spawnObjects.spawn()
+
+    const passerby = spawnObjects.passerbyFloor[0]
+    passerby.position.x = -100
+
+    var ctx = {
+      drawImage: function () {
+        return 'changed'
+      }
+    };
+
+    spawnObjects.update(ctx)
+
+    const newPasserby = spawnObjects.passerbyFloor[0]
+    expect(newPasserby.position.x).toBeGreaterThan(1450);
+  })
 })
