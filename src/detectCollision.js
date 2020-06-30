@@ -2,10 +2,13 @@ import Platform from '../src/platform'
 import Passerby from '../src/passerby'
 
 export default class DetectCollision{
-  constructor(hero, platforms, background) {
+
+  constructor(hero, platforms, background, passersby) {
     this.hero = hero
     this.platforms = platforms
     this.touching = false
+    this.passersby = passersby;
+    this.infectionRate = hero.score;
     this.background = background
     this.middleCanvas = 750
   }
@@ -24,26 +27,20 @@ export default class DetectCollision{
     (this.hero.position.x > this.middleCanvas) ? this._moveObjectsLeft() : this._stopObjects()
   }
 
-  hitPasserby = (passerby, input) => {
-
-    var passerbyFront = passerby.position.x + 64
-    var passerbyBack = passerby.position.x
-    var heroFront = this.hero.position.x + 64
-    var heroBack = this.hero.position.x
-    var noJumps = (this.hero.jumpingDirection.length === 0)
-    var rightJump = (this.hero.jumpingDirection[this.hero.jumpingDirection.length -1] === 3)
-    var leftJump = (this.hero.jumpingDirection[this.hero.jumpingDirection.length -1] === 2)
-
-    if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
-      if(noJumps){
-        this.hero.position.x = passerby.position.x - 110
-      } else if (rightJump){
-        this.hero.position.x = passerby.position.x - 110
-      } else if (leftJump){
-        this.hero.position.x = passerby.position.x + 110
+  hitPasserby = () => {
+      for (var i = 0; i < this.passersby.length; i++) {
+        let passerby  = this.passersby[i]
+        var passerbyFront = passerby.position.x + 64
+        var passerbyBack = passerby.position.x
+        var heroFront = this.hero.position.x + 64
+        var heroBack = this.hero.position.x
+        if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
+          if(this.hero.position.y === passerby.position.y){
+            this.infectionRate.infectionRateUp()
+          }
+        }
       }
     }
-  }
 
 
   hitPlatform = () => {
@@ -69,7 +66,6 @@ export default class DetectCollision{
 
     if((touchesLeft || touchesRight) && betweenPlatformHeight){
       this.sideTouched = true
-      this.hero.infectionRateUp()
     }
   }
 
@@ -80,7 +76,6 @@ export default class DetectCollision{
 
     if(onPlatform && betweenPlatformWidth) {
        this.touching = true
-       // this.hero.infectionRateUp()
        this.hero.position.y = placeOnPlatform
        this.hero.jumping = false
     }
@@ -100,7 +95,7 @@ export default class DetectCollision{
     let notTouchesLeft  = (this.hero.right < platform.left && this.hero.right > platform.left -10)
     let notTouchesRight = (this.hero.left > platform.right && this.hero.left < platform.right +10)
 
-    if(this.hero.bottom == platform.top && (notTouchesLeft || notTouchesRight)) {
+    if(this.hero.bottom === platform.top && (notTouchesLeft || notTouchesRight)) {
        this.hero.jumping = true
        this.hero.jumpSpeed = 1
        this.touching = false
