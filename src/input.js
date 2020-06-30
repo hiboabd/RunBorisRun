@@ -28,10 +28,10 @@ export default class Input {
           this.up = key_state;
         break;
         case 32: // up key
-          this.muted = false
+          this.muted = false;
         break;
         case 77: // up key
-          this.muted = true;
+          this.muted = true
         break;
       }
     };
@@ -41,7 +41,9 @@ export default class Input {
     if (this.left)  { this.hero.moveLeft();}
     if (this.up) {
       if (this.hero.jumping === false) { this.hero.jump() }
-    }
+    // } if (this.m === true && this.muted === false) {this.muted = true}
+    // if (this.m === true && this.muted === true) {this.muted = false}
     // if (this.keyUp) { this.hero.frameX = 0 }
+    }
   }
 }

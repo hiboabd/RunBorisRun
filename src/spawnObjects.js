@@ -12,7 +12,7 @@ export default class SpawnObjects {
     this.platforms.push(new Platform('./assets/grass_4x1.png', 1850, 500, 100, 200))
     this.platforms.push(new Platform('./assets/grass_4x1.png', 2100, 500, 100, 200))
     this.passerbyFloor.push(new Passerby(1500))
-    this.passerbyFloor.push(new Passerby(1700))
+    this.passerbyFloor.push(new Passerby(1900))
     this.passerbyFloor.push(new Passerby(2000))
   }
 
