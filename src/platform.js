@@ -5,8 +5,9 @@ export default class Platform {
     this.position = {x: x, y: y}
     this.height = height
     this.width = width
-    this.movingSpeed = movingSpeed
   }
+
+  static movingSpeed = 0;
 
   draw(ctx){
     this._setSides()
@@ -19,7 +20,7 @@ export default class Platform {
   }
 
   move(){
-    this.position.x += this.movingSpeed
+    this.position.x += Platform.movingSpeed
   }
 
   _setSides(){

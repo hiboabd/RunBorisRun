@@ -42,7 +42,7 @@ constructor() {
   animateSprite(){
    if(this.jumping === true) { this.frameX = 1 } else {
       this.frameX = this.CYCLE_LOOP[this.increment.toFixed(0)]
-      this.increment > 3 ? (this.increment = 0) : (this.increment += 0.1)
+      this.increment > 2 ? (this.increment = 0) : (this.increment += 0.1)
     }
   }
 

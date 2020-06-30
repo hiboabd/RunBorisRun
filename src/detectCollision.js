@@ -1,10 +1,16 @@
+import Platform from '../src/platform'
+import Passerby from '../src/passerby'
+
 export default class DetectCollision{
-  constructor(hero, platforms, passersby) {
+
+  constructor(hero, platforms, background, passersby) {
     this.hero = hero
     this.platforms = platforms
     this.touching = false
     this.passersby = passersby;
     this.infectionRate = hero.score;
+    this.background = background
+    this.middleCanvas = 750
   }
 
   hitBottom = () => {
@@ -17,22 +23,8 @@ export default class DetectCollision{
 
 
   hitEdge = () => {
-    var leftEdge = 0
-    var rightEdge = 750
-    if (this.hero.position.x < leftEdge){
-      this.hero.position.x = leftEdge
-    } else if (this.hero.position.x > rightEdge){
-      this.hero.position.x = rightEdge
-      for (var i = 0; i < this.platforms.length; i++) {
-        let platform  = this.platforms[i]
-        platform.movingSpeed = -2
-      }
-    } else{
-        for (var i = 0; i < this.platforms.length; i++) {
-          let platform  = this.platforms[i]
-          platform.movingSpeed = 0
-        }
-      }
+    if (this.hero.position.x < 0){ this.hero.position.x = 0 }
+    (this.hero.position.x > this.middleCanvas) ? this._moveObjectsLeft() : this._stopObjects()
   }
 
   hitPasserby = () => {
@@ -108,6 +100,20 @@ export default class DetectCollision{
        this.hero.jumpSpeed = 1
        this.touching = false
     }
+  }
+
+  _moveObjectsLeft(){
+    this.hero.position.x = this.middleCanvas
+    Platform.movingSpeed = -4
+    Passerby.speed = 6
+    this.background.movingSpeed = -3
+
+  }
+
+  _stopObjects(){
+    Platform.movingSpeed = 0
+    Passerby.speed = 2
+    this.background.movingSpeed = 0
   }
 
   // _moving(platform){

@@ -42,9 +42,8 @@ var spawnObjects = new SpawnObjects()
 spawnObjects.spawn()
 // objects = {hero: hero, platforms: platforms}
 // var detectCollision = new DetectCollision(objects);
-
 var input = new Input(hero);
-var detectCollision = new DetectCollision(hero, spawnObjects.platforms, spawnObjects.passerbyFloor);
+var detectCollision = new DetectCollision(hero, spawnObjects.platforms, background, spawnObjects.passerbyFloor);
 var play = new SFX(hero, input)
 
 
@@ -54,8 +53,7 @@ var play = new SFX(hero, input)
 
   var refresh = function() {
     ctx.clearRect(0, 0, 1500, 800);
-    background.moveBackground(hero, input, ctx);
-    // passerby.draw(ctx)
+    background.draw(ctx)
     hero.draw(ctx);
     ctx.fillStyle = 'grey';
     ctx.fillText("Distance : " + Math.floor(hero.score.distance) + "m", 10, 60);
@@ -64,14 +62,12 @@ var play = new SFX(hero, input)
   };
 
   var loop = function() {
-    // game.draw(ctx)
     play.gameSFX()
     play.gameMusic()
     hero.airBorne()
     detectCollision.hitBottom()
     detectCollision.hitEdge()
     detectCollision.hitPasserby()
-    // passerby.animateSprite(hero)
     detectCollision.hitPlatform()
     input.movePlayer()
     refresh()

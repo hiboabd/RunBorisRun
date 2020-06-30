@@ -1,8 +1,8 @@
 # Covid-game
 
-[![Build Status]() [ <---- PLACEHOLDER]
+[Build Status]() [ <---- PLACEHOLDER]
 
-Play the game [Here](https://unruffled-blackwell-65f8c3.netlify.app/)
+Play the game [Here](https://mystifying-morse-ca1a8f.netlify.app/)
 
 ## What is Covid-game?
 

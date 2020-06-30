@@ -1,12 +1,12 @@
 export default class Input {
   constructor(hero){
     this.hero = hero;
-    this.startGame = false;
     this.up = false;
     this.left = false;
     this.right = false;
     this.keyUp = false;
-    this.history = []
+    this.muted = false
+    this.history =[]
   }
 
   checkKey = (e) => {
@@ -28,7 +28,10 @@ export default class Input {
           this.up = key_state;
         break;
         case 32: // up key
-          this.startGame = key_state;
+          this.muted = false
+        break;
+        case 77: // up key
+          this.muted = true;
         break;
       }
     };
@@ -42,4 +45,3 @@ export default class Input {
     // if (this.keyUp) { this.hero.frameX = 0 }
   }
 }
-
