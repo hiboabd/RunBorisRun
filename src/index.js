@@ -5,7 +5,7 @@ import App from './App';
 import Background from './background'
 import Hero from '../src/hero'
 import Input from '../src/input'
-import Passerby from '../src/passerby'
+import Score from '../src/score'
 // import Platform from '../src/platform'
 import DetectCollision from '../src/detectCollision'
 // import Game from './game'
@@ -57,8 +57,8 @@ var play = new SFX(hero, input)
     background.draw(ctx)
     hero.draw(ctx);
     ctx.fillStyle = 'grey';
-    ctx.fillText("Distance : " + Math.floor(hero.score.distance) + "m", 10, 60);
-    ctx.fillText("Infection Rate : " + hero.score.infectionRate.toFixed(2), 10, 100);
+    ctx.fillText("Distance : " + Math.floor(Score.distance) + "m", 10, 60);
+    ctx.fillText("Infection Rate : " + Score.infectionRate.toFixed(2), 10, 100);
     spawnObjects.update(ctx);
   };
 

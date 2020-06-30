@@ -1,4 +1,4 @@
-import Score from '../src/score'
+// import Score from '../src/score'
 
 export default class Hero {
 constructor() {
@@ -23,13 +23,12 @@ constructor() {
     this._setImage()
     this._setFrames()
     this._setPhysics()
-    this.score = new Score
+    // this.score = new Score()
   }
 
   moveRight() {
     this.frameY = 3
     this.position.x += this.SPEED;
-    this.score.scoreUp()
     this.animateSprite()
   }
 

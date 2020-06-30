@@ -2,7 +2,7 @@ import Passerby from '../src/passerby'
 
 describe('Passerby', () => {
   test('current position', () => {
-    const passerby = new Passerby();
+    const passerby = new Passerby(1400);
 
     expect(passerby.position.x).toEqual(1400);
   })

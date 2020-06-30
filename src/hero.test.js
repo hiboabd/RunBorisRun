@@ -1,4 +1,8 @@
 import Hero from '../src/hero'
+import DetectCollision from '../src/detectCollision'
+import Score from '../src/score'
+import Background from '../src/background'
+import Platform from '../src/platform'
 
 describe('Hero', () => {
 
@@ -111,7 +115,11 @@ describe('Hero', () => {
 
   test("Score goes up when hero moves right", () => {
     const hero = new Hero()
-    hero.moveRight()
-    expect(hero.score).toEqual(1 / 60);
+    const background = new Background()
+    const platform = [new Platform()]
+    hero.position.x = 800
+    const detectCollision = new DetectCollision(hero, platform, background)
+    detectCollision.hitEdge()
+    expect(Score.distance).toEqual(1 / 60);
   })
 })
