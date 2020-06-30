@@ -71,7 +71,7 @@ constructor() {
     }
 
   infectionRateUp(){
-        this.infectionRate += 0.02
+        this.infectionRate += 0.005
       }
 
   _setSides(){

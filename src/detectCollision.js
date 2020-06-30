@@ -40,7 +40,7 @@ export default class DetectCollision{
     var heroFront = this.hero.position.x + 64
     var heroBack = this.hero.position.x
 
-    // 
+    //
     // heroFront >= passerbyBack && heroBack <= passerbyFront
     // heroBack <= passerbyFront && heroFront >= passerbyBack
 
@@ -48,6 +48,7 @@ export default class DetectCollision{
     if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
       if(this.hero.position.y === passerby.position.y){
         console.log('collision')
+        this.hero.infectionRateUp()
       } else {
         console.log('no collision')
       }
@@ -80,7 +81,6 @@ export default class DetectCollision{
 
     if((touchesLeft || touchesRight) && betweenPlatformHeight){
       this.sideTouched = true
-      this.hero.infectionRateUp()
     }
   }
 
@@ -91,7 +91,6 @@ export default class DetectCollision{
 
     if(onPlatform && betweenPlatformWidth) {
        this.touching = true
-       this.hero.infectionRateUp()
        this.hero.position.y = placeOnPlatform
        this.hero.jumping = false
     }

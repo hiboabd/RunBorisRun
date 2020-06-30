@@ -24,7 +24,7 @@ let canvas = document.getElementById("gameScreen");
 // only loads the canvas if the id "gamescreen" has been found
 if (canvas != null){
   let ctx = canvas.getContext("2d");
-  ctx.font = "30px Arial";
+  ctx.font = "35px arcadeclassicregular";
 
 
   var hero = new Hero();
@@ -58,7 +58,7 @@ var play = new SFX(hero, input)
     passerby.draw(ctx)
     hero.draw(ctx);
     ctx.fillStyle = 'grey';
-    ctx.fillText("Score : " + Math.floor(hero.score) + "m", 10, 60);
+    ctx.fillText("Distance : " + Math.floor(hero.score) + "m", 10, 60);
     ctx.fillText("Infection Rate : " + hero.infectionRate.toFixed(2), 10, 100);
     spawnObjects.update(ctx);
   };
