@@ -31,7 +31,9 @@ describe('DetectCollision', () => {
       position: {x: -50}, //set to -50 to test left hand bounds
     }
 
-    const detectCollision = new DetectCollision(hero);
+    const platform = new Platform()
+    const background = new Backround()
+    const detectCollision = new DetectCollision(hero, platform, background);
     detectCollision.hitEdge()
     expect(hero.position.x).toEqual(0);
   })
