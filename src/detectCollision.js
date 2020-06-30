@@ -1,8 +1,9 @@
 export default class DetectCollision{
-  constructor(hero, platforms) {
+  constructor(hero, platforms, passersby) {
     this.hero = hero
     this.platforms = platforms
     this.touching = false
+    this.passersby = passersby;
   }
 
   hitBottom = () => {
@@ -33,20 +34,20 @@ export default class DetectCollision{
       }
   }
 
-  hitPasserby = (passerby) => {
-
-    var passerbyFront = passerby.position.x + 64
-    var passerbyBack = passerby.position.x
-    var heroFront = this.hero.position.x + 64
-    var heroBack = this.hero.position.x
-
-
-    if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
-      if(this.hero.position.y === passerby.position.y){
-        this.hero.infectionRateUp()
+  hitPasserby = () => {
+      for (var i = 0; i < this.passersby.length; i++) {
+        let passerby  = this.passersby[i]
+        var passerbyFront = passerby.position.x + 64
+        var passerbyBack = passerby.position.x
+        var heroFront = this.hero.position.x + 64
+        var heroBack = this.hero.position.x
+        if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
+          if(this.hero.position.y === passerby.position.y){
+            this.hero.infectionRateUp()
+          }
+        }
       }
     }
-  }
 
 
   hitPlatform = () => {

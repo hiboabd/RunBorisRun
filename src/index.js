@@ -5,7 +5,7 @@ import App from './App';
 import Background from './background'
 import Hero from '../src/hero'
 import Input from '../src/input'
-import Passerby from '../src/passerby'
+// import Passerby from '../src/passerby'
 // import Platform from '../src/platform'
 import DetectCollision from '../src/detectCollision'
 // import Game from './game'
@@ -44,7 +44,7 @@ spawnObjects.spawn()
 // var detectCollision = new DetectCollision(objects);
 
 var input = new Input(hero);
-var detectCollision = new DetectCollision(hero, spawnObjects.platforms);
+var detectCollision = new DetectCollision(hero, spawnObjects.platforms, spawnObjects.passerbyFloor);
 var play = new SFX(hero, input)
 
 
@@ -70,7 +70,7 @@ var play = new SFX(hero, input)
     hero.airBorne()
     detectCollision.hitBottom()
     detectCollision.hitEdge()
-    // detectCollision.hitPasserby(passerby)
+    detectCollision.hitPasserby()
     // passerby.animateSprite(hero)
     detectCollision.hitPlatform()
     input.movePlayer()

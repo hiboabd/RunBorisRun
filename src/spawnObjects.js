@@ -51,8 +51,6 @@ export default class SpawnObjects {
         var positions = [1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000]
         // var random_x = Math.floor(Math.random() * 1400) + 200
         var random_x = Math.floor(Math.random() * (positions.length)) + 0
-        console.log(random_x)
-        console.log(positions)
 
         this.passerbyFloor.push(new Passerby(positions[random_x]))
       }
