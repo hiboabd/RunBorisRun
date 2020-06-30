@@ -1,6 +1,7 @@
 import DetectCollision from '../src/detectCollision'
 import Hero from '../src/hero'
 import Platform from '../src/platform'
+import Backround from '../src/background'
 
 describe('DetectCollision', () => {
 
@@ -18,8 +19,9 @@ describe('DetectCollision', () => {
   test('hitEdge prevents character from moving out of right boundary', () => {
     const hero = new Hero()
     const platform = new Platform()
-    const detectCollision = new DetectCollision(hero, platform);
-    hero.position.x = 800
+    const background = new Backround()
+    const detectCollision = new DetectCollision(hero, platform, background);
+        hero.position.x = 800
     detectCollision.hitEdge()
     expect(hero.position.x).toEqual(750);
   })
