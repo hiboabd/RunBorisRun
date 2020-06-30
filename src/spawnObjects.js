@@ -33,10 +33,10 @@ export default class SpawnObjects {
         this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, positions[random_y], 100, 200))
       }
     }
-    this.updatePasserby(ctx)
+    this._updatePasserby(ctx)
   }
 
-  updatePasserby(ctx){
+  _updatePasserby(ctx){
     for (var i = 0; i < this.passerbyFloor.length; i++){
       let passerby = this.passerbyFloor[i]
       // console.log(`Platform ${i} x position: ${platform.right}`);
