@@ -11,6 +11,7 @@ export default class Platform {
 
   draw(ctx){
     this._setSides()
+    this._move()
     return ctx.drawImage(this.image,
       this.position.x,
       this.position.y,
@@ -19,7 +20,7 @@ export default class Platform {
     );
   }
 
-  move(){
+  _move(){
     this.position.x += Platform.movingSpeed
   }
 
