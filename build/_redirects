@@ -1,4 +1,4 @@
-/home /
-/play /play
-/rules /rules
-/about /about
+./components/home /
+./components/play /play
+./components/rules /rules
+./components/about /about
