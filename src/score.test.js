@@ -12,7 +12,7 @@ describe('Score', () => {
   test('it increase the infection rate based on contact', () => {
     Score.infectionRateUp()
     Score.infectionRateUp()
-    expect(Score.infectionRate).toEqual(0.01)
+    expect(Score.infectionRate).toEqual(0.04)
   })
 
 })
