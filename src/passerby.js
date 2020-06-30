@@ -38,7 +38,7 @@ constructor() {
   draw(ctx){
     ctx.fillRect((this.position.x - 42), (this.position.y - 30), 150, 150);
 
-    ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+    // ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
     return ctx.drawImage(this.image,
       this.frameX * this.WIDTH,
       this.frameY * this.HEIGHT,

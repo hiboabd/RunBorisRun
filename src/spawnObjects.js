@@ -14,7 +14,7 @@ export default class SpawnObjects {
   update(ctx){
     for (var i = 0; i < this.platforms.length; i++){
       let platform = this.platforms[i]
-      console.log(`Platform ${i} x position: ${platform.right}`);
+      // console.log(`Platform ${i} x position: ${platform.right}`);
 
       platform.draw(ctx)
       platform.move()

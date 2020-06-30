@@ -97,7 +97,7 @@ constructor() {
   _setPhysics(){
     this.jumping = false; 
     this.jumpSpeed = -15; 
-    this.GRAVITY = 0.5
+    this.GRAVITY = 0.3
     this.SPEED = 4
     this.infectionRate = 0;
   }

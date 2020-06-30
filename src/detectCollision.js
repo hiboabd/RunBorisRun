@@ -33,24 +33,21 @@ export default class DetectCollision{
       }
   }
 
-  hitPasserby = (passerby, input) => {
+  hitPasserby = (passerby) => {
 
     var passerbyFront = passerby.position.x + 64
     var passerbyBack = passerby.position.x
     var heroFront = this.hero.position.x + 64
     var heroBack = this.hero.position.x
-    var noJumps = (this.hero.jumpingDirection.length === 0)
-    var rightJump = (this.hero.jumpingDirection[this.hero.jumpingDirection.length -1] === 3)
-    var leftJump = (this.hero.jumpingDirection[this.hero.jumpingDirection.length -1] === 2)
 
     if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
-      if(noJumps){
-        this.hero.position.x = passerby.position.x - 110
-      } else if (rightJump){
-        this.hero.position.x = passerby.position.x - 110
-      } else if (leftJump){
-        this.hero.position.x = passerby.position.x + 110
+      if(this.hero.position.y === passerby.position.y){
+        console.log('collision')
+      } else {
+        console.log('no collision')
       }
+    } else {
+      console.log('no collision')
     }
   }
 
@@ -109,7 +106,7 @@ export default class DetectCollision{
     let notTouchesLeft  = (this.hero.right < platform.left && this.hero.right > platform.left -10)
     let notTouchesRight = (this.hero.left > platform.right && this.hero.left < platform.right +10)
 
-    if(this.hero.bottom == platform.top && (notTouchesLeft || notTouchesRight)) {
+    if(this.hero.bottom === platform.top && (notTouchesLeft || notTouchesRight)) {
        this.hero.jumping = true
        this.hero.jumpSpeed = 1
        this.touching = false
