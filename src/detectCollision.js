@@ -4,6 +4,7 @@ export default class DetectCollision{
     this.platforms = platforms
     this.touching = false
     this.passersby = passersby;
+    this.infectionRate = hero.score;
   }
 
   hitBottom = () => {
@@ -43,7 +44,7 @@ export default class DetectCollision{
         var heroBack = this.hero.position.x
         if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
           if(this.hero.position.y === passerby.position.y){
-            this.hero.infectionRateUp()
+            this.infectionRate.infectionRateUp()
           }
         }
       }

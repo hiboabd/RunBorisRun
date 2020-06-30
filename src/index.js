@@ -58,8 +58,8 @@ var play = new SFX(hero, input)
     // passerby.draw(ctx)
     hero.draw(ctx);
     ctx.fillStyle = 'grey';
-    ctx.fillText("Distance : " + Math.floor(hero.score) + "m", 10, 60);
-    ctx.fillText("Infection Rate : " + hero.infectionRate.toFixed(2), 10, 100);
+    ctx.fillText("Distance : " + Math.floor(hero.score.distance) + "m", 10, 60);
+    ctx.fillText("Infection Rate : " + hero.score.infectionRate.toFixed(2), 10, 100);
     spawnObjects.update(ctx);
   };
 

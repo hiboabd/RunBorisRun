@@ -1,3 +1,5 @@
+import Score from '../src/score'
+
 export default class Hero {
 constructor() {
     this.position = { x: 50, y: 730 }
@@ -21,12 +23,13 @@ constructor() {
     this._setImage()
     this._setFrames()
     this._setPhysics()
+    this.score = new Score
   }
 
   moveRight() {
     this.frameY = 3
     this.position.x += this.SPEED;
-    this.scoreUp()
+    this.score.scoreUp()
     this.animateSprite()
   }
 
@@ -66,13 +69,13 @@ constructor() {
       this.SCALED_HEIGHT);
   }
 
-  scoreUp(){
-      this.score += 1 / 60
-    }
-
-  infectionRateUp(){
-        this.infectionRate += 0.005
-      }
+  // scoreUp(){
+  //     this.score += 1 / 60
+  //   }
+  //
+  // infectionRateUp(){
+  //       this.infectionRate += 0.005
+  //     }
 
   _setSides(){
     this.top    = this.position.y
