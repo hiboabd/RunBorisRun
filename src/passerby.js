@@ -1,6 +1,6 @@
 export default class Passerby {
-constructor() {
-    this.position = {x: 1400, y: 730}
+constructor(x_position) {
+    this.position = {x: x_position, y: 730}
     this.image = new Image();
     this.image.src = "./assets/old_sprite.png"
     this.SCALE = 4;

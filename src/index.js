@@ -28,7 +28,7 @@ if (canvas != null){
 
 
   var hero = new Hero();
-  var passerby = new Passerby();
+  // var passerby = new Passerby(1500);
   const background = new Background();
 
 
@@ -55,7 +55,7 @@ var play = new SFX(hero, input)
   var refresh = function() {
     ctx.clearRect(0, 0, 1500, 800);
     background.moveBackground(hero, input, ctx);
-    passerby.draw(ctx)
+    // passerby.draw(ctx)
     hero.draw(ctx);
     ctx.fillStyle = 'grey';
     ctx.fillText("Distance : " + Math.floor(hero.score) + "m", 10, 60);
@@ -70,8 +70,8 @@ var play = new SFX(hero, input)
     hero.airBorne()
     detectCollision.hitBottom()
     detectCollision.hitEdge()
-    detectCollision.hitPasserby(passerby)
-    passerby.animateSprite(hero)
+    // detectCollision.hitPasserby(passerby)
+    // passerby.animateSprite(hero)
     detectCollision.hitPlatform()
     input.movePlayer()
     refresh()
