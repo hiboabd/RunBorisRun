@@ -79,7 +79,7 @@ export default class DetectCollision{
 
     if(onPlatform && betweenPlatformWidth) {
        this.touching = true
-       this.hero.infectionRateUp()
+       // this.hero.infectionRateUp()
        this.hero.position.y = placeOnPlatform
        this.hero.jumping = false
     }

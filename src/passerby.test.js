@@ -4,7 +4,7 @@ describe('Passerby', () => {
   test('current position', () => {
     const passerby = new Passerby();
 
-    expect(passerby.position.x).toEqual({ x: 800, y: 730});
+    expect(passerby.position.x).toEqual(1400);
   })
 
   test('draw function calls drawImage function of ctx object', () => {
