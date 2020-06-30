@@ -22,11 +22,6 @@ constructor() {
 
     if(this.increment > 3){
       this.increment = 0
-    } else if(hero.position.x <= 15 && this.position.x <= 106){
-        this.position.x = 106
-        this.frameX = this.increment.toFixed(0)
-        this.frameX = this.CYCLE_LOOP[this.frameX]
-        this.increment += 0.1
     } else {
         this.frameX = this.increment.toFixed(0)
         this.frameX = this.CYCLE_LOOP[this.frameX]
