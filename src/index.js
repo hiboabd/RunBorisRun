@@ -44,7 +44,7 @@ spawnObjects.spawn()
 // var detectCollision = new DetectCollision(objects);
 
 var input = new Input(hero);
-var detectCollision = new DetectCollision(hero, spawnObjects.platforms);
+var detectCollision = new DetectCollision(hero, spawnObjects.platforms, background);
 var play = new SFX(hero, input)
 
 
@@ -54,7 +54,7 @@ var play = new SFX(hero, input)
 
   var refresh = function() {
     ctx.clearRect(0, 0, 1500, 800);
-    background.moveBackground(hero, input, ctx);
+    background.draw(ctx)
     passerby.draw(ctx)
     hero.draw(ctx);
     ctx.fillStyle = 'grey';

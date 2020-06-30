@@ -1,8 +1,9 @@
 export default class DetectCollision{
-  constructor(hero, platforms) {
+  constructor(hero, platforms, background) {
     this.hero = hero
     this.platforms = platforms
     this.touching = false
+    this.background = background
   }
 
   hitBottom = () => {
@@ -23,13 +24,17 @@ export default class DetectCollision{
       this.hero.position.x = rightEdge
       for (var i = 0; i < this.platforms.length; i++) {
         let platform  = this.platforms[i]
-        platform.movingSpeed = -2
+        platform.movingSpeed = -4
+
       }
+      this.background.movingSpeed = -3
     } else{
         for (var i = 0; i < this.platforms.length; i++) {
           let platform  = this.platforms[i]
           platform.movingSpeed = 0
+
         }
+        this.background.movingSpeed = 0
       }
   }
 
