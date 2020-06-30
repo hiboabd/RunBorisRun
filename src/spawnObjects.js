@@ -12,7 +12,7 @@ export default class SpawnObjects {
     this.platforms.push(new Platform('./assets/grass_4x1.png', 1850, 500, 100, 200))
     this.platforms.push(new Platform('./assets/grass_4x1.png', 2100, 500, 100, 200))
     this.passerbyFloor.push(new Passerby(1500))
-    this.passerbyFloor.push(new Passerby(1700))
+    this.passerbyFloor.push(new Passerby(1900))
     this.passerbyFloor.push(new Passerby(2000))
   }
 
@@ -46,14 +46,27 @@ export default class SpawnObjects {
       if ((passerby.position.x + 64) < 0){
         this.passerbyFloor.splice(i, 1)
 
-
-
         var positions = [1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000]
         // var random_x = Math.floor(Math.random() * 1400) + 200
         var random_x = Math.floor(Math.random() * (positions.length)) + 0
 
         this.passerbyFloor.push(new Passerby(positions[random_x]))
+        
       }
+
+      // var number = hero.score.distance.toFixed(0)
+
+
+      // if(number >30) {
+      //   this.infectionRate += 0.08
+      // }else if (number >= 30 && number < 40) {
+      //   this.infectionRate += 0.11
+      // }else if (number >= 40 && number < 50) {
+      //   this.infectionRate += 0.13
+      // }
+
+
+
     }
   }
 }

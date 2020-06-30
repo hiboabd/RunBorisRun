@@ -5,12 +5,13 @@ import App from './App';
 import Background from './background'
 import Hero from '../src/hero'
 import Input from '../src/input'
-// import Passerby from '../src/passerby'
+import Passerby from '../src/passerby'
 // import Platform from '../src/platform'
 import DetectCollision from '../src/detectCollision'
 // import Game from './game'
 import SFX from '../src/sfx'
 import SpawnObjects from '../src/spawnObjects'
+import Levels from './levels';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -28,7 +29,7 @@ if (canvas != null){
 
 
   var hero = new Hero();
-  // var passerby = new Passerby(1500);
+  var levels = new Levels(hero)
   const background = new Background();
 
 
@@ -38,7 +39,7 @@ if (canvas != null){
 // platforms.push(new Platform('./assets/grass_4x1.png', 600, 200, 100, 200, -0.2))
 // platforms.push(new Platform('./assets/grass_4x1.png', 200, 600, 100, 200, -0.2))
 
-var spawnObjects = new SpawnObjects()
+var spawnObjects = new SpawnObjects(hero)
 spawnObjects.spawn()
 // objects = {hero: hero, platforms: platforms}
 // var detectCollision = new DetectCollision(objects);
@@ -62,13 +63,16 @@ var play = new SFX(hero, input)
   };
 
   var loop = function() {
+    
     play.gameSFX()
     play.gameMusic()
     hero.airBorne()
+    detectCollision.levelUp()
     detectCollision.hitBottom()
     detectCollision.hitEdge()
     detectCollision.hitPasserby()
     detectCollision.hitPlatform()
+
     input.movePlayer()
     refresh()
     window.requestAnimationFrame(loop);

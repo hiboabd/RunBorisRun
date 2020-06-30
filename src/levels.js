@@ -1,12 +1,16 @@
+import Passerby from "./passerby"
 
 export default class Levels{
   constructor(hero){
      this.distance = hero.score.distance
   }
 
-if (this.distance >= 30) {
-  passerby.speed + 1
-}
+  levelUp(){
+    if (this.distance === 10 ) {
+      Passerby.speed ++
+    }
+  }
+
 
 
 }
