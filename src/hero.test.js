@@ -89,14 +89,14 @@ describe('Hero', () => {
     const hero = new Hero()
     // 0
     hero.jump()
-    expect(hero.frameX).toEqual(1)
+    expect(hero.frameX).toEqual(1) //?
     expect(hero.frameY).toEqual(3)
   })
 
   test("Animate Sprite for moveRight ", () => {
     const hero = new Hero()
     hero.moveRight()
-    expect(hero.frameX).toEqual(1)
+    expect(hero.frameY).toEqual(3)
     expect(hero.increment).toEqual(0.1)
   });
 
