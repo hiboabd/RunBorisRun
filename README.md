@@ -2,7 +2,7 @@
 
 [Build Status]() [ <---- PLACEHOLDER]
 
-Play the game [Here](https://mystifying-morse-ca1a8f.netlify.app/)
+Play the game [Here](https://laughing-brattain-9a3cce.netlify.app/)
 
 ## What is Covid-game?
 
