@@ -47,13 +47,8 @@ export default class DetectCollision{
 
     if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
       if(this.hero.position.y === passerby.position.y){
-        console.log('collision')
         this.hero.infectionRateUp()
-      } else {
-        console.log('no collision')
       }
-    } else {
-      console.log('no collision')
     }
   }
 
