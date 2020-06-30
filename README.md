@@ -1,6 +1,6 @@
 # Covid-game
 
-[![Build Status]() [ <---- PLACEHOLDER]
+[Build Status]() [ <---- PLACEHOLDER]
 
 Play the game [Here](https://mystifying-morse-ca1a8f.netlify.app/)
 
