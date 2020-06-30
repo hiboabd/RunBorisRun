@@ -1,6 +1,6 @@
 # Covid-game
 
-[Build Status]() [ <---- PLACEHOLDER]
+[Build Status]([![Netlify Status](https://api.netlify.com/api/v1/badges/fc505d8b-809e-4e4c-8ffb-35a33b27325a/deploy-status)](https://app.netlify.com/sites/laughing-brattain-9a3cce/deploys))
 
 Play the game [Here](https://laughing-brattain-9a3cce.netlify.app/)
 
