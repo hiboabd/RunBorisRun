@@ -6,7 +6,6 @@ function Play(){
       <center>
         <canvas id="gameScreen" width="1500" height="800"></canvas>
       </center>
-      // <img id="old_sprite" src="./assets/old_sprite.png" alt="hero"/>
     </div>
   )
 }

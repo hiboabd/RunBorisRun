@@ -1,5 +1,5 @@
 import Platform from '../src/platform'
-import Passerby from '../src/passerby'
+// import Passerby from '../src/passerby'
 
 export default class SpawnObjects {
   constructor(){

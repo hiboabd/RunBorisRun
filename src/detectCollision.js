@@ -40,10 +40,6 @@ export default class DetectCollision{
     var heroFront = this.hero.position.x + 64
     var heroBack = this.hero.position.x
 
-    //
-    // heroFront >= passerbyBack && heroBack <= passerbyFront
-    // heroBack <= passerbyFront && heroFront >= passerbyBack
-
 
     if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
       if(this.hero.position.y === passerby.position.y){
