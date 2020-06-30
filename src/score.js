@@ -1,15 +1,18 @@
 export default class Score {
 
-  constructor(){
-    this.distance = 0
-    this.infectionRate = 0
-  }
+  // constructor(){
+  //   this.distance = 0
+  //   this.infectionRate = 0
+  // }
+  static distance = 0
+  static infectionRate = 0
 
- scoreUp(){
-   this.distance += 1 / 60
+
+ static scoreUp(){
+   Score.distance += 1 / 60
  }
 
-  infectionRateUp(){
-    this.infectionRate += 0.005
+  static infectionRateUp(){
+    Score.infectionRate += 0.005
   }
 }

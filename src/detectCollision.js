@@ -1,5 +1,6 @@
 import Platform from '../src/platform'
 import Passerby from '../src/passerby'
+import Score from '../src/score'
 
 export default class DetectCollision{
 
@@ -11,6 +12,7 @@ export default class DetectCollision{
     this.infectionRate = hero.score;
     this.background = background
     this.middleCanvas = 750
+    this.score = new Score()
   }
 
   hitBottom = () => {
@@ -36,7 +38,7 @@ export default class DetectCollision{
         var heroBack = this.hero.position.x
         if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
           if(this.hero.position.y === passerby.position.y){
-            this.infectionRate.infectionRateUp()
+            Score.infectionRateUp()
           }
         }
       }
@@ -107,7 +109,7 @@ export default class DetectCollision{
     Platform.movingSpeed = -4
     Passerby.speed = 6
     this.background.movingSpeed = -3
-
+    Score.scoreUp()
   }
 
   _stopObjects(){
