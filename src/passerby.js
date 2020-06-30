@@ -12,8 +12,10 @@ constructor() {
     this.frameY = 2;
     this.CYCLE_LOOP = [0, 1, 0, 2];
     this.increment = 0;
-    this.SPEED = 2;
+    // this.SPEED = 2;
   }
+
+  static speed = 2;
 
   animateSprite(hero){
     if(this.position.x < -110){
@@ -31,7 +33,7 @@ constructor() {
         this.frameX = this.increment.toFixed(0)
         this.frameX = this.CYCLE_LOOP[this.frameX]
         this.increment += 0.1
-        this.position.x -= this.SPEED;
+        this.position.x -= Passerby.speed;
     }
 }
 

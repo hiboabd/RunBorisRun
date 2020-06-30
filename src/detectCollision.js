@@ -1,4 +1,5 @@
 import Platform from '../src/platform'
+import Passerby from '../src/passerby'
 
 export default class DetectCollision{
   constructor(hero, platforms, background) {
@@ -109,11 +110,14 @@ export default class DetectCollision{
   _moveObjectsLeft(){
     this.hero.position.x = this.middleCanvas
     Platform.movingSpeed = -4
+    Passerby.speed = 6
     this.background.movingSpeed = -3
+
   }
 
   _stopObjects(){
     Platform.movingSpeed = 0
+    Passerby.speed = 2
     this.background.movingSpeed = 0
   }
 
