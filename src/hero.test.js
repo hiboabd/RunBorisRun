@@ -8,7 +8,7 @@ describe('Hero', () => {
 
   test('current position', () => {
     const hero = new Hero();
-    expect(hero.position).toEqual({ x: 50, y: 730});
+    expect(hero.position).toEqual({ x: 50, y: 630});
   })
 
   test('moves right', () => {
