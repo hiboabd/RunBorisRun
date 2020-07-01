@@ -1,12 +1,14 @@
 export default class Input {
-  constructor(hero){
+  constructor(hero, game){
     this.hero = hero;
+    this.game = game;
     this.up = false;
     this.left = false;
     this.right = false;
     this.keyUp = false;
     this.muted = false
     this.history =[]
+    this.paused = false
   }
 
   checkKey = (e) => {
@@ -33,8 +35,17 @@ export default class Input {
         case 77: // up key
           this.muted = true
         break;
+        case 27:
+        this.paused = true
+        break;
+        case 82:
+        this.paused = false
+        break;
+
       }
     };
+
+
 
   movePlayer = () => {
     if (this.right) { this.hero.moveRight();  }
@@ -46,4 +57,13 @@ export default class Input {
     // if (this.keyUp) { this.hero.frameX = 0 }
     }
   }
+
+  //
+  // togglePause = () => {
+  //  if (this.paused) {
+  //    this.paused = false;
+  //   } else {
+  //     this.paused = true
+  //   }
+  // }
 }
