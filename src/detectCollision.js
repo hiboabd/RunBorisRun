@@ -1,6 +1,7 @@
 import Platform from '../src/platform'
 import Passerby from '../src/passerby'
 import Score from '../src/score'
+import SFX from '../src/sfx'
 
 export default class DetectCollision{
 
@@ -16,7 +17,9 @@ export default class DetectCollision{
     this.levelNumber = 15
     this.rangeNumber = 15.01
     this.score = new Score()
-    this.ctx = ctx
+    this.ctx = ctx;
+    this.infected = false;
+    this.frames = 0;
   }
 
 
@@ -36,6 +39,7 @@ export default class DetectCollision{
   }
 
   hitPasserby = () => {
+
       for (var i = 0; i < this.passersby.length; i++) {
         let passerby  = this.passersby[i]
         var passerbyFront = passerby.position.x + 64
@@ -45,6 +49,7 @@ export default class DetectCollision{
         if(heroFront >= passerbyBack && heroBack <= passerbyFront && this.hero.jumping === false){
           if(this.hero.position.y === passerby.position.y){
             Score.infectionRateUp()
+            this.infected = true;
           }
         }
 
@@ -53,6 +58,7 @@ export default class DetectCollision{
         if (greyColor.toString() == passerByPosition.toString()) { passerby.fallSpeed = 7 }
       }
 
+      this._heroHit();
     }
 
 
@@ -142,6 +148,21 @@ export default class DetectCollision{
       this.speed = 11
     }else if (number >= 40 && number < 50) {
       this.speed = 13
+    }
+  }
+
+  _heroHit(){
+    if(this.frames != 30) {
+      this.frames += 1
+      this.infected = false
+    } else {
+      this.ok = true
+    }
+    if(this.infected && this.ok){
+      new SFX().hit.play()
+      this.infected = false;
+      this.ok = false;
+      this.frames = 0;
     }
   }
 }
