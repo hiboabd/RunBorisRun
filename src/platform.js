@@ -21,7 +21,7 @@ export default class Platform {
   }
 
   _move(){
-    this.position.x += Platform.movingSpeed
+    this.position.x -= Platform.movingSpeed
   }
 
   _setSides(){

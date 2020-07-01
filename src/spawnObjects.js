@@ -8,9 +8,7 @@ export default class SpawnObjects {
   }
 
   spawn(){
-    this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 600, 100, 200))
-    this.platforms.push(new Platform('./assets/grass_4x1.png', 1850, 500, 100, 200))
-    this.platforms.push(new Platform('./assets/grass_4x1.png', 2100, 500, 100, 200))
+    this.platforms.push(new Platform('./assets/grass_4x1.png', 0, 700, 100, 1600))
     this.passerbyFloor.push(new Passerby(1500))
     this.passerbyFloor.push(new Passerby(1900))
     this.passerbyFloor.push(new Passerby(2000))
@@ -21,18 +19,56 @@ export default class SpawnObjects {
     this._updatePasserby(ctx)
   }
 
+  //Platforms -------------------
   _updatePlatforms(ctx){
     for (var i = 0; i < this.platforms.length; i++){
       this.platforms[i].draw(ctx)
-      if (this.platforms[i].right < 0){ this._spawnRandomPlatform() }
+      if (this.platforms[i].right < 1500 && this.platforms[i].top == 700){
+        if (this.platforms.length < 2){
+          this._spawnPlatforms()
+        }
+      }
     }
     this._removePlatforms()
   }
 
+  _spawnPlatforms(){
+    let random = Math.floor(Math.random() * (5)) + 0
+
+    if (random == 0){
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 500, 100, 200))
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 1900, 700, 100, 1600))
+    }
+
+    if (random == 1){
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 500, 100, 200))
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 1900, 500, 100, 200))
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 2300, 700, 100, 1600))
+    }
+
+    if (random == 2){
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 500, 100, 200))
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 1700, 300, 100, 200))
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 2300, 700, 100, 1600))
+    }
+
+    if (random == 3){
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 700, 100, 400))
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 2200, 700, 100, 1600))
+    }
+
+    if (random == 4){
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 700, 100, 1600))
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 2300, 500, 100, 200))
+      this.platforms.push(new Platform('./assets/grass_4x1.png', 3500, 700, 100, 1600))
+    }
+
+  }
+
   _spawnRandomPlatform(){
-    var positions = [600, 500, 400]
-    var random_y = Math.floor(Math.random() * 3) + 0
-    this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, positions[random_y], 100, 200))
+    //var positions = [600, 500, 400]
+    //var random_y = Math.floor(Math.random() * 3) + 0
+
   }
 
   _removePlatforms(){
@@ -40,11 +76,14 @@ export default class SpawnObjects {
       if(this.platforms[i].right < 0) { this.platforms.splice(i, 1) }
     }
   }
+//-----------------------------
 
+// Passerby -------------------
   _updatePasserby(ctx){
     for (var i = 0; i < this.passerbyFloor.length; i++){
       this.passerbyFloor[i].draw(ctx)
-      if ((this.passerbyFloor[i].position.x + 64) < 0){ this._spawnRandomPasserby() }
+      if (this.passerbyFloor[i].position.x + 64 < 0 ||
+         this.passerbyFloor[i].position.y > 800){ this._spawnRandomPasserby() }
     }
     this._removePasserby()
   }
@@ -57,7 +96,9 @@ export default class SpawnObjects {
 
   _removePasserby(){
     for (var i = 0; i < this.passerbyFloor.length; i++){
-      if(this.passerbyFloor[i].position.x + 64 < 0) { this.passerbyFloor.splice(i, 1) }
+      if(this.passerbyFloor[i].position.x + 64 < 0 ||
+         this.passerbyFloor[i].position.y > 800) { this.passerbyFloor.splice(i, 1) }
     }
   }
+  //-----------------------------
 }
