@@ -63,8 +63,7 @@ spawnObjects.spawn()
 
 var detectCollision = new DetectCollision(hero, spawnObjects.platforms, background, spawnObjects.passerbyFloor, ctx);
 var play = new SFX(hero, input)
-
-
+play.jellies.play();
 
   document.onkeydown = input.checkKey;
   document.onkeyup = input.checkKey;

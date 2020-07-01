@@ -5,6 +5,7 @@ import bumpMP3 from "../src/media/bump.mp3"
 import music from "../src/media/bgm.mp3"
 import stayAtHome from "../src/media/stayAtHome.mp3"
 import hit from "../src/media/hit.mp3"
+import jellies from "../src/media/jellies.mp3"
 
 export default class Sfx{
   constructor(hero, input) {
@@ -18,6 +19,7 @@ export default class Sfx{
     this.musicPlay = false;
     this.stayAtHome = new Audio(stayAtHome);
     this.hit = new Audio(hit);
+    this.jellies = new Audio(jellies);
   };
 
   gameSFX = () => {
