@@ -1,3 +1,5 @@
+import Game from '../src/game'
+
 export default class Input {
   constructor(hero){
     this.hero = hero;
@@ -35,10 +37,14 @@ export default class Input {
           this.muted = true;
         break;
         case 80: // pause key
+        console.log('pause pressed')
         this.paused = true;
+        Game.paused = true;
         break;
         case 79: // unpause key
+        console.log('unpause pressed')
         this.paused = false;
+        Game.paused = false;
         break;
       }
     };

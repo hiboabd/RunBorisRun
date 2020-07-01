@@ -38,19 +38,12 @@ if (canvas != null){
   var game = new Game(hero, GAME_WIDTH, GAME_HEIGHT, input);
 
 
+  var spawnObjects = new SpawnObjects(hero)
+  spawnObjects.spawn()
 
-// var platforms = [] //Arguements - image, x, y, height, width, movingSpeed:(optional)
-// platforms.push(new Platform('./assets/grass_4x1.png', 100, 400, 100, 200, 0.5))
-// platforms.push(new Platform('./assets/grass_4x1.png', 600, 200, 100, 200, -0.2))
-// platforms.push(new Platform('./assets/grass_4x1.png', 200, 600, 100, 200, -0.2))
 
-var spawnObjects = new SpawnObjects(hero)
-spawnObjects.spawn()
-// objects = {hero: hero, platforms: platforms}
-// var detectCollision = new DetectCollision(objects);
-
-var detectCollision = new DetectCollision(hero, spawnObjects.platforms, background, spawnObjects.passerbyFloor, ctx);
-var play = new SFX(hero, input)
+  var detectCollision = new DetectCollision(hero, spawnObjects.platforms, background, spawnObjects.passerbyFloor, ctx);
+  var play = new SFX(hero, input)
 
 
 
@@ -71,8 +64,8 @@ var play = new SFX(hero, input)
   var loop = function() {
 
     if (game.gameOver === false){
-
-      // if (game.paused === false){
+      if (Game.paused === false){
+          console.log(Game.paused)
         play.gameSFX()
         play.gameMusic()
         hero.airBorne()
@@ -85,15 +78,16 @@ var play = new SFX(hero, input)
         game.draw(ctx)
         refresh()
         window.requestAnimationFrame(loop);
-      // } else if (game.paused === true){
-      //
-      // }
-  } else {
+      } else if (Game.paused){
+        console.log('in else condition')
+        console.log(Game.paused)
+        game.draw(ctx)
+      }
 
-    game.draw(ctx)
-
+    } else {
+      game.draw(ctx)
+    }
   }
-}
 
-  window.requestAnimationFrame(loop);
+    window.requestAnimationFrame(loop);
 }

@@ -6,18 +6,16 @@ export default class Game {
     this.game_width = game_width
     this.game_height = game_height
     this.hero = hero;
-    this.paused = false;
+    // this.paused = false;
     this.gameOver = false;
     this.input = input
   }
 
+    static paused = false
+
   draw(ctx){
-    if(Score.infectionRate >= 1 || this.hero.position.y === 730){
-    this.gameOver = true
-  }else if (this.input.paused === true){
-    this.paused = true;
-  } else {this.paused = false}
-  this.gameStateText(ctx);
+    if(Score.infectionRate >= 1 || this.hero.position.y === 730){this.gameOver = true}
+    this.gameStateText(ctx);
   }
 
   gameStateText(ctx){
@@ -29,9 +27,9 @@ export default class Game {
     ctx.textAlign = "center";
     if (this.gameOver){
       ctx.fillText("Game Over", this.game_width / 2, this.game_height - 600);
-    } else if (this.paused){
+    } else if (Game.paused){
       ctx.fillText("Paused", this.game_width / 2, this.game_height - 600);
-    } else if (this.paused === false){
+    } else if (Game.paused === false){
       ctx.fillText("", this.game_width / 2, this.game_height - 600);
     }
   }
