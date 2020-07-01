@@ -13,11 +13,11 @@ export default class Game {
     this.input = input
   }
 
-  draw(ctx){
-    if(Score.infectionRate >= 1 || this.hero.position.y === 730){
+  draw(ctx, canvas){
+  if(Score.infectionRate >= 1 || this.hero.position.y === 730){
     this.gameOver = true
     Scoreboard.add(Score.distance);
-    console.log(Scoreboard.board)
+    Game.restart(canvas, this.hero, ctx)
   }else if (this.input.paused === true){
     this.paused = true;
   } else {this.paused = false}
@@ -39,5 +39,51 @@ export default class Game {
     } else if (this.paused === false){
       ctx.fillText("", this.game_width / 2, this.game_height - 600);
     }
+  }
+
+  static restart(canvas, hero, ctx){
+      function getMousePos(canvas, event) {
+        var canvas_1 = document.getElementById("gameScreen");
+        var rect = canvas_1.getBoundingClientRect();
+        return {
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top
+        };
+    }
+    //Function to check whether a point is inside a rectangle
+    function isInside(pos, rect){
+        return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.height && pos.y > rect.y
+    }
+
+    //The rectangle should have x,y,width,height properties
+    var rect = {
+        x:0,
+        y:0,
+        width:200,
+        height:100
+    };
+    //Binding the click event on the canvas
+    document.addEventListener('click', function(evt) {
+        var mousePos = getMousePos(canvas, evt);
+    
+        if (isInside(mousePos,rect)) {
+          Game.reset(hero)
+          hero.draw(ctx)
+        }else{
+          console.log("BOOP")
+        }   
+    }, false);
+  }
+
+  static reset = (hero)=> {
+    Score.distance = 0
+    Score.infectionRate = 0
+    // this.hero.position.x = 50 
+    // this.hero.position.y = 630
+    this.gameOver = false;
+    console.log(hero) // undefined
+    hero.position.x = 50
+    hero.position.y = 630
+
   }
 }

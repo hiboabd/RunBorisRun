@@ -12,6 +12,7 @@ import Game from './game'
 import SFX from '../src/sfx'
 import SpawnObjects from '../src/spawnObjects'
 import Levels from './levels';
+import Scoreboard from './scoreboard';
 // import Scoreboard from './scoreboard'
 
 ReactDOM.render(
@@ -33,8 +34,11 @@ ReactDOM.render(
 // }
 
 
-let canvas = document.getElementById("gameScreen");
+var canvas = document.getElementById("gameScreen");
 // only loads the canvas if the id "gamescreen" has been found
+
+
+
 if (canvas != null){
   let ctx = canvas.getContext("2d");
   ctx.font = "35px arcadeclassicregular";
@@ -77,6 +81,7 @@ var play = new SFX(hero, input)
     ctx.fillStyle = 'grey';
     ctx.fillText("Distance : " + Math.floor(Score.distance) + "m", 120, 60);
     ctx.fillText("Infection Rate : " + Score.infectionRate.toFixed(2), 180, 100);
+    ctx.fillText("High Score:" + Scoreboard.highscore(), 120, 140);
     spawnObjects.update(ctx);
   };
 
@@ -101,7 +106,7 @@ var play = new SFX(hero, input)
       //
       // }
   } else {
-    game.draw(ctx)
+    game.draw(ctx, canvas)
   }
 }
 
