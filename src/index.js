@@ -81,29 +81,31 @@ var play = new SFX(hero, input)
   };
 
   var loop = function() {
-
-
     if (game.gameOver === false){
-      // if (game.paused === false){
-        play.gameSFX()
-        play.gameMusic()
-        hero.airBorne()
-        detectCollision.levelUp()
-        detectCollision.hitBottom()
-        detectCollision.hitEdge()
-        detectCollision.hitPasserby()
-        detectCollision.hitPlatform()
-        input.movePlayer()
-        game.draw(ctx)
-        refresh()
-        window.requestAnimationFrame(loop);
-      // } else if (game.paused === true){
-      //
-      // }
-  } else {
-    game.draw(ctx)
+      if (game.paused === false){
+        _gameLoop()
+      } else if (game.paused === true){
+        setTimeout(() => { _gameLoop(); }, 2000);
+      }
+    } else {
+      game.draw(ctx)
+    }
   }
-}
 
   window.requestAnimationFrame(loop);
+
+  var _gameLoop = function() {
+    play.gameSFX()
+    play.gameMusic()
+    hero.airBorne()
+    detectCollision.levelUp()
+    detectCollision.hitBottom()
+    detectCollision.hitEdge()
+    detectCollision.hitPasserby()
+    detectCollision.hitPlatform()
+    input.movePlayer()
+    game.draw(ctx)
+    refresh()
+    window.requestAnimationFrame(loop);
+  }
 }
