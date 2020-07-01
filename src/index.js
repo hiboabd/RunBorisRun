@@ -69,6 +69,8 @@ var play = new SFX(hero, input)
 
   var loop = function() {
 
+    if (game.gameOver === false ) {
+
     play.gameSFX()
     play.gameMusic()
     hero.airBorne()
@@ -81,7 +83,11 @@ var play = new SFX(hero, input)
     game.draw(ctx)
     refresh()
     window.requestAnimationFrame(loop);
+
+  } else {
+    game.draw(ctx)
   }
+}
 
   window.requestAnimationFrame(loop);
 }
