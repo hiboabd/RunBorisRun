@@ -1,5 +1,6 @@
 import Platform from '../src/platform'
 import Passerby from '../src/passerby'
+import Score from '../src/score'
 
 export default class SpawnObjects {
   constructor(){
@@ -34,6 +35,7 @@ export default class SpawnObjects {
       }
     }
     this._updatePasserby(ctx)
+    this._updateLevelUpPasserby()
   }
 
   _updatePasserby(ctx){
@@ -46,27 +48,25 @@ export default class SpawnObjects {
       if ((passerby.position.x + 64) < 0){
         this.passerbyFloor.splice(i, 1)
 
-        var positions = [1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000]
+        var positions = [1500, 2400, 3000]
         // var random_x = Math.floor(Math.random() * 1400) + 200
         var random_x = Math.floor(Math.random() * (positions.length)) + 0
 
         this.passerbyFloor.push(new Passerby(positions[random_x]))
-        
       }
-
-      // var number = hero.score.distance.toFixed(0)
-
-
-      // if(number >30) {
-      //   this.infectionRate += 0.08
-      // }else if (number >= 30 && number < 40) {
-      //   this.infectionRate += 0.11
-      // }else if (number >= 40 && number < 50) {
-      //   this.infectionRate += 0.13
-      // }
-
-
-
     }
   }
+
+  _updateLevelUpPasserby() {
+    var number = Score.distance.toFixed(0)
+
+    if(number === '10') {
+      if(this.passerbyFloor.length < 5){this.passerbyFloor.push(new Passerby(1600))}
+    }else if (number === '20') {
+      if(this.passerbyFloor.length < 8){this.passerbyFloor.push(new Passerby(1600))}
+    }else if (number === '30') {
+      if(this.passerbyFloor.length < 10){this.passerbyFloor.push(new Passerby(1600))}
+    }
+  }
+
 }
