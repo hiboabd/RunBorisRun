@@ -4,7 +4,7 @@ import Score from '../src/score'
 
 export default class DetectCollision{
 
-  constructor(hero, platforms, background, passersby) {
+  constructor(hero, platforms, background, passersby, ctx) {
     this.hero = hero
     this.platforms = platforms
     this.touching = false
@@ -16,6 +16,7 @@ export default class DetectCollision{
     this.levelNumber = 15
     this.rangeNumber = 15.01
     this.score = new Score()
+    this.ctx = ctx
   }
 
 
@@ -46,7 +47,12 @@ export default class DetectCollision{
             Score.infectionRateUp()
           }
         }
+
+        let greyColor = [184, 184, 184, 255]
+        let passerByPosition = this.ctx.getImageData(passerby.position.x, passerby.position.y + 150, 1, 1).data
+        if (greyColor.toString() == passerByPosition.toString()) { passerby.fallSpeed = 7 }
       }
+
     }
 
 
@@ -111,8 +117,8 @@ export default class DetectCollision{
 
   _moveObjectsLeft(){
     this.hero.position.x = this.middleCanvas
-    Platform.movingSpeed = -7
-    Passerby.speed = this.speed + 4
+    Platform.movingSpeed = 7
+    Passerby.speed = this.speed + Platform.movingSpeed
     this.background.movingSpeed = -6
     Score.scoreUp()
   }

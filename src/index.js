@@ -44,7 +44,7 @@ spawnObjects.spawn()
 // objects = {hero: hero, platforms: platforms}
 // var detectCollision = new DetectCollision(objects);
 var input = new Input(hero);
-var detectCollision = new DetectCollision(hero, spawnObjects.platforms, background, spawnObjects.passerbyFloor);
+var detectCollision = new DetectCollision(hero, spawnObjects.platforms, background, spawnObjects.passerbyFloor, ctx);
 var play = new SFX(hero, input)
 
 
@@ -63,7 +63,7 @@ var play = new SFX(hero, input)
   };
 
   var loop = function() {
-    
+
     play.gameSFX()
     play.gameMusic()
     hero.airBorne()

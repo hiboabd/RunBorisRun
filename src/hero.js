@@ -2,7 +2,7 @@
 
 export default class Hero {
 constructor() {
-    this.position = { x: 50, y: 730 }
+    this.position = { x: 50, y: 630 }
     // this.image = new Image();
     // this.image.src = "./assets/sprite.png"
     // this.SCALE = 4;
