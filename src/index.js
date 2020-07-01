@@ -63,8 +63,8 @@ var play = new SFX(hero, input)
     hero.draw(ctx);
     game.draw(ctx)
     ctx.fillStyle = 'grey';
-    ctx.fillText("Distance : " + Math.floor(Score.distance) + "m", 10, 60);
-    ctx.fillText("Infection Rate : " + Score.infectionRate.toFixed(2), 10, 100);
+    ctx.fillText("Distance : " + Math.floor(Score.distance) + "m", 120, 60);
+    ctx.fillText("Infection Rate : " + Score.infectionRate.toFixed(2), 180, 100);
     spawnObjects.update(ctx);
   };
 
@@ -72,7 +72,7 @@ var play = new SFX(hero, input)
 
     if (game.gameOver === false){
 
-      if (game.paused === false){
+      // if (game.paused === false){
         play.gameSFX()
         play.gameMusic()
         hero.airBorne()
@@ -85,9 +85,9 @@ var play = new SFX(hero, input)
         game.draw(ctx)
         refresh()
         window.requestAnimationFrame(loop);
-      } else if (game.paused === true){
-
-      }
+      // } else if (game.paused === true){
+      //
+      // }
   } else {
 
     game.draw(ctx)
