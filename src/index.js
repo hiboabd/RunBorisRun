@@ -73,9 +73,9 @@ var play = new SFX(hero, input)
     if (game.gameOver === false){
 
       if (game.paused === false){
-      _gameLoop()
+        _gameLoop()
       } else if (game.paused === true){
-      setTimeout(() => { _gameLoop(); }, 2000);
+        setTimeout(() => { _gameLoop(); }, 2000);
       }
 
     } else {
