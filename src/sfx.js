@@ -25,7 +25,7 @@ export default class Sfx{
   };
 
   gameMusic = () => {
-    if (this.input.muted === false){
+    if (this.input.muted === false && this.input.gameStarted === true){
     this.music.loop = true
     this.music.play();
     this.musicPlay = true;
