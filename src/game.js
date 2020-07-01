@@ -1,4 +1,3 @@
-
 export default class Game {
 
   constructor(hero){
@@ -15,5 +14,4 @@ export default class Game {
       ctx.fillText("Game Over!", 70, 70);
     }
   }
-
 }

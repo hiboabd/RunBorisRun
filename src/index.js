@@ -12,6 +12,7 @@ import DetectCollision from '../src/detectCollision'
 import SFX from '../src/sfx'
 import SpawnObjects from '../src/spawnObjects'
 import Levels from './levels';
+import Scoreboard from './scoreboard'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,6 +20,17 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+
+function gameOver() {
+  if (Score.infectionRate >= 1) {
+    Scoreboard.add(Score.distance)
+    console.log(Scoreboard.board)
+    Score.infectionRate = -10000
+  } else {
+    return
+  }
+}
 
 
 let canvas = document.getElementById("gameScreen");
@@ -72,7 +84,7 @@ var play = new SFX(hero, input)
     detectCollision.hitEdge()
     detectCollision.hitPasserby()
     detectCollision.hitPlatform()
-
+    gameOver()
     input.movePlayer()
     refresh()
     window.requestAnimationFrame(loop);
