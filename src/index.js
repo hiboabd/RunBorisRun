@@ -34,7 +34,8 @@ if (canvas != null){
   var hero = new Hero();
   var levels = new Levels(hero)
   const background = new Background();
-  var game = new Game(hero, GAME_WIDTH, GAME_HEIGHT);
+  var input = new Input(hero);
+  var game = new Game(hero, GAME_WIDTH, GAME_HEIGHT, input);
 
 
 
@@ -47,7 +48,7 @@ var spawnObjects = new SpawnObjects(hero)
 spawnObjects.spawn()
 // objects = {hero: hero, platforms: platforms}
 // var detectCollision = new DetectCollision(objects);
-var input = new Input(hero);
+
 var detectCollision = new DetectCollision(hero, spawnObjects.platforms, background, spawnObjects.passerbyFloor, ctx);
 var play = new SFX(hero, input)
 
