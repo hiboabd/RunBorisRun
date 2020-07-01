@@ -8,7 +8,7 @@ import Input from '../src/input'
 import Score from '../src/score'
 // import Platform from '../src/platform'
 import DetectCollision from '../src/detectCollision'
-// import Game from './game'
+import Game from './game'
 import SFX from '../src/sfx'
 import SpawnObjects from '../src/spawnObjects'
 import Levels from './levels';
@@ -27,10 +27,14 @@ if (canvas != null){
   let ctx = canvas.getContext("2d");
   ctx.font = "35px arcadeclassicregular";
 
+  const GAME_WIDTH = 1500
+  const GAME_HEIGHT = 800
+
 
   var hero = new Hero();
   var levels = new Levels(hero)
   const background = new Background();
+  var game = new Game(hero, GAME_WIDTH, GAME_HEIGHT);
 
 
 
@@ -56,6 +60,7 @@ var play = new SFX(hero, input)
     ctx.clearRect(0, 0, 1500, 800);
     background.draw(ctx)
     hero.draw(ctx);
+    game.draw(ctx)
     ctx.fillStyle = 'grey';
     ctx.fillText("Distance : " + Math.floor(Score.distance) + "m", 10, 60);
     ctx.fillText("Infection Rate : " + Score.infectionRate.toFixed(2), 10, 100);
@@ -72,8 +77,8 @@ var play = new SFX(hero, input)
     detectCollision.hitEdge()
     detectCollision.hitPasserby()
     detectCollision.hitPlatform()
-
     input.movePlayer()
+    game.draw(ctx)
     refresh()
     window.requestAnimationFrame(loop);
   }
