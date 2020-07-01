@@ -81,17 +81,15 @@ var play = new SFX(hero, input)
   };
 
   var loop = function() {
-
+    if (game.gameOver === false){
       if (game.paused === false){
         _gameLoop()
       } else if (game.paused === true){
         setTimeout(() => { _gameLoop(); }, 2000);
       }
-
     } else {
-    game.draw(ctx)
+      game.draw(ctx)
     }
-
   }
 
   window.requestAnimationFrame(loop);
