@@ -7,7 +7,7 @@ describe('spawnObjects', () => {
     spawnObjects.spawn()
 
     const platform = spawnObjects.platforms[0]
-    expect(platform.position).toEqual({ x: 1600, y: 600 });
+    expect(platform.position).toEqual({ x: 0, y: 700 });
   })
 
   test('passerby is spawned', () => {
@@ -15,7 +15,7 @@ describe('spawnObjects', () => {
     spawnObjects.spawn()
 
     const passerby = spawnObjects.passerbyFloor[0]
-    expect(passerby.position).toEqual({ x: 1500, y: 730 });
+    expect(passerby.position).toEqual({ x: 1500, y: 628 });
   })
 
   test('new platform is spawned in place of one going off canvas', () => {
@@ -34,7 +34,7 @@ describe('spawnObjects', () => {
     spawnObjects.update(ctx)
 
     const newPlatform = spawnObjects.platforms[0]
-    expect(newPlatform.position.x).toEqual(1600);
+    expect(newPlatform.position.x).toBe(0);
   })
 
   test('new passerby is spawned in place of one going off canvas', () => {
