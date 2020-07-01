@@ -12,7 +12,7 @@ import Game from './game'
 import SFX from '../src/sfx'
 import SpawnObjects from '../src/spawnObjects'
 import Levels from './levels';
-import Scoreboard from './scoreboard'
+// import Scoreboard from './scoreboard'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,16 +21,16 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-
-function gameOver() {
-  if (Score.infectionRate >= 1) {
-    Scoreboard.add(Score.distance)
-
-    console.log(Scoreboard.board)
-  } else {
-    return
-  }
-}
+//
+// function gameOver() {
+//   if (Score.infectionRate >= 1) {
+//     Scoreboard.add(Score.distance)
+//
+//     console.log(Scoreboard.board)
+//   } else {
+//     return
+//   }
+// }
 
 
 let canvas = document.getElementById("gameScreen");

@@ -8,6 +8,7 @@ import ScoreboardDisplay from './components/scoreboard'
 // import Scoreboard from './components/scoreboard'
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Scoreboard from './scoreboard'
 
 function App() {
   return (
@@ -17,7 +18,10 @@ function App() {
       <Route path="/play" exact component={Play}/>
       <Route path="/rules" exact component={Rules}/>
       <Route path="/about" exact component={About}/>
-      <Route path="/scoreboard" exact component={ScoreboardDisplay}/>
+      {
+      // <Route path="/scoreboard" exact component={ScoreboardDisplay}/>
+      }
+      <Route path="/scoreboard" render={(props) => <ScoreboardDisplay scoreboard={Scoreboard} {...props} />} />
     </Router>
   );
 }

@@ -4,6 +4,39 @@ import Scoreboard from '../scoreboard'
 
 class ScoreboardDisplay extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      board: []
+    }
+
+  }
+
+  render() {
+    const {scoreboard} = this.props;
+    return (
+       <div>
+
+          <center>
+            {scoreboard.board.map((item)=><p>{item.rank}: {item.name} - {item.score}</p>)}
+            {console.log(this.props.scoreboard)}
+            {console.log(this.props.scoreboard.board)}
+          </center>
+
+       </div>
+    );
+  }
+}
+
+
+
+  // blah = () => {
+  //    Scoreboard.board.map(item => this.setState() => { return {board: { item.rank: { item.name, item.score }}
+  //    )
+  // }
+
+
+
   // iteration = () => {
 
   //   var increment = (Object.keys(Scoreboard.board).length)
@@ -18,19 +51,7 @@ class ScoreboardDisplay extends React.Component {
   //   }
 
 
-  render() {
-    return (
-       <div>
 
-          <center>
-            {Scoreboard.sort()}
-            {Scoreboard.board.map((item)=><p>{item.rank}: {item.name} - {item.score}</p>)}
-          </center>
-
-       </div>
-    );
-  }
-}
 
 //   render() {
 //     return (

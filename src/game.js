@@ -1,4 +1,4 @@
-
+import Scoreboard from './scoreboard'
 import Score from '../src/score'
 
 
@@ -16,6 +16,8 @@ export default class Game {
   draw(ctx){
     if(Score.infectionRate >= 1 || this.hero.position.y === 730){
     this.gameOver = true
+    Scoreboard.add(Score.distance);
+    console.log(Scoreboard.board)
   }else if (this.input.paused === true){
     this.paused = true;
   } else {this.paused = false}
@@ -31,6 +33,7 @@ export default class Game {
     ctx.textAlign = "center";
     if (this.gameOver){
       ctx.fillText("Game Over", this.game_width / 2, this.game_height - 600);
+      console.log()
     } else if (this.paused){
       ctx.fillText("Paused", this.game_width / 2, this.game_height - 600);
     } else if (this.paused === false){

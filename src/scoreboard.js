@@ -1,9 +1,11 @@
 export default class Scoreboard {
 
+
   static board = [{name: 'Gareth', score: 100}, {name: 'Jo', score: 200}, {name: 'Ed', score: 150}]
 
   static add(score) {
-      Scoreboard.board.push(score)
+      Scoreboard.board.push({name: 'Bill' , score: score})
+      Scoreboard.sort()
   }
 
   static sort(){
@@ -11,7 +13,7 @@ export default class Scoreboard {
       return b.score - a.score;
     });
 
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < Scoreboard.board.length; i++) {
       Scoreboard.board[i].rank = i + 1
     }
   }
