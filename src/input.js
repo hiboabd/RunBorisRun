@@ -5,7 +5,8 @@ export default class Input {
     this.left = false;
     this.right = false;
     this.keyUp = false;
-    this.muted = false
+    this.muted = false;
+    this.paused = false;
     this.history =[]
   }
 
@@ -27,11 +28,17 @@ export default class Input {
         case 38: // up key
           this.up = key_state;
         break;
-        case 32: // up key
+        case 78: // unmute key
           this.muted = false;
         break;
-        case 77: // up key
-          this.muted = true
+        case 77: // mute key
+          this.muted = true;
+        break;
+        case 80: // pause key
+        this.paused = true;
+        break;
+        case 79: // unpause key
+        this.paused = false;
         break;
       }
     };
