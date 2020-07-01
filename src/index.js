@@ -73,27 +73,30 @@ var play = new SFX(hero, input)
     if (game.gameOver === false){
 
       if (game.paused === false){
-        play.gameSFX()
-        play.gameMusic()
-        hero.airBorne()
-        detectCollision.levelUp()
-        detectCollision.hitBottom()
-        detectCollision.hitEdge()
-        detectCollision.hitPasserby()
-        detectCollision.hitPlatform()
-        input.movePlayer()
-        game.draw(ctx)
-        refresh()
-        window.requestAnimationFrame(loop);
+      _gameLoop()
       } else if (game.paused === true){
-
+      setTimeout(() => { _gameLoop(); }, 2000);
       }
-  } else {
 
+    } else {
     game.draw(ctx)
-
+    }
   }
-}
 
   window.requestAnimationFrame(loop);
+
+  var _gameLoop = function() {
+    play.gameSFX()
+    play.gameMusic()
+    hero.airBorne()
+    detectCollision.levelUp()
+    detectCollision.hitBottom()
+    detectCollision.hitEdge()
+    detectCollision.hitPasserby()
+    detectCollision.hitPlatform()
+    input.movePlayer()
+    game.draw(ctx)
+    refresh()
+    window.requestAnimationFrame(loop);
+  }
 }
