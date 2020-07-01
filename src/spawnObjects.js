@@ -1,5 +1,6 @@
 import Platform from '../src/platform'
 import Passerby from '../src/passerby'
+import Score from '../src/score'
 
 export default class SpawnObjects {
   constructor(){
@@ -17,6 +18,7 @@ export default class SpawnObjects {
   update(ctx){
     this._updatePlatforms(ctx)
     this._updatePasserby(ctx)
+    this._updateLevelUpPasserby()
   }
 
   //Platforms -------------------
@@ -44,7 +46,7 @@ export default class SpawnObjects {
       this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 500, 100, 200))
       this.platforms.push(new Platform('./assets/grass_4x1.png', 1900, 500, 100, 200))
       this.platforms.push(new Platform('./assets/grass_4x1.png', 2300, 700, 100, 1600))
-    }
+    }   
 
     if (random == 2){
       this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 500, 100, 200))
@@ -56,14 +58,14 @@ export default class SpawnObjects {
       this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 700, 100, 400))
       this.platforms.push(new Platform('./assets/grass_4x1.png', 2200, 700, 100, 1600))
     }
-
+    
     if (random == 4){
       this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 700, 100, 1600))
       this.platforms.push(new Platform('./assets/grass_4x1.png', 2300, 500, 100, 200))
       this.platforms.push(new Platform('./assets/grass_4x1.png', 3500, 700, 100, 1600))
     }
-
   }
+
 
   _spawnRandomPlatform(){
     //var positions = [600, 500, 400]
@@ -79,13 +81,18 @@ export default class SpawnObjects {
 //-----------------------------
 
 // Passerby -------------------
-  _updatePasserby(ctx){
+    _updatePasserby(ctx){
     for (var i = 0; i < this.passerbyFloor.length; i++){
-      this.passerbyFloor[i].draw(ctx)
-      if (this.passerbyFloor[i].position.x + 64 < 0 ||
-         this.passerbyFloor[i].position.y > 800){ this._spawnRandomPasserby() }
+      let passerby = this.passerbyFloor[i]
+
+      passerby.draw(ctx)
+      if (passerby.position.x + 64 < 0 ||
+         this.passerbyFloor[i].position.y > 800){ this._spawnRandomPasserby() }){
+
+      this._spawnRandomPasserby()
+      }
+     this._removePasserby()
     }
-    this._removePasserby()
   }
 
   _spawnRandomPasserby(){
@@ -99,6 +106,18 @@ export default class SpawnObjects {
       if(this.passerbyFloor[i].position.x + 64 < 0 ||
          this.passerbyFloor[i].position.y > 800) { this.passerbyFloor.splice(i, 1) }
     }
+    
+ _updateLevelUpPasserby() {
+    var number = Score.distance.toFixed(0)
+
+    if(number === '10') {
+      if(this.passerbyFloor.length < 4){this.passerbyFloor.push(new Passerby(1600))}
+    }else if (number === '20') {
+      if(this.passerbyFloor.length < 5){this.passerbyFloor.push(new Passerby(1600))}
+    }else if (number === '30') {
+      if(this.passerbyFloor.length < 6){this.passerbyFloor.push(new Passerby(1600))}
+  }
+
   }
   //-----------------------------
 }
