@@ -5,7 +5,7 @@ function Header(){
   return(
     <div className="header">
       <center>
-      <h1> Covid Game </h1>
+      <h1> Run Boris, Run! </h1>
       <div className="link-group">
         <a href="/" className="button" >Home</a>
         <a href="/rules" className="button" >Rules</a>
