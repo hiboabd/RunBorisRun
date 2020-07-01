@@ -70,23 +70,28 @@ var play = new SFX(hero, input)
 
   var loop = function() {
 
-    if (game.gameOver === false ) {
+    if (game.gameOver === false){
 
-    play.gameSFX()
-    play.gameMusic()
-    hero.airBorne()
-    detectCollision.levelUp()
-    detectCollision.hitBottom()
-    detectCollision.hitEdge()
-    detectCollision.hitPasserby()
-    detectCollision.hitPlatform()
-    input.movePlayer()
-    game.draw(ctx)
-    refresh()
-    window.requestAnimationFrame(loop);
+      if (game.paused === false){
+        play.gameSFX()
+        play.gameMusic()
+        hero.airBorne()
+        detectCollision.levelUp()
+        detectCollision.hitBottom()
+        detectCollision.hitEdge()
+        detectCollision.hitPasserby()
+        detectCollision.hitPlatform()
+        input.movePlayer()
+        game.draw(ctx)
+        refresh()
+        window.requestAnimationFrame(loop);
+      } else if (game.paused === true){
 
+      }
   } else {
+
     game.draw(ctx)
+
   }
 }
 
