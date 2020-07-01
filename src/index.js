@@ -12,6 +12,7 @@ import Game from './game'
 import SFX from '../src/sfx'
 import SpawnObjects from '../src/spawnObjects'
 import Levels from './levels';
+import Scoreboard from './scoreboard'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,6 +20,17 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+
+function gameOver() {
+  if (Score.infectionRate >= 1) {
+    Scoreboard.add(Score.distance)
+
+    console.log(Scoreboard.board)
+  } else {
+    return
+  }
+}
 
 
 let canvas = document.getElementById("gameScreen");
@@ -63,14 +75,12 @@ var play = new SFX(hero, input)
     hero.draw(ctx);
     game.draw(ctx)
     ctx.fillStyle = 'grey';
-    ctx.fillText("Distance : " + Math.floor(Score.distance) + "m", 10, 60);
-    ctx.fillText("Infection Rate : " + Score.infectionRate.toFixed(2), 10, 100);
+    ctx.fillText("Distance : " + Math.floor(Score.distance) + "m", 120, 60);
+    ctx.fillText("Infection Rate : " + Score.infectionRate.toFixed(2), 180, 100);
     spawnObjects.update(ctx);
   };
 
   var loop = function() {
-
-    if (game.gameOver === false){
 
       if (game.paused === false){
         _gameLoop()
@@ -81,6 +91,7 @@ var play = new SFX(hero, input)
     } else {
     game.draw(ctx)
     }
+
   }
 
   window.requestAnimationFrame(loop);

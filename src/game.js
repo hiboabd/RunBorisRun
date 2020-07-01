@@ -1,4 +1,6 @@
+
 import Score from '../src/score'
+
 
 export default class Game {
 
@@ -35,5 +37,4 @@ export default class Game {
       ctx.fillText("", this.game_width / 2, this.game_height - 600);
     }
   }
-
 }
