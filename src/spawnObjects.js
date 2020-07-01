@@ -48,7 +48,7 @@ export default class SpawnObjects {
       if ((passerby.position.x + 64) < 0){
         this.passerbyFloor.splice(i, 1)
 
-        var positions = [1500, 2400, 3000]
+        var positions = [1500, 1700, 2400, 2700, 3000]
         // var random_x = Math.floor(Math.random() * 1400) + 200
         var random_x = Math.floor(Math.random() * (positions.length)) + 0
 
@@ -61,12 +61,11 @@ export default class SpawnObjects {
     var number = Score.distance.toFixed(0)
 
     if(number === '10') {
-      if(this.passerbyFloor.length < 5){this.passerbyFloor.push(new Passerby(1600))}
+      if(this.passerbyFloor.length < 4){this.passerbyFloor.push(new Passerby(1600))}
     }else if (number === '20') {
-      if(this.passerbyFloor.length < 8){this.passerbyFloor.push(new Passerby(1600))}
+      if(this.passerbyFloor.length < 5){this.passerbyFloor.push(new Passerby(1600))}
     }else if (number === '30') {
-      if(this.passerbyFloor.length < 10){this.passerbyFloor.push(new Passerby(1600))}
+      if(this.passerbyFloor.length < 6){this.passerbyFloor.push(new Passerby(1600))}
     }
   }
-
 }
