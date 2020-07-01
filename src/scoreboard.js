@@ -5,6 +5,4 @@ export default class Scoreboard {
   static add(score) {
       Scoreboard.board.push(score)
   }
-
-
 }

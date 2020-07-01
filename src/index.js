@@ -25,8 +25,8 @@ ReactDOM.render(
 function gameOver() {
   if (Score.infectionRate >= 1) {
     Scoreboard.add(Score.distance)
+
     console.log(Scoreboard.board)
-    Score.infectionRate = -10000
   } else {
     return
   }
