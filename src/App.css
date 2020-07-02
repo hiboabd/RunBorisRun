@@ -10,3 +10,10 @@
   color: #61dafb;
 } */
 
+
+#keyboard {
+  flex: 1;
+  height: 300;
+  width: 1000;
+  resizeMode: "contain"
+}
