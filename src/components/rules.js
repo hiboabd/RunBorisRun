@@ -20,12 +20,12 @@ function Rules(){
             <center>
               <div class="grid-item">
               <img src={leftKey} id="left_key"></img>
-              <p> Use "Left Key" to walk left! </p>
+              <p> Use "Left Key" to walk left</p>
               </div>
 
               <div class="grid-item">
               <img src={muteKey} id="mute_key"></img>
-              <p> Use "M Key" to mute audio! </p>
+              <p> Use "M Key" to mute audio </p>
               </div>
             </center>
           </div>
@@ -34,17 +34,17 @@ function Rules(){
           <center>
             <div class="grid-item">
             <img src={upKey} id="up_key"></img>
-            <p> Use "Up Key" to jump! </p>
+            <p> Use "Up Key" to jump </p>
             </div>
 
             <div class="grid-item">
             <img src={unMuteKey} id="unmute_key"></img>
-            <p> Use "N Key" to unmute audio! </p>
+            <p> Use "N Key" to unmute audio </p>
             </div>
 
             <div class="grid-item">
             <img src={unpause} id="unpause"></img>
-            <p> Use "O Key" to unpause game! </p>
+            <p> Use "O Key" to unpause game </p>
             </div>
          </center>
         </div>
@@ -53,12 +53,12 @@ function Rules(){
          <center>
             <div class="grid-item">
             <img src={rightKey} id="right_key"></img>
-            <p> Use "Right Key" to walk right! </p>
+            <p> Use "Right Key" to walk right </p>
             </div>
 
             <div class="grid-item">
             <img src={pause} id="pause"></img>
-            <p> Use "P Key" to pause game! </p>
+            <p> Use "P Key" to pause game </p>
             </div>
          </center>
         </div>
