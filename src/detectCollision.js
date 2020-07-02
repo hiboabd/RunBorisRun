@@ -48,14 +48,16 @@ export default class DetectCollision{
           }
         }
 
-        let greyColor = [174, 174, 175, 255]
+        let greyArray = [170, 171, 172, 173, 174, 175]
+        let greyColor = [95, 95, 95, 255]
+        let passerbyBottom = passerby.position.y + passerby.SCALED_HEIGHT
         // [173, 173, 173, 255]
-        let passerByPosition = this.ctx.getImageData(passerby.position.x, passerby.position.y + 150, 1, 1).data
+        let passerByPosition = this.ctx.getImageData(passerby.position.x, passerbyBottom + 5, 1, 1).data
         let heroPosition = this.ctx.getImageData(this.hero.position.x, this.hero.position.y + 150, 1, 1).data
         console.log(heroPosition)
 
         if(passerby.position.x < 1500){
-          if(passerByPosition.toString() !== greyColor.toString()) {passerby.fallSpeed = 7  }
+          if(passerByPosition.toString() === greyColor.toString()) {passerby.fallSpeed = 7  }
         }
 
 
