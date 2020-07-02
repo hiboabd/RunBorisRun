@@ -4,7 +4,7 @@ Netlify Status: [![Netlify Status](https://api.netlify.com/api/v1/badges/fc505d8
 
 Travis Status: [![Build Status](https://travis-ci.com/edmond-b/Covid_Game.svg?branch=master)](https://travis-ci.com/edmond-b/Covid_Game)
 
-Play the game [Here](https://laughing-brattain-9a3cce.netlify.app/)
+Play the game [Here](https://run-boris-run.netlify.app/)
 
 ## What is Covid-game?
 
