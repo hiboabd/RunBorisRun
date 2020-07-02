@@ -9,7 +9,7 @@ function About(){
 
         <p> We are six budding software developers who joined Makers Academy in February 2020 and built Run Boris, Run as our final project. </p>
 
-        <p> Click on our images to see our other work. </p>
+        <p> Click on our names to see our other work. </p>
 
         <div class="about-images-container">
           <div class="grid-item">

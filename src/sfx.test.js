@@ -32,6 +32,12 @@ describe('Sfx', () => {
   })
 
   test('it plays background music', () => {
+    window.HTMLMediaElement.prototype.play = () => { /* do nothing */ };
+    window.HTMLMediaElement.prototype.pause = () => { /* do nothing */ };
+    const hero = new Hero();
+    const input = new Input()
+    const audio = new Sfx(hero, input);
+    input.gameStarted = true;
     audio.gameMusic();
     expect(audio.musicPlay).toBe(true)
   })

@@ -3,7 +3,7 @@
   font-family: 'arcadeclassicregular', Arial, sans-serif;
 }
 
-img {
+#borisGame {
   width: 60%;
   height: 600px;
 }
@@ -44,12 +44,16 @@ html, body {
 
 h1{
   font-family: 'arcadeclassicregular', Arial, sans-serif;
-  font-size: 50px;
+  font-size: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 p{
   font-family: 'arcadeclassicregular', Arial, sans-serif;
   font-size: 30px;
+  margin-top: 2px;
+  margin-bottom: 10px;
 }
 
 .background-container {
@@ -61,7 +65,7 @@ p{
 .about-images-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: #2196F3;
+  background-color: #d3d3d3;
   padding: 5px;
 }
 .grid-item {
@@ -71,3 +75,21 @@ p{
   font-size: 30px;
   text-align: center;
 }
+
+#keyboard {
+width: 80%;
+height: 300px;
+}
+
+#upKey {
+  width: 50%;
+  height: 100px;
+}
+
+
+/* #keyboard {
+  flex: 1;
+  height: 300;
+  width: 1000;
+  resizeMode: "contain"
+} */
