@@ -8,7 +8,7 @@ Play the game [Here](https://laughing-brattain-9a3cce.netlify.app/)
 
 ## What is Covid-game?
 
-Covid-game is a game developed to pass the time in quarantine whilst also practising your social distancing skills (virtually of course!).
+Covid-game, a.k.a 'Run Boris, Run!', is a game developed to pass the time in quarantine whilst also practising your social distancing skills (virtually of course!).
 
 ## Instructions
 Welcome to "our game".
