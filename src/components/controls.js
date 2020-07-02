@@ -10,9 +10,9 @@ import unpause from '../images/unpause_key.png'
 
 import React from 'react';
 
-function Rules(){
+function Controls(){
   return(
-    <div className="rules">
+    <div className="controls">
       <center>
         <div class="background-container">
         <div class="about-images-container">
@@ -73,4 +73,4 @@ function Rules(){
   )
 }
 
-export default Rules
+export default Controls
