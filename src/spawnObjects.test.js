@@ -2,57 +2,41 @@ import SpawnObjects from '../src/spawnObjects'
 
 describe('spawnObjects', () => {
 
-  test('platform is spawned', () => {
-    const spawnObjects = new SpawnObjects()
-    spawnObjects.spawn()
+  let platform;
+  let passerby;
+  let spawnObjects;
+  let ctx;
 
-    const platform = spawnObjects.platforms[0]
+  beforeEach(async () => {
+    spawnObjects = new SpawnObjects()
+    spawnObjects.spawn()
+    
+    platform     = spawnObjects.platforms[0]
+    passerby     = spawnObjects.passerbyFloor[0]
+    ctx          = { drawImage: function () { return 'changed' } }
+  });
+
+  test('platform is spawned', () => {
     expect(platform.position).toEqual({ x: 0, y: 700 });
   })
 
   test('passerby is spawned', () => {
-    const spawnObjects = new SpawnObjects()
-    spawnObjects.spawn()
-
-    const passerby = spawnObjects.passerbyFloor[0]
     expect(passerby.position).toEqual({ x: 1500, y: 628 });
   })
 
   test('new platform is spawned in place of one going off canvas', () => {
-    const spawnObjects = new SpawnObjects()
-    spawnObjects.spawn()
-
-    const platform = spawnObjects.platforms[0]
-    platform.right = -10
-
-    var ctx = {
-      drawImage: function () {
-        return 'changed'
-      }
-    };
-
+    platform.position.x = -1600
     spawnObjects.update(ctx)
 
-    const newPlatform = spawnObjects.platforms[0]
-    expect(newPlatform.position.x).toBe(0);
+    let newPlatfomrm = spawnObjects.platforms.pop()
+    expect(newPlatfomrm.left).toBeGreaterThan(1450);
   })
 
   test('new passerby is spawned in place of one going off canvas', () => {
-    const spawnObjects = new SpawnObjects()
-    spawnObjects.spawn()
-
-    const passerby = spawnObjects.passerbyFloor[0]
     passerby.position.x = -100
-
-    var ctx = {
-      drawImage: function () {
-        return 'changed'
-      }
-    };
-
     spawnObjects.update(ctx)
 
-    const newPasserby = spawnObjects.passerbyFloor[0]
+    let newPasserby = spawnObjects.passerbyFloor.pop()
     expect(newPasserby.position.x).toBeGreaterThan(1450);
   })
 })

@@ -7,7 +7,8 @@ export default class Input {
     this.keyUp = false;
     this.muted = false;
     this.paused = false;
-    this.history =[]
+    this.gameStarted = false;
+    // this.history =[]
   }
 
   checkKey = (e) => {
@@ -16,9 +17,9 @@ export default class Input {
       var key_state = (e.type === "keydown")?true:false;
 
       switch(e.keyCode){
-        default:
-          // this.keyUp = true;
-        break;
+        // default:
+        //   // this.keyUp = true;
+        // break;
         case 39: // right key
           this.right = key_state;
         break;
@@ -44,13 +45,11 @@ export default class Input {
     };
 
   movePlayer = () => {
+    this.gameStarted = true;
     if (this.right) { this.hero.moveRight();  }
     if (this.left)  { this.hero.moveLeft();}
     if (this.up) {
       if (this.hero.jumping === false) { this.hero.jump() }
-    // } if (this.m === true && this.muted === false) {this.muted = true}
-    // if (this.m === true && this.muted === true) {this.muted = false}
-    // if (this.keyUp) { this.hero.frameX = 0 }
     }
   }
 }

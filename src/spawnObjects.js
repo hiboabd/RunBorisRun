@@ -9,10 +9,10 @@ export default class SpawnObjects {
   }
 
   spawn(){
-    this.platforms.push(new Platform('./assets/pavement.png', 0, 700, 100, 1600))
-    this.passerbyFloor.push(new Passerby(1500))
-    this.passerbyFloor.push(new Passerby(1900))
-    this.passerbyFloor.push(new Passerby(2000))
+    this.platforms.push(new Platform( './assets/pavement.png', 0, 700, 100, 1600))
+    this.passerbyFloor.push(new Passerby("./assets/old_sprite.png", 1500))
+    this.passerbyFloor.push(new Passerby("./assets/pink_sprite.png",1900))
+    this.passerbyFloor.push(new Passerby("./assets/orange_sprite.png", 2000))
   }
 
   update(ctx){
@@ -62,7 +62,7 @@ export default class SpawnObjects {
     if (random == 4){
       this.platforms.push(new Platform('./assets/pavement.png', 1600, 700, 100, 1600))
       this.platforms.push(new Platform('./assets/pavement.png', 2300, 500, 100, 200))
-      this.platforms.push(new Platform('./assets/pavement.png ', 3500, 700, 100, 1600))
+      this.platforms.push(new Platform('./assets/pavement.png', 3500, 700, 100, 1600))
     }
   }
 
@@ -95,7 +95,12 @@ export default class SpawnObjects {
   _spawnRandomPasserby(){
     var positions = [1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000]
     var random_x = Math.floor(Math.random() * (positions.length)) + 0
-    this.passerbyFloor.push(new Passerby(positions[random_x]))
+    var passerbyArray = ['./assets/old_sprite.png','./assets/pink_sprite.png','./assets/orange_sprite.png']
+    var random_colour = Math.floor(Math.random() * (3)) + 0
+    console.log(random_colour)
+    var random = passerbyArray[random_colour]
+
+    this.passerbyFloor.push(new Passerby(random, positions[random_x]))
   }
 
   _removePasserby(){
@@ -109,11 +114,11 @@ export default class SpawnObjects {
     var number = Score.distance.toFixed(0)
 
     if(number === '10') {
-      if(this.passerbyFloor.length < 4){this.passerbyFloor.push(new Passerby(1600))}
+      if(this.passerbyFloor.length < 4){this.passerbyFloor.push(new Passerby("./assets/old_sprite.png", 1600))}
     }else if (number === '20') {
-      if(this.passerbyFloor.length < 5){this.passerbyFloor.push(new Passerby(1600))}
+      if(this.passerbyFloor.length < 5){this.passerbyFloor.push(new Passerby("./assets/pink_sprite.png", 1600))}
     }else if (number === '30') {
-      if(this.passerbyFloor.length < 6){this.passerbyFloor.push(new Passerby(1600))}
+      if(this.passerbyFloor.length < 6){this.passerbyFloor.push(new Passerby("./assets/orange_sprite.png", 1600))}
   }
 
   }

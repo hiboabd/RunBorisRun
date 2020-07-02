@@ -1,6 +1,11 @@
+import Score from '../src/score'
+
 import jumpMP3 from "../src/media/jump.mp3"
 import bumpMP3 from "../src/media/bump.mp3"
 import music from "../src/media/bgm.mp3"
+import stayAtHome from "../src/media/stayAtHome.mp3"
+import hit from "../src/media/hit.mp3"
+import jellies from "../src/media/jellies.mp3"
 
 export default class Sfx{
   constructor(hero, input) {
@@ -12,6 +17,9 @@ export default class Sfx{
     this.jumpPlay = false;
     this.bumpPlay = false;
     this.musicPlay = false;
+    this.stayAtHome = new Audio(stayAtHome);
+    this.hit = new Audio(hit);
+    this.jellies = new Audio(jellies);
   };
 
   gameSFX = () => {
@@ -25,7 +33,7 @@ export default class Sfx{
   };
 
   gameMusic = () => {
-    if (this.input.muted === false){
+    if (this.input.muted === false && this.input.gameStarted === true){
     this.music.loop = true
     this.music.play();
     this.musicPlay = true;

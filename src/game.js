@@ -1,6 +1,5 @@
-
 import Score from '../src/score'
-
+import SFX from '../src/sfx'
 
 export default class Game {
 
@@ -11,6 +10,7 @@ export default class Game {
     this.paused = false;
     this.gameOver = false;
     this.input = input
+    this.sfx = new SFX();
   }
 
   draw(ctx){
@@ -30,6 +30,7 @@ export default class Game {
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
     if (this.gameOver){
+      this.sfx.stayAtHome.play()
       ctx.fillText("Game Over", this.game_width / 2, this.game_height - 600);
     } else if (this.paused){
       ctx.fillText("Paused", this.game_width / 2, this.game_height - 600);

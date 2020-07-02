@@ -16,6 +16,7 @@ export default class Score {
 
  static infectionRateUp(){
     var number = this.distance.toFixed(0)
+    var startRate = 0.1
 
     if(number < 10){
       Score.infectionRate += 0.02
