@@ -9,7 +9,7 @@ export default class SpawnObjects {
   }
 
   spawn(){
-    this.platforms.push(new Platform('./assets/grass_4x1.png', 0, 700, 100, 1600))
+    this.platforms.push(new Platform('./assets/pavement.png', 0, 700, 100, 1600))
     this.passerbyFloor.push(new Passerby(1500))
     this.passerbyFloor.push(new Passerby(1900))
     this.passerbyFloor.push(new Passerby(2000))
@@ -38,31 +38,31 @@ export default class SpawnObjects {
     let random = Math.floor(Math.random() * (5)) + 0
 
     if (random == 0){
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 500, 100, 200))
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 1900, 700, 100, 1600))
+      this.platforms.push(new Platform('./assets/pavement.png', 1600, 500, 100, 200))
+      this.platforms.push(new Platform('./assets/pavement.png', 1900, 700, 100, 1600))
     }
 
     if (random == 1){
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 500, 100, 200))
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 1900, 500, 100, 200))
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 2300, 700, 100, 1600))
+      this.platforms.push(new Platform('./assets/pavement.png', 1600, 500, 100, 200))
+      this.platforms.push(new Platform('./assets/pavement.png', 1900, 500, 100, 200))
+      this.platforms.push(new Platform('./assets/pavement.png', 2300, 700, 100, 1600))
     }
 
     if (random == 2){
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 500, 100, 200))
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 1700, 300, 100, 200))
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 2300, 700, 100, 1600))
+      this.platforms.push(new Platform('./assets/pavement.png', 1600, 500, 100, 200))
+      this.platforms.push(new Platform('./assets/pavement.png', 1700, 300, 100, 200))
+      this.platforms.push(new Platform('./assets/pavement.png', 2300, 700, 100, 1600))
     }
 
     if (random == 3){
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 700, 100, 400))
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 2200, 700, 100, 1600))
+      this.platforms.push(new Platform('./assets/pavement.png', 1600, 700, 100, 400))
+      this.platforms.push(new Platform('./assets/pavement.png', 2200, 700, 100, 1600))
     }
 
     if (random == 4){
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 1600, 700, 100, 1600))
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 2300, 500, 100, 200))
-      this.platforms.push(new Platform('./assets/grass_4x1.png', 3500, 700, 100, 1600))
+      this.platforms.push(new Platform('./assets/pavement.png', 1600, 700, 100, 1600))
+      this.platforms.push(new Platform('./assets/pavement.png', 2300, 500, 100, 200))
+      this.platforms.push(new Platform('./assets/pavement.png ', 3500, 700, 100, 1600))
     }
   }
 

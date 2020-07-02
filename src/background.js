@@ -1,9 +1,9 @@
 export default class Background{
   constructor(){
     this.background = new Image()
-    this.background.src = "/assets/city_pixels.png";
+    this.background.src = "/assets/background_3.png";
     this.background1X = 0
-    this.background2X = 6500
+    this.background2X = 1500 
     this.movingSpeed = 0
   }
 
@@ -60,14 +60,20 @@ export default class Background{
   // }
 
   draw(ctx){
+    
+    ctx.drawImage(this.background, this.background1X, 0, 1500,800);
+    ctx.drawImage(this.background, this.background2X, 0, 1500,800);
     this._move()
-    ctx.drawImage(this.background, this.background1X, 0, 6500,800);
-    ctx.drawImage(this.background, this.background2X, 0, 6500,800);
   }
 
   _move(){
     this.background1X += this.movingSpeed
     this.background2X += this.movingSpeed
-  }
 
+    if(this.background1X === -1500){
+      this.background1X = 1500
+    } else if(this.background2X === -1500){
+      this.background2X = 1500
+    }
+  }
 }
