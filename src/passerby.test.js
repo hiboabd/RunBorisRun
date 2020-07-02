@@ -5,7 +5,7 @@ describe('Passerby', () => {
   let passerby;
 
   beforeEach(async () => {
-    passerby = new Passerby(1400)
+    passerby = new Passerby("./assets/old_sprite.png", 1400)
   });
 
   test('current position', () => {
