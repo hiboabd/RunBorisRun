@@ -7,6 +7,7 @@ export default class Input {
     this.keyUp = false;
     this.muted = false;
     this.paused = false;
+    this.gameStarted = false;
     // this.history =[]
   }
 
@@ -44,6 +45,7 @@ export default class Input {
     };
 
   movePlayer = () => {
+    this.gameStarted = true;
     if (this.right) { this.hero.moveRight();  }
     if (this.left)  { this.hero.moveLeft();}
     if (this.up) {

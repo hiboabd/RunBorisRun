@@ -34,7 +34,8 @@ describe('Sfx', () => {
     window.HTMLMediaElement.prototype.pause = () => { /* do nothing */ };
     const hero = new Hero();
     const input = new Input()
-    const audio = new Sfx(hero, input);;
+    const audio = new Sfx(hero, input);
+    input.gameStarted = true;
     audio.gameMusic();
     expect(audio.musicPlay).toBe(true)
   })
