@@ -44,12 +44,16 @@ html, body {
 
 h1{
   font-family: 'arcadeclassicregular', Arial, sans-serif;
-  font-size: 50px;
+  font-size: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 p{
   font-family: 'arcadeclassicregular', Arial, sans-serif;
   font-size: 30px;
+  margin-top: 2px;
+  margin-bottom: 10px;
 }
 
 .background-container {
