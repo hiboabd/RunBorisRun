@@ -10,61 +10,53 @@ describe('Input', () => {
   beforeEach(async () => {
     ctx = {
       fillStyle: '',
-      clearRect: function () {
-        return 'changed'
-      },
-      fillRect: function () {
-        return 'changed'
-      }
+      clearRect: function () { return 'changed' },
+      fillRect:  function () { return 'changed' }
     }
     hero = new Hero();
     input = new Input(hero, ctx);
   });
 
-  test('check key calls hero moveRight function', () => {
-  var e = {keyCode: 39, type: "keydown"}
-    var currentPosition = hero.position.x
+  function keyAction(key, move=false){
+    var e = {keyCode: key, type: "keydown"}
     input.checkKey(e)
-    input.movePlayer()
+    if(move) { input.movePlayer() }
+  }
+
+  test('check key calls hero moveRight function', () => {
+    var currentPosition = hero.position.x
+    keyAction(39, true)
     expect(hero.position.x).toBe(currentPosition + hero.SPEED)
   })
 
   test('check key calls hero moveLeft function', () => {
-    var e = {keyCode: 37, type: "keydown"}
     var currentPosition = hero.position.x
-    input.checkKey(e)
-    input.movePlayer()
+    keyAction(37, true)
     expect(hero.position.x).toBe(currentPosition - hero.SPEED)
   })
 
   test('check key calls hero jump function', () => {
-    var e = {keyCode: 38, type: "keydown"}
-    input.checkKey(e)
-    input.movePlayer()
+    keyAction(38)
     expect(hero.jumpSpeed).toBe(-15)
   })
 
   test('check key call changes muted to false', () => {
-    var e = {keyCode: 78, type: "keydown"}
-    input.checkKey(e)
+    keyAction(78)
     expect(input.muted).toBe(false)
   })
 
   test('check key call changes muted to true', () => {
-    var e = {keyCode: 77, type: "keydown"}
-    input.checkKey(e)
+    keyAction(77)
     expect(input.muted).toBe(true)
   })
 
   test('check key call changes paused to true', () => {
-    var e = {keyCode: 80, type: "keydown"}
-    input.checkKey(e)
+    keyAction(80)
     expect(input.paused).toBe(true)
   })
 
   test('check key call changes paused to false', () => {
-    var e = {keyCode: 79, type: "keydown"}
-    input.checkKey(e)
+    keyAction(79)
     expect(input.paused).toBe(false)
   })
 
