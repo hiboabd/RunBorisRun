@@ -48,21 +48,13 @@ export default class DetectCollision{
           }
         }
 
-        let greyArray = [170, 171, 172, 173, 174, 175]
         let greyColor = [95, 95, 95, 255]
         let passerbyBottom = passerby.position.y + passerby.SCALED_HEIGHT
-        // [173, 173, 173, 255]
         let passerByPosition = this.ctx.getImageData(passerby.position.x, passerbyBottom + 5, 1, 1).data
-        let heroPosition = this.ctx.getImageData(this.hero.position.x, this.hero.position.y + 150, 1, 1).data
-        console.log(heroPosition)
-
         if(passerby.position.x < 1500){
-          if(passerByPosition.toString() === greyColor.toString()) {passerby.fallSpeed = 7  }
+          if(passerByPosition.toString() !== greyColor.toString()) {passerby.fallSpeed = 7  }
         }
-
-
       }
-
     }
 
 
@@ -155,52 +147,3 @@ export default class DetectCollision{
     }
   }
 }
-
-
-
-
-    // var number = this.hero.score.distance.toFixed(0)
-
-    // if(number === 0){
-    //   this.speed = this.speed + 0
-    // } else if (number % 10 === 0 && number > 0){
-    //   this.speed = this.speed + 0.02
-    // }
-
-
-
-
-
-  //  if(this.hero.score.distance >= 15 && this.hero.score.distance <= 15.001 ){
-  //     this.speed = this.speed + 2
-  //   } else if (this.hero.score.distance >= 20 && this.hero.score.distance <= 20.001 ){
-  //     this.speed = this.speed + 2
-  //   }
-
-
-
-
-
-  // _moving(platform){
-  //   if(this.hero.position.y == (platform.position.y - this.hero.SCALED_HEIGHT)){
-  //     this.hero.position.x += platform.movingSpeed
-  //   }
-  // }
-
-
-//platform.height = 100
-//platform.width = 500
-//platform.position.x = 300
-//platform.position.y = 600
-
-//platform max x position = 400
-//platform max y position = 1100
-
-
-//hero.HEIGHT = 18;
-//hero.WIDTH = 16;
-//hero.position.x = 280
-//hero.position.y = 610
-
-//platform max x position = 298
-//platform max y position = 616
