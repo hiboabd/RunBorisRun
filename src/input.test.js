@@ -62,7 +62,7 @@ describe('Input', () => {
     expect(hero.jumpSpeed).toBe(-15)
   })
 
-  test('check key call toggles  function', () => {
+  test('check key call changes muted to false', () => {
     var ctx = {
       fillStyle: '',
       clearRect: function () {
@@ -75,33 +75,14 @@ describe('Input', () => {
     const hero = new Hero();
     const input = new Input(hero, ctx);
 
-    var e = {keyCode: 38, type: "keydown"}
-
-    input.checkKey(e)
-    input.movePlayer()
-    expect(hero.jumpSpeed).toBe(-15)
-  })
-  test('check key call toggles muted to false', () => {
-    var ctx = {
-      fillStyle: '',
-      clearRect: function () {
-        return 'changed'
-      },
-      fillRect: function () {
-        return 'changed'
-      }
-    }
-    const hero = new Hero();
-    const input = new Input(hero, ctx);
-
-    var e = {keyCode: 37, type: "keydown"}
+    var e = {keyCode: 78, type: "keydown"}
 
     input.checkKey(e)
 
     expect(input.muted).toBe(false)
   })
 
-  test('check key call toggles muted to true', () => {
+  test('check key call changes muted to true', () => {
     var ctx = {
       fillStyle: '',
       clearRect: function () {
@@ -121,5 +102,44 @@ describe('Input', () => {
     expect(input.muted).toBe(true)
   })
 
+  test('check key call changes paused to true', () => {
+    var ctx = {
+      fillStyle: '',
+      clearRect: function () {
+        return 'changed'
+      },
+      fillRect: function () {
+        return 'changed'
+      }
+    }
+    const hero = new Hero();
+    const input = new Input(hero, ctx);
+
+    var e = {keyCode: 80, type: "keydown"}
+
+    input.checkKey(e)
+
+    expect(input.paused).toBe(true)
+  })
+
+  test('check key call changes paused to false', () => {
+    var ctx = {
+      fillStyle: '',
+      clearRect: function () {
+        return 'changed'
+      },
+      fillRect: function () {
+        return 'changed'
+      }
+    }
+    const hero = new Hero();
+    const input = new Input(hero, ctx);
+
+    var e = {keyCode: 79, type: "keydown"}
+
+    input.checkKey(e)
+
+    expect(input.paused).toBe(false)
+  })
 
 })
