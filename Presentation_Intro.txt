@@ -1,0 +1,19 @@
+Intro
+
+Hello. We are The Great Supine Protoplasmic Invertebrate Jellies.
+For our final project we decided to do a game related to the current covid situation. Initialy 
+the plan was to do an informative game for children to learn the guidlines around covid. 
+However we couldn't help ourselves, and as the days went on it started leaning more towards 
+a satire piece.
+
+The game could be described as a Super Mario clone, but better.
+
+For the project we used Javascript, Node and React. 
+Netlify for deployment and travis for CI testing.
+I've Just posted a link to our game so you can have a go, it can also be 
+found on our GitHub page which is also linked.
+
+Lizzie will now talk to you about how we planned for the project.  
+
+
+ 
