@@ -23,17 +23,37 @@ class ScoreboardDisplay extends React.Component {
   }
 
   display = () => {
-    var array = []
-    for(var i = 0; i < this.state.scoreboard.length; i++){
-      var singleScoreObject = this.state.scoreboard[i]
-      var score = singleScoreObject.name + " " + singleScoreObject.score
-      array.push(score)
+    var displayInfo = []
+  
+    var sorted = this.getPostsSortedByNewest()
+    if(sorted === undefined){
+      console.log("")
     }
-    return array
+    else if(sorted.length > 0){
+      sorted.forEach((item, i) => {
+        console.log(item)
+        var score = item.name + " " + item.score
+        displayInfo.push(score)
+      });
+    }
+
+    return displayInfo 
+
+  }
+  
+  getPostsSortedByNewest() {
+    for(var i = 0; i < this.state.scoreboard.length; i++){
+      if(this.state.scoreboard[i].score > 1){
+         return this.state.scoreboard.sort(function(postA, postB) {
+          var dateA = postA.score
+          var dateB = postB.score
+          return dateB - dateA 
+        })
+      }
+    }  
   }
 
-
-
+  
   render(){
     return(
     <div id="scoreboard">
@@ -41,13 +61,10 @@ class ScoreboardDisplay extends React.Component {
       {this.display().map((score, index) => {
         return (
          
-          <p>{index + 1}. {score} {console.log(score)}</p>
+          <p>{index + 1}. {score} </p>
         )
       })
-      }
-      
-      
-      
+    }
       </center>
       
     </div>
