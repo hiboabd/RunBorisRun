@@ -16,11 +16,20 @@ class ScoreboardDisplay extends React.Component {
     fetch(apiToFetch)
       .then(response => response.json())
       .then((data) => {
-        console.log(data)
         this.setState({
           scoreboard: data,
         })
       })
+  }
+
+  display = () => {
+    var array = []
+    for(var i = 0; i < this.state.scoreboard.length; i++){
+      var singleScoreObject = this.state.scoreboard[i]
+      var score = singleScoreObject.name + " " + singleScoreObject.score
+      array.push(score)
+    }
+    return array
   }
 
 
@@ -29,7 +38,16 @@ class ScoreboardDisplay extends React.Component {
     return(
     <div id="scoreboard">
       <center><h1>ScoreBoard</h1>
-  
+      {this.display().map((score, index) => {
+        return (
+         
+          <p>{index + 1}. {score} {console.log(score)}</p>
+        )
+      })
+      }
+      
+      
+      
       </center>
       
     </div>
@@ -40,3 +58,4 @@ class ScoreboardDisplay extends React.Component {
 }
 
 export default ScoreboardDisplay
+
