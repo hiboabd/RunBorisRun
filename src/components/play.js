@@ -31,7 +31,3 @@ function Play(){
 
 
 export default Play
-
-
-// once game over 
-// the setScore = distance 
