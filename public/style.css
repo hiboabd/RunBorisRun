@@ -86,9 +86,9 @@ height: 300px;
   height: 100px;
 }
 
-/* #score {
-  display:none;
-} */
+#submitScore {
+  visibility: hidden;
+}
 
 
 /* #keyboard {
