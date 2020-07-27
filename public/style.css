@@ -86,6 +86,10 @@ height: 300px;
   height: 100px;
 }
 
+/* #score {
+  display:none;
+} */
+
 
 /* #keyboard {
   flex: 1;
