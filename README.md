@@ -1,4 +1,4 @@
-# Covid-game
+# Run Boris, Run!
 
 Netlify Status: [![Netlify Status](https://api.netlify.com/api/v1/badges/fc505d8b-809e-4e4c-8ffb-35a33b27325a/deploy-status)](https://app.netlify.com/sites/laughing-brattain-9a3cce/deploys)
 
@@ -6,27 +6,17 @@ Travis Status: [![Build Status](https://travis-ci.com/edmond-b/Covid_Game.svg?br
 
 Play the game [Here](https://run-boris-run.netlify.app/)
 
-## What is Covid-game??
+## Description
 
-Covid-game, a.k.a 'Run Boris, Run!', is a game developed to pass the time in quarantine whilst also practising your social distancing skills (virtually of course!).
+'Run Boris, Run!', is a game developed to pass the time in quarantine whilst also practising your social distancing skills (virtually of course!).
 
 ## Instructions
-Welcome to "our game".
 
-Covid has struck the world. You must now adapt to survive.
+Boris Johnson is on his way to Sainsbury's to get some milk and nappies, but in order to avoid another #barnardcastle, he has to ensure he remains socially distanced.
 
-Mrs. Morris is in desperate need of milk, but she can not leave her home as she is old and at risk of infection.
-You are her only hope of having a cuppa.
+If you get too close to other people walking down the street the InfectionRate will go up and it will be game over!
 
-Are you up for the challenge?
-
-You must not come within 2 meters of anyone or you will be at risk yourself.
-
-If you stay too close for too long you will get sick and be placed in quarantine.
-
-## Playing the game
-
-[PLACEHOLDER]
+It's your job to navigate Boris safely around the streets of London, keeping 2 meters away from fellow pedestrians.d be placed in quarantine.
 
 ## Team Members
 
@@ -50,7 +40,7 @@ If you stay too close for too long you will get sick and be placed in quarantine
 | Code Coverage                | Jest               |
 
 
-## Installing Covid-Game onto your local machine
+## Installing Run Boris, Run onto your local machine
 
 To get started using Covid Game on your local machine, please follow the instructions below:
 
@@ -79,7 +69,7 @@ Once you have installed Node:
     npm install
     ```
 
-### Using Covid-Game!
+### Using Run Boris, Run!
 
 1. To start, navigate to the Covid-Game root directory and enter the command:
     ```
